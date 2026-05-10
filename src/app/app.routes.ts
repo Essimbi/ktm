@@ -7,6 +7,7 @@ import { ServicesComponent } from './features/services/services';
 import { ContactComponent } from './features/contact/contact';
 import { FormationsComponent } from './features/formations/formations';
 import { BlogComponent } from './features/blog/blog';
+import { BlogDetailComponent } from './features/blog/blog-detail';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'formations', component: FormationsComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '' }
 ];
