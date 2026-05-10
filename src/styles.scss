@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Colors */
+  --primary-deep: #0B1F3A;
+  --primary-electric: #005BFF;
+  --accent-cyan: #00F2FF;
+  --bg-light: #F8FAFC;
+  --bg-white: #FFFFFF;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  
+  /* Spacing */
+  --section-padding: 100px 5%;
+  --border-radius: 12px;
+  
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary-deep);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Premium Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-electric) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-premium {
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  &.primary {
+    background: var(--primary-electric);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 91, 255, 0.2);
+    
+    &:hover {
+      background: var(--primary-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(11, 31, 58, 0.3);
+    }
+  }
+  
+  &.secondary {
+    background: transparent;
+    border: 2px solid var(--primary-electric);
+    color: var(--primary-electric);
+    
+    &:hover {
+      background: var(--primary-electric);
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.section-container {
+  padding: var(--section-padding);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  &.visible {
+    animation: fadeInUp 0.8s forwards ease-out;
+  }
+}
+
+/* ── Dark/Blue background text overrides ─────────────────── */
+/* Force white text everywhere a dark or gradient background is used */
+.about-hero,
+.about-cta,
+.history-section,
+.certs-section,
+.final-cta,
+.featured-banner,
+.newsletter-section,
+.use-cases-section,
+.sol-hero,
+.page-hero,
+.partners-section.dark,
+section[class*="hero"],
+.mvv-cta-dark {
+  color: white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+}
+
+/* Gradient text should use light gradient on dark backgrounds */
+.about-hero .gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light variant of the secondary button for dark backgrounds */
+.btn-premium.outline-white {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  color: white;
+
+  &:hover {
+    background: white;
+    color: var(--primary-deep);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+}
