@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin, ArrowRight, Send } from 'lucide-angular';
+import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phone, MapPin, ArrowRight, Send, BellRing, ShieldCheck } from 'lucide-angular';
 
 @Component({
   selector: 'app-footer',
@@ -12,14 +12,37 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
       <!-- ── Pre-footer CTA ── -->
       <div class="pre-footer">
         <div class="footer-container">
-          <div class="cta-box glass reveal">
-            <div class="cta-text">
-              <h3>Restez informé de l'Industrie 4.0</h3>
-              <p>Inscrivez-vous à notre newsletter pour recevoir nos dernières analyses et actus.</p>
+          <div class="cta-box reveal">
+            <div class="cta-decoration">
+              <div class="circle c1"></div>
+              <div class="circle c2"></div>
             </div>
-            <div class="cta-form">
-              <input type="email" placeholder="votre@email.com">
-              <button class="btn-send"><lucide-icon [name]="Send" size="18"></lucide-icon></button>
+            
+            <div class="cta-content-inner">
+              <div class="cta-text">
+                <div class="cta-badge">
+                  <lucide-icon [name]="BellRing" size="14"></lucide-icon>
+                  <span>Hebdomadaire</span>
+                </div>
+                <h3>Restez informé de <span class="gradient-text-alt">l'Industrie 4.0</span></h3>
+                <p>Recevez nos analyses exclusives, études de cas et actualités technologiques directement dans votre boîte mail.</p>
+              </div>
+              
+              <div class="cta-form-wrapper">
+                <div class="cta-form">
+                  <div class="input-wrapper">
+                    <lucide-icon [name]="Mail" size="18" class="input-icon"></lucide-icon>
+                    <input type="email" placeholder="votre@email.com">
+                  </div>
+                  <button class="btn-send-premium">
+                    S'abonner <lucide-icon [name]="Send" size="18"></lucide-icon>
+                  </button>
+                </div>
+                <div class="form-trust">
+                  <lucide-icon [name]="ShieldCheck" size="12"></lucide-icon>
+                  <span>Pas de spam. Désinscription possible à tout moment.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -113,39 +136,94 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
 
     /* ── Pre-footer ── */
     .pre-footer {
-      transform: translateY(-50%);
-      margin-bottom: -50px;
-      position: relative; z-index: 10;
+      position: relative;
+      z-index: 10;
+      margin-top: -80px;
+      margin-bottom: 40px;
     }
+    
     .cta-box {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 30px;
-      padding: 40px 60px;
-      display: flex; align-items: center; justify-content: space-between; gap: 40px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-      @media(max-width:900px){ flex-direction: column; text-align: center; padding: 30px; }
-      h3 { font-size: 1.8rem; color: white; margin-bottom: 8px; }
-      p { color: #94A3B8; font-size: 1rem; }
+      background: #0d1a3a;
+      background: linear-gradient(135deg, #0d1a3a 0%, #050b1a 100%);
+      border: 1px solid rgba(0, 91, 255, 0.2);
+      border-radius: 35px;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      @media(max-width:1024px){ padding: 40px; }
     }
+
+    .cta-decoration {
+      position: absolute; inset: 0; pointer-events: none;
+      .circle { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+      .c1 { width: 300px; height: 300px; background: var(--primary-electric); top: -100px; right: -50px; }
+      .c2 { width: 200px; height: 200px; background: var(--accent-cyan); bottom: -50px; left: -50px; }
+    }
+
+    .cta-content-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      @media(max-width:900px){ grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+
+    .cta-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; background: rgba(0, 91, 255, 0.1);
+      border: 1px solid rgba(0, 91, 255, 0.2);
+      border-radius: 50px; font-size: 0.7rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-electric);
+      margin-bottom: 20px;
+    }
+
+    .cta-text h3 {
+      font-size: 2.5rem; line-height: 1.2; margin-bottom: 16px; color: white;
+      @media(max-width:600px){ font-size: 2rem; }
+    }
+    .gradient-text-alt {
+      background: linear-gradient(135deg, var(--primary-electric) 0%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .cta-text p { color: #94A3B8; font-size: 1.1rem; line-height: 1.6; }
+
+    .cta-form-wrapper { width: 100%; }
     .cta-form {
-      display: flex; gap: 10px; min-width: 350px;
-      @media(max-width:600px){ min-width: 100%; flex-direction: column; }
+      display: flex; gap: 12px; background: rgba(255,255,255,0.03);
+      padding: 8px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      @media(max-width:600px){ flex-direction: column; padding: 15px; background: transparent; border: none; }
+    }
+    
+    .input-wrapper {
+      flex: 1; position: relative;
+      display: flex; align-items: center;
+      .input-icon { position: absolute; left: 15px; color: #64748B; transition: color 0.3s; }
       input {
-        flex: 1; background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 15px 20px; border-radius: 12px;
-        color: white; font-family: inherit;
-        &:focus { outline: none; border-color: var(--primary-electric); }
+        width: 100%; background: transparent; border: none;
+        padding: 15px 15px 15px 45px; color: white; font-family: inherit;
+        font-size: 1rem;
+        &::placeholder { color: #64748B; }
+        &:focus { outline: none; }
+        &:focus + .input-icon { color: var(--primary-electric); }
       }
-      .btn-send {
-        width: 50px; height: 50px; border-radius: 12px;
-        background: var(--primary-electric); color: white;
-        display: flex; align-items: center; justify-content: center;
-        transition: all 0.3s;
-        &:hover { transform: scale(1.05); background: #3385ff; }
-      }
+      @media(max-width:600px){ background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    }
+
+    .btn-send-premium {
+      padding: 15px 30px; border-radius: 14px;
+      background: var(--primary-electric); color: white;
+      font-weight: 700; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 10px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      &:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(0, 91, 255, 0.4); background: #3385ff; }
+      @media(max-width:600px){ width: 100%; justify-content: center; }
+    }
+
+    .form-trust {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 15px; color: #475569; font-size: 0.75rem; font-weight: 500;
+      lucide-icon { color: #475569; }
     }
 
     /* ── Main grid ── */
@@ -208,9 +286,12 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
       display: flex; gap: 25px;
       a:hover { color: white; }
     }
+    
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   `]
 })
-export class FooterComponent {
+export class FooterComponent implements AfterViewInit {
   readonly Linkedin = Linkedin;
   readonly Twitter = Twitter;
   readonly Facebook = Facebook;
@@ -219,4 +300,18 @@ export class FooterComponent {
   readonly Phone = Phone;
   readonly MapPin = MapPin;
   readonly Send = Send;
+  readonly BellRing = BellRing;
+  readonly ShieldCheck = ShieldCheck;
+
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.footer .reveal').forEach(el => observer.observe(el));
+  }
 }

@@ -360,7 +360,7 @@ import {
     /* ── Promise section ── */
     .promise-section {
       background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
-      padding: 60px 0;
+      padding: 60px 0 140px;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }

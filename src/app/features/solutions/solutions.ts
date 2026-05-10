@@ -159,7 +159,7 @@ import { LucideAngularModule, Monitor, Database, Layers, Shield, Zap, Layout, Ar
     }
 
     /* ── CTA ── */
-    .sol-cta { padding: 80px 5%; text-align: center; }
+    .sol-cta { padding: 80px 5% 150px; text-align: center; }
     .cta-card {
       max-width: 1000px; margin: 0 auto;
       padding: 60px; border-radius: 40px;

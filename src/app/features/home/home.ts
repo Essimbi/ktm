@@ -307,7 +307,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     }
 
     /* ── Final CTA ── */
-    .home-final-cta { position: relative; padding: 140px 5%; background: url('/assets/hero-bg.png') center/cover; text-align: center; color: white; overflow: hidden;
+    .home-final-cta { position: relative; padding: 140px 5% 200px; background: url('/assets/hero-bg.png') center/cover; text-align: center; color: white; overflow: hidden;
       .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-electric) 100%); opacity: 0.9; }
       .cta-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; h2 { font-size: 3.5rem; color: white; margin-bottom: 20px; @media(max-width:768px){font-size:2.5rem} } p { font-size: 1.25rem; margin-bottom: 45px; opacity: 0.9; } }
       .cta-btns { display: flex; gap: 20px; justify-content: center; @media(max-width:480px){ flex-direction: column; } }
