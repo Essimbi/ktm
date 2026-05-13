@@ -95,7 +95,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
     .page-hero {
       height: 55vh;
       min-height: 400px;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 60%, var(--primary-electric) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
       position: relative;
       display: flex;
       align-items: center;
@@ -107,7 +107,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         content: '';
         position: absolute;
         width: 600px; height: 600px;
-        background: rgba(0,91,255,0.15);
+        background: rgba(197, 160, 89, 0.15);
         border-radius: 50%;
         top: -200px; right: -200px;
       }
@@ -145,7 +145,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         padding: 30px 20px;
         border-right: 1px solid #E2E8F0;
         &:last-child { border-right: none; }
-        strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--primary-electric); }
+        strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--primary-gold); }
         span { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
       }
       @media(max-width:768px) { flex-wrap: wrap; .stat { flex: 1 1 50%; } }
@@ -166,8 +166,8 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         cursor: pointer;
         transition: all 0.2s ease;
         &:hover, &.active {
-          background: var(--primary-electric);
-          border-color: var(--primary-electric);
+          background: var(--primary-gold);
+          border-color: var(--primary-gold);
           color: white;
         }
       }
@@ -220,8 +220,8 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       display: flex; gap: 8px; flex-wrap: wrap;
       span {
         font-size: 0.75rem; padding: 4px 10px;
-        background: rgba(0,91,255,0.08);
-        color: var(--primary-electric);
+        background: rgba(197, 160, 89, 0.08);
+        color: var(--primary-gold);
         border-radius: 50px; font-weight: 600;
       }
     }
@@ -234,13 +234,13 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
     .btn-enroll {
       display: flex; align-items: center; gap: 6px;
       padding: 10px 20px; border-radius: 10px;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none;
       transition: all 0.2s ease;
       &:hover { background: var(--primary-deep); }
     }
     .certs-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -255,7 +255,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 20px; padding: 32px; text-align: center; color: white;
       transition: all 0.3s ease;
-      lucide-icon { color: var(--primary-electric); margin-bottom: 16px; }
+      lucide-icon { color: var(--primary-gold); margin-bottom: 16px; }
       h4 { font-size: 1.1rem; margin-bottom: 10px; }
       p { font-size: 0.88rem; opacity: 0.7; }
       &:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
@@ -288,12 +288,12 @@ export class FormationsComponent {
   activeFilter = 'Tous';
 
   allCourses = [
-    { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, #005BFF, #0d3a6e)', category: 'CATIA' },
-    { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, #0B1F3A, #005BFF)', category: 'CATIA' },
-    { title: 'SOLIDWORKS Essentiel', desc: 'Conception de pièces et assemblages mécaniques. Simulation basique et mise en plan.', duration: '3 jours', students: 200, level: 'Débutant', tags: ['SOLIDWORKS', 'Mécanique'], color: 'linear-gradient(135deg, #1a73e8, #0d3a6e)', category: 'SOLIDWORKS' },
-    { title: 'SOLIDWORKS Simulation', desc: 'Analyse statique, fatigue, thermique et dynamique. Optimisation topologique.', duration: '4 jours', students: 90, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'Simulation', 'FEA'], color: 'linear-gradient(135deg, #005BFF, #1a73e8)', category: 'SOLIDWORKS' },
-    { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, #6B21A8, #005BFF)', category: 'SIMULIA' },
-    { title: '3DEXPERIENCE Plateforme', desc: 'Administration, collaboration et gestion PLM sur la plateforme 3DEXPERIENCE de Dassault Systèmes.', duration: '4 jours', students: 60, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'PLM', 'Collaboration'], color: 'linear-gradient(135deg, #0B1F3A, #6B21A8)', category: '3DEXPERIENCE' },
+    { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, #002D5B, #001A38)', category: 'CATIA' },
+    { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, #001A38, #002D5B)', category: 'CATIA' },
+    { title: 'SOLIDWORKS Essentiel', desc: 'Conception de pièces et assemblages mécaniques. Simulation basique et mise en plan.', duration: '3 jours', students: 200, level: 'Débutant', tags: ['SOLIDWORKS', 'Mécanique'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
+    { title: 'SOLIDWORKS Simulation', desc: 'Analyse statique, fatigue, thermique et dynamique. Optimisation topologique.', duration: '4 jours', students: 90, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'Simulation', 'FEA'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: 'SOLIDWORKS' },
+    { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, #001A38, #002D5B)', category: 'SIMULIA' },
+    { title: '3DEXPERIENCE Plateforme', desc: 'Administration, collaboration et gestion PLM sur la plateforme 3DEXPERIENCE de Dassault Systèmes.', duration: '4 jours', students: 60, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'PLM', 'Collaboration'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: '3DEXPERIENCE' },
   ];
 
   certifications = [

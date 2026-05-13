@@ -23,7 +23,7 @@ import {
         </div>
         <div class="hero-inner reveal">
           <span class="hero-tag">Parlons de votre projet</span>
-          <h1>Contactez <span class="gradient-text-light">KTM Digital</span></h1>
+          <h1>Contactez <span class="gradient-text-light">KTM Group</span></h1>
           <p>Notre équipe d'experts est disponible pour répondre à toutes vos questions et vous accompagner dans votre transformation digitale.</p>
         </div>
       </section>
@@ -55,7 +55,7 @@ import {
           <div class="qc-icon"><lucide-icon [name]="Clock" size="22"></lucide-icon></div>
           <div>
             <span class="qc-label">Heures d'ouverture</span>
-            <strong>Lun–Ven, 8h–18h</strong>
+            <strong>Lun–Ven, 8h–17h</strong>
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ import {
     /* ── Hero ── */
     .contact-hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 60%, var(--primary-electric) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
       padding: 120px 5% 100px;
       text-align: center;
       color: white;
@@ -224,7 +224,7 @@ import {
       text-transform: uppercase; letter-spacing: 2px;
     }
     .gradient-text-light {
-      background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+      background: linear-gradient(135deg, #fff 0%, var(--primary-gold) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
@@ -248,7 +248,7 @@ import {
     }
     .qc-icon {
       width: 48px; height: 48px; border-radius: 14px;
-      background: rgba(0, 91, 255, 0.08); color: var(--primary-electric);
+      background: rgba(197, 160, 89, 0.08); color: var(--primary-gold);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .qc-label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 3px; }
@@ -272,11 +272,11 @@ import {
       padding: 20px 24px; background: white;
       border: 1px solid #E2E8F0; border-radius: 16px;
       transition: all 0.2s ease;
-      &:hover { border-color: var(--primary-electric); box-shadow: 0 8px 20px rgba(0,91,255,0.08); }
+      &:hover { border-color: var(--primary-gold); box-shadow: 0 8px 20px rgba(0, 45, 91, 0.08); }
     }
     .ic-icon {
       width: 42px; height: 42px; border-radius: 12px;
-      background: rgba(0,91,255,0.08); color: var(--primary-electric);
+      background: rgba(197, 160, 89, 0.08); color: var(--primary-gold);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .ic-body {
@@ -298,7 +298,7 @@ import {
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       transition: box-shadow 0.3s ease;
       iframe { display: block; width: 100%; height: 100%; }
-      &:hover { box-shadow: 0 16px 40px rgba(0, 91, 255, 0.12); border-color: var(--primary-electric); }
+      &:hover { box-shadow: 0 16px 40px rgba(0, 45, 91, 0.12); border-color: var(--primary-gold); }
     }
 
     /* ── Form ── */
@@ -322,7 +322,7 @@ import {
       label {
         display: block; margin-bottom: 8px;
         font-weight: 600; font-size: 0.88rem; color: var(--primary-deep);
-        .req { color: var(--primary-electric); }
+        .req { color: var(--primary-gold); }
       }
       input, select, textarea {
         width: 100%; padding: 13px 16px;
@@ -331,8 +331,8 @@ import {
         transition: all 0.2s ease; color: var(--primary-deep);
         &::placeholder { color: #B0B8C8; }
         &:focus {
-          border-color: var(--primary-electric); outline: none; background: white;
-          box-shadow: 0 0 0 4px rgba(0, 91, 255, 0.08);
+          border-color: var(--primary-gold); outline: none; background: white;
+          box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.08);
         }
       }
       textarea { resize: vertical; min-height: 130px; }
@@ -347,19 +347,19 @@ import {
 
     .btn-submit {
       width: 100%; padding: 15px;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       border-radius: 14px; font-weight: 700; font-size: 1rem;
       display: flex; align-items: center; justify-content: center; gap: 10px;
       border: none; cursor: pointer;
       transition: all 0.3s ease;
-      &:hover { background: var(--primary-deep); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,91,255,0.3); }
+      &:hover { background: var(--primary-deep); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 45, 91, 0.3); }
       &.sent { background: #10B981; }
     }
     .sent-msg { display: flex; align-items: center; gap: 8px; }
 
     /* ── Promise section ── */
     .promise-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 60px 0 140px;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -369,7 +369,7 @@ import {
     }
     .promise-item {
       display: flex; gap: 16px; align-items: flex-start;
-      lucide-icon { color: var(--accent-cyan); flex-shrink: 0; margin-top: 3px; }
+      lucide-icon { color: var(--primary-gold); flex-shrink: 0; margin-top: 3px; }
       h4 { font-size: 1rem; color: white; margin-bottom: 5px; }
       p  { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
     }

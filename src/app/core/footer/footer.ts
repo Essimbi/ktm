@@ -52,9 +52,9 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
         <div class="footer-grid">
           <!-- Brand -->
           <div class="footer-col brand">
-            <img src="/assets/logo_ktm.png" alt="KTM Logo" class="footer-logo">
+            <img src="/assets/logo_ktm.png" alt="KTM Green Energy Group" class="footer-logo">
             <p class="brand-desc">
-              Partenaire officiel Dassault Systèmes en Afrique Centrale. Nous propulsons l'innovation industrielle par la digitalisation.
+              KTM Green Energy Group Sarl — Partenaire officiel Dassault Systèmes &amp; NeoLedge en Afrique Centrale. Nous accélérons la transformation digitale industrielle.
             </p>
             <div class="social-links">
               <a href="#" aria-label="LinkedIn"><lucide-icon [name]="Linkedin" size="18"></lucide-icon></a>
@@ -73,6 +73,8 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
               <li><a routerLink="/solutions/solidworks">SOLIDWORKS</a></li>
               <li><a routerLink="/solutions/simulia">SIMULIA</a></li>
               <li><a routerLink="/solutions/delmia">DELMIA</a></li>
+              <li><a routerLink="/solutions/enovia">ENOVIA</a></li>
+              <li><a routerLink="/solutions/neoledge">NeoLedge ECM</a></li>
             </ul>
           </div>
 
@@ -110,7 +112,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
         </div>
 
         <div class="footer-bottom">
-          <div class="copy">&copy; 2026 KTM Digital & Innovation. Tous droits réservés.</div>
+          <div class="copy">&copy; 2026 KTM Green Energy Group Sarl. Tous droits réservés.</div>
           <div class="bottom-links">
             <a href="#">Mentions Légales</a>
             <a href="#">Confidentialité</a>
@@ -143,9 +145,9 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
     }
     
     .cta-box {
-      background: #0d1a3a;
-      background: linear-gradient(135deg, #0d1a3a 0%, #050b1a 100%);
-      border: 1px solid rgba(0, 91, 255, 0.2);
+      background: var(--primary-deep);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      border: 1px solid rgba(197, 160, 89, 0.2);
       border-radius: 35px;
       padding: 60px;
       position: relative;
@@ -157,8 +159,8 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
     .cta-decoration {
       position: absolute; inset: 0; pointer-events: none;
       .circle { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
-      .c1 { width: 300px; height: 300px; background: var(--primary-electric); top: -100px; right: -50px; }
-      .c2 { width: 200px; height: 200px; background: var(--accent-cyan); bottom: -50px; left: -50px; }
+      .c1 { width: 300px; height: 300px; background: var(--primary-gold); top: -100px; right: -50px; }
+      .c2 { width: 200px; height: 200px; background: var(--primary-deep); bottom: -50px; left: -50px; }
     }
 
     .cta-content-inner {
@@ -170,10 +172,10 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
 
     .cta-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; background: rgba(0, 91, 255, 0.1);
-      border: 1px solid rgba(0, 91, 255, 0.2);
+      padding: 6px 14px; background: rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.2);
       border-radius: 50px; font-size: 0.7rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-electric);
+      text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-gold);
       margin-bottom: 20px;
     }
 
@@ -182,7 +184,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
       @media(max-width:600px){ font-size: 2rem; }
     }
     .gradient-text-alt {
-      background: linear-gradient(135deg, var(--primary-electric) 0%, var(--accent-cyan) 100%);
+      background: linear-gradient(135deg, var(--primary-gold) 0%, #FFFFFF 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .cta-text p { color: #94A3B8; font-size: 1.1rem; line-height: 1.6; }
@@ -205,18 +207,18 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
         font-size: 1rem;
         &::placeholder { color: #64748B; }
         &:focus { outline: none; }
-        &:focus + .input-icon { color: var(--primary-electric); }
+        &:focus + .input-icon { color: var(--primary-gold); }
       }
       @media(max-width:600px){ background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
     }
 
     .btn-send-premium {
       padding: 15px 30px; border-radius: 14px;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       font-weight: 700; border: none; cursor: pointer;
       display: flex; align-items: center; gap: 10px;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      &:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(0, 91, 255, 0.4); background: #3385ff; }
+      &:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4); background: #b08e4d; }
       @media(max-width:600px){ width: 100%; justify-content: center; }
     }
 
@@ -245,14 +247,14 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
         display: flex; align-items: center; justify-content: center;
         transition: all 0.3s;
         border: 1px solid rgba(255,255,255,0.1);
-        &:hover { background: var(--primary-electric); color: white; transform: translateY(-3px); }
+        &:hover { background: var(--primary-gold); color: white; transform: translateY(-3px); }
       }
     }
 
     .footer-col h4 {
       font-size: 1.1rem; color: white; margin-bottom: 30px;
       position: relative; padding-bottom: 12px;
-      &::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--primary-electric); }
+      &::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--primary-gold); }
     }
 
     .footer-col ul { list-style: none; }
@@ -266,7 +268,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
     .contact-item {
       display: flex; align-items: center; gap: 15px;
       color: #94A3B8; font-size: 0.92rem; margin-bottom: 18px;
-      lucide-icon { color: var(--primary-electric); }
+      lucide-icon { color: var(--primary-gold); }
     }
     .legal-badge {
       display: inline-block; margin-top: 15px;

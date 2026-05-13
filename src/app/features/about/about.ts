@@ -99,12 +99,50 @@ import {
         </div>
       </section>
 
-      <!-- ── Partenaires ───────────────────────────── -->
+      <!-- ── Références Clients ───────────────────────── -->
+      <section class="clients-section">
+        <div class="section-container">
+          <div class="sec-header reveal">
+            <span class="section-tag">Ils nous font confiance</span>
+            <h2 class="section-title" style="color:white">Nos Références Clients</h2>
+            <p class="section-subtitle" style="color:rgba(255,255,255,0.65)">Des acteurs académiques, industriels et institutionnels du Cameroun et de la sous-région.</p>
+          </div>
+          <div class="clients-grid">
+            <div class="client-card reveal" *ngFor="let c of clientRefs">
+              <div class="client-initial" [style.background]="c.color">{{c.name[0]}}</div>
+              <div class="client-info">
+                <h4>{{c.name}}</h4>
+                <span>{{c.sector}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Certifications ────────────────────────────── -->
+      <section class="certs-section section-container">
+        <div class="sec-header reveal">
+          <span class="section-tag">Notre crédibilité</span>
+          <h2 class="section-title">Certifications &amp; Accréditations</h2>
+          <p class="section-subtitle">Un portefeuille de certifications officielles qui attestent de notre expertise et de notre engagement qualité.</p>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-card reveal" *ngFor="let cert of certifications">
+            <div class="cert-icon"><lucide-icon [name]="cert.icon" size="26"></lucide-icon></div>
+            <div class="cert-body">
+              <span class="cert-cat">{{cert.category}}</span>
+              <h4>{{cert.name}}</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Partenaires Tech ──────────────────────────── -->
       <section class="partners-section section-container">
-        <h2 class="section-title reveal">Nos Partenaires & Certifications</h2>
+        <h2 class="section-title reveal">Nos Partenaires Technologiques</h2>
         <div class="partners-logos reveal">
           <div class="partner-badge" *ngFor="let p of partners">
-            <lucide-icon [name]="Award" size="24"></lucide-icon>
+            <lucide-icon [name]="Award" size="22"></lucide-icon>
             <span>{{p}}</span>
           </div>
         </div>
@@ -114,10 +152,10 @@ import {
       <section class="about-cta">
         <div class="cta-inner">
           <h2>Prêt à transformer votre entreprise ?</h2>
-          <p>Rejoignez des dizaines d'acteurs industriels qui nous font confiance.</p>
+          <p>Rejoignez les acteurs industriels, académiques et institutionnels qui nous font confiance.</p>
           <div class="cta-actions">
             <a routerLink="/contact" class="btn-premium primary">Nous contacter <lucide-icon [name]="ArrowRight" size="18"></lucide-icon></a>
-            <a routerLink="/solutions" class="btn-premium secondary">Nos solutions</a>
+            <a routerLink="/solutions" class="btn-premium outline-white">Nos solutions</a>
           </div>
         </div>
       </section>
@@ -132,7 +170,7 @@ import {
     .about-hero {
       position: relative;
       min-height: 70vh;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 60%, var(--primary-electric) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -185,7 +223,7 @@ import {
         flex: 1; padding: 28px 36px; text-align: center;
         border-right: 1px solid rgba(255,255,255,0.12);
         &:last-child { border-right: none; }
-        strong { display: block; font-size: 2.4rem; font-weight: 800; color: var(--primary-electric); line-height: 1; }
+        strong { display: block; font-size: 2.4rem; font-weight: 800; color: var(--primary-gold); line-height: 1; }
         span { font-size: 0.82rem; opacity: 0.7; margin-top: 6px; display: block; text-transform: uppercase; letter-spacing: 1px; }
       }
       @media(max-width:768px){ flex-direction: column; border-radius: 16px; .hstat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); } }
@@ -208,15 +246,15 @@ import {
       animation-delay: var(--delay, 0s);
       &:hover {
         transform: translateY(-12px);
-        box-shadow: 0 24px 60px rgba(0, 91, 255, 0.1);
-        border-color: var(--primary-electric);
-        .mvv-icon { background: var(--primary-electric); color: white; }
+        box-shadow: 0 24px 60px rgba(0, 45, 91, 0.1);
+        border-color: var(--primary-gold);
+        .mvv-icon { background: var(--primary-gold); color: white; }
       }
     }
     .mvv-icon {
       width: 64px; height: 64px;
-      background: rgba(0, 91, 255, 0.08);
-      color: var(--primary-electric);
+      background: rgba(197, 160, 89, 0.08);
+      color: var(--primary-gold);
       border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 28px;
@@ -227,7 +265,7 @@ import {
 
     /* ── Timeline ── */
     .history-section {
-      background: linear-gradient(160deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(160deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 100px 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -241,7 +279,7 @@ import {
         left: 50%;
         top: 0; bottom: 0;
         width: 2px;
-        background: linear-gradient(to bottom, transparent, rgba(0, 91, 255, 0.5), transparent);
+        background: linear-gradient(to bottom, transparent, var(--primary-gold), transparent);
         transform: translateX(-50%);
         @media(max-width:768px){ left: 24px; }
       }
@@ -265,10 +303,10 @@ import {
       top: 8px;
       left: calc(50% - 10px);
       width: 20px; height: 20px;
-      background: var(--primary-electric);
+      background: var(--primary-gold);
       border-radius: 50%;
       border: 4px solid white;
-      box-shadow: 0 0 0 4px rgba(0, 91, 255, 0.25);
+      box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.25);
       z-index: 2;
       @media(max-width:768px){ left: 16px; }
     }
@@ -281,7 +319,7 @@ import {
       color: white;
       transition: all 0.3s ease;
       &:hover { background: rgba(255,255,255,0.12); transform: scale(1.02); }
-      .tl-year { font-size: 0.78rem; font-weight: 800; color: var(--primary-electric); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+      .tl-year { font-size: 0.78rem; font-weight: 800; color: var(--primary-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block; }
       h4 { font-size: 1.1rem; margin-bottom: 10px; }
       p  { font-size: 0.88rem; opacity: 0.7; line-height: 1.6; }
     }
@@ -309,12 +347,12 @@ import {
     }
     .team-info {
       h4 { font-size: 1.05rem; margin-bottom: 4px; }
-      .role { font-size: 0.8rem; font-weight: 700; color: var(--primary-electric); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+      .role { font-size: 0.8rem; font-weight: 700; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
       p  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
     }
     .team-skills {
       display: flex; flex-wrap: wrap; gap: 7px;
-      span { font-size: 0.72rem; padding: 4px 10px; background: rgba(0,91,255,0.07); color: var(--primary-electric); border-radius: 50px; font-weight: 600; }
+      span { font-size: 0.72rem; padding: 4px 10px; background: rgba(197, 160, 89, 0.07); color: var(--primary-gold); border-radius: 50px; font-weight: 600; }
     }
 
     /* ── Values ── */
@@ -332,12 +370,12 @@ import {
       lucide-icon { color: var(--primary-electric); margin-bottom: 20px; }
       h4 { font-size: 1.15rem; margin-bottom: 12px; }
       p  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
-      &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 91, 255, 0.1); border-color: var(--primary-electric); }
+      &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 45, 91, 0.1); border-color: var(--primary-gold); }
     }
     .value-number {
       position: absolute; top: -10px; right: 16px;
       font-size: 4.5rem; font-weight: 900;
-      color: rgba(0, 91, 255, 0.06); line-height: 1;
+      color: rgba(197, 160, 89, 0.06); line-height: 1;
       pointer-events: none;
     }
 
@@ -353,13 +391,13 @@ import {
       border-radius: 16px; font-weight: 700;
       color: var(--primary-deep); font-size: 0.9rem;
       transition: all 0.2s ease;
-      lucide-icon { color: var(--primary-electric); }
-      &:hover { border-color: var(--primary-electric); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 91, 255, 0.1); }
+      lucide-icon { color: var(--primary-gold); }
+      &:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 45, 91, 0.1); }
     }
 
     /* ── CTA Final ── */
     .about-cta {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-electric) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-gold) 100%);
       padding: 100px 5%; text-align: center; color: white;
     }
     .cta-inner {
@@ -368,6 +406,71 @@ import {
       p  { font-size: 1.1rem; opacity: 0.8; margin-bottom: 40px; }
     }
     .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Clients References ── */
+    .clients-section {
+      background: linear-gradient(160deg, var(--primary-deep) 0%, #001A38 100%);
+      padding: 80px 0 100px;
+      h2, h4 { color: white !important; }
+    }
+    .sec-header { text-align: center; margin-bottom: 50px; }
+    .section-tag {
+      display: inline-block; padding: 6px 18px;
+      background: rgba(0, 176, 90, 0.15); border: 1px solid rgba(0, 176, 90, 0.35);
+      border-radius: 50px; font-size: 0.72rem; font-weight: 800;
+      color: var(--primary-gold); text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .client-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 24px;
+      display: flex; align-items: center; gap: 18px;
+      transition: all 0.3s ease;
+      &:hover { background: rgba(255,255,255,0.12); transform: translateY(-6px); }
+    }
+    .client-initial {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 900; color: white;
+    }
+    .client-info {
+      h4 { font-size: 1rem; margin-bottom: 4px; color: white !important; }
+      span { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+    }
+
+    /* ── Certifications ── */
+    .certs-section { background: white; }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px; margin-top: 40px;
+    }
+    .cert-card {
+      background: white; border-radius: 20px; padding: 28px;
+      display: flex; align-items: flex-start; gap: 20px;
+      border: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+      &:hover { border-color: var(--primary-gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(197, 160, 89, 0.1); }
+    }
+    .cert-icon {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.12) 0%, rgba(0, 45, 91, 0.1) 100%);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary-gold);
+    }
+    .cert-body {
+      .cert-cat {
+        font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1.5px; color: var(--primary-gold); display: block; margin-bottom: 6px;
+      }
+      h4 { font-size: 0.95rem; color: var(--primary-deep); line-height: 1.4; }
+    }
 
     /* ── Reveal animations ── */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -388,7 +491,7 @@ export class AboutComponent implements AfterViewInit {
   readonly MapPin = MapPin;
 
   heroStats = [
-    { value: '2022', label: 'Année de fondation' },
+    { value: '10+', label: 'Années d\'expérience' },
     { value: '50+', label: 'Projets réalisés' },
     { value: '20+', label: 'Clients majeurs' },
     { value: '15+', label: 'Certifications' },
@@ -401,19 +504,19 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   timeline = [
-    { year: '2022', title: 'Fondation de KTM', desc: 'Création de KTM Green Energy group Sarl à Douala avec une vision claire : digitaliser l\'industrie africaine.' },
-    { year: '2022', title: 'Partenariat Dassault Systèmes', desc: 'Signature du partenariat officiel avec Dassault Systèmes, devenant l\'un des rares revendeurs agréés en Afrique Centrale.' },
-    { year: '2023', title: 'Premiers grands projets', desc: 'Déploiement de CATIA et SOLIDWORKS dans plusieurs entreprises industrielles camerounaises.' },
-    { year: '2023', title: 'Lancement de l\'Académie KTM', desc: 'Ouverture du programme de formation certifiante, avec les premières cohortes d\'ingénieurs certifiés Dassault Systèmes.' },
-    { year: '2024', title: 'Expansion régionale', desc: 'Extension de nos activités au Gabon, Tchad et Congo, avec des projets de déploiement PLM à grande échelle.' },
-    { year: '2025', title: 'KTM Digital & Innovation', desc: 'Rebranding et lancement de notre nouveau positionnement : acteur de référence de l\'industrie 4.0 en Afrique.' },
+    { year: 'Fondation', title: 'Création de KTM Green Energy Group', desc: 'Création de KTM Green Energy group Sarl à Douala avec une vision claire : digitaliser l\'industrie africaine et démocratiser l\'accès aux technologies de pointe.' },
+    { year: 'Partenariat', title: 'Partenariat Dassault Systèmes', desc: 'Signature du partenariat officiel avec Dassault Systèmes, devenant l\'un des rares revendeurs agréés en Afrique Centrale.' },
+    { year: 'Croissance', title: 'Premiers grands projets', desc: 'Déploiement de CATIA et SOLIDWORKS dans plusieurs entreprises industrielles camerounaises, dont Alucam et des groupes éducatifs.' },
+    { year: 'Académie', title: 'Lancement de l\'Académie KTM', desc: 'Ouverture du programme de formation certifiante, avec les premières cohortes d\'ingénieurs certifiés Dassault Systèmes issus d\'UCAC, IUC et De La Salle.' },
+    { year: 'Expansion', title: 'Expansion régionale', desc: 'Extension de nos activités au Gabon, Tchad et Congo, avec des projets de déploiement PLM à grande échelle et partenariat NeoLedge.' },
+    { year: 'Aujourd\'hui', title: 'KTM Green Energy Group', desc: 'Acteur de référence de l\'industrie 4.0 en Afrique Centrale — solutions Dassault Systèmes, NeoLedge, formation et consulting.' },
   ];
 
   team = [
-    { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, #005BFF, #0B1F3A)', skills: ['Stratégie', 'PLM', 'Partenariats'] },
-    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SOLIDWORKS et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #6B21A8, #005BFF)', skills: ['CATIA', 'SOLIDWORKS', 'SIMULIA'] },
-    { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, #0d3a6e, #6B21A8)', skills: ['Formation', 'Certification', 'eLearning'] },
-    { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, #005BFF, #0d3a6e)', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
+    { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, #002D5B, #001A38)', skills: ['Stratégie', 'PLM', 'Partenariats'] },
+    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SOLIDWORKS et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['CATIA', 'SOLIDWORKS', 'SIMULIA'] },
+    { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, #001A38, #C5A059)', skills: ['Formation', 'Certification', 'eLearning'] },
+    { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, #002D5B, #001A38)', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
   ];
 
   values = [
@@ -431,6 +534,29 @@ export class AboutComponent implements AfterViewInit {
     'CATIA Authorized Training Center',
     '3DEXPERIENCE Academic Partner',
     'SIMULIA Certified',
+    'NeoLedge Partner',
+  ];
+
+  clientRefs = [
+    { name: 'UCAC', sector: 'Éducation supérieure', color: '#002D5B' },
+    { name: 'JFN Group', sector: 'Industrie', color: '#001A38' },
+    { name: 'De La Salle', sector: 'Éducation', color: '#C5A059' },
+    { name: 'IUC', sector: 'Université privée', color: '#A68545' },
+    { name: 'Neo Industry', sector: 'Industrie', color: '#002D5B' },
+    { name: 'CUD', sector: 'Collectivité publique', color: '#001A38' },
+    { name: 'Alucam', sector: 'Industrie aluminium', color: '#C5A059' },
+    { name: 'Groupe Wagas', sector: 'Conglomérat', color: '#002D5B' },
+  ];
+
+  certifications = [
+    { name: 'Dassault Systèmes Certified Reseller', category: 'Partenariat officiel', icon: Award },
+    { name: 'SOLIDWORKS Authorized Reseller', category: 'Conception CAO', icon: Award },
+    { name: 'CATIA Certified Training Center', category: 'Formation accréditée', icon: Award },
+    { name: '3DEXPERIENCE Academic Partner', category: 'Partenariat académique', icon: Award },
+    { name: 'SIMULIA Certified Partner', category: 'Simulation', icon: Award },
+    { name: 'NeoLedge Reseller Partner', category: 'GED & ECM', icon: Award },
+    { name: 'CSWA — SolidWorks Associate', category: 'Certification individuelle', icon: CheckCircle },
+    { name: 'CSWP — SolidWorks Professional', category: 'Certification avancée', icon: CheckCircle },
   ];
 
   ngAfterViewInit() {

@@ -13,7 +13,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
 
         <!-- Logo -->
         <a routerLink="/" class="logo">
-          <img src="assets/logo_ktm.png" alt="KTM Digital & Innovation" class="nav-logo">
+          <img src="assets/logo_ktm.png" alt="KTM Green Energy Group" class="nav-logo">
         </a>
 
         <!-- Desktop Links -->
@@ -30,16 +30,24 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
                   <span class="col-label">Conception & Design</span>
                   <a routerLink="/solutions/catia">CATIA</a>
                   <a routerLink="/solutions/solidworks">SOLIDWORKS</a>
+                  <a routerLink="/solutions/3dexperience">3DEXPERIENCE</a>
                 </div>
                 <div class="mega-col">
-                  <span class="col-label">Simulation</span>
+                  <span class="col-label">Simulation & Opérations</span>
                   <a routerLink="/solutions/simulia">SIMULIA</a>
                   <a routerLink="/solutions/delmia">DELMIA</a>
+                  <a routerLink="/solutions/geovia">GEOVIA</a>
                 </div>
                 <div class="mega-col">
-                  <span class="col-label">Collaboration</span>
-                  <a routerLink="/solutions/3dexperience">3DEXPERIENCE</a>
+                  <span class="col-label">Collaboration & Data</span>
                   <a routerLink="/solutions/enovia">ENOVIA</a>
+                  <a routerLink="/solutions/biovia">BIOVIA</a>
+                  <a routerLink="/solutions/netvibes">NETVIBES</a>
+                </div>
+                <div class="mega-col">
+                  <span class="col-label">Digitalisation</span>
+                  <a routerLink="/solutions/neoledge">NeoLedge ECM</a>
+                  <a routerLink="/solutions/iterop">ITEROP</a>
                 </div>
               </div>
             </div>
@@ -122,26 +130,26 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 40px;
-      height: 90px;
+      height: 100px;
       display: flex;
       align-items: center;
       gap: 40px;
 
       @media (max-width: 768px) {
         padding: 0 20px;
-        height: 70px;
+        height: 80px;
       }
     }
 
     .logo { flex-shrink: 0; }
 
     .nav-logo {
-      height: 48px;
+      height: 120px;
       width: auto;
       object-fit: contain;
       display: block;
 
-      @media (max-width: 768px) { height: 38px; }
+      @media (max-width: 768px) { height: 60px; }
     }
 
     /* ── Desktop links ── */
@@ -165,8 +173,8 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
         cursor: pointer;
 
         &:hover, &.active {
-          color: var(--primary-electric);
-          background: rgba(0, 91, 255, 0.06);
+          color: var(--primary-gold);
+          background: rgba(197, 160, 89, 0.08);
         }
       }
     }
@@ -188,7 +196,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       top: calc(100% + 12px);
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      width: 580px;
+      width: 760px;
       background: white;
       border-radius: 20px;
       padding: 32px;
@@ -209,12 +217,22 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
         border-right: 8px solid transparent;
         border-bottom: 8px solid white;
       }
+
+      /* Invisible bridge to keep menu open while moving cursor */
+      &::after {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 0;
+        right: 0;
+        height: 20px;
+      }
     }
 
     .mega-content {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .col-label {
@@ -238,7 +256,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       transition: all 0.2s ease;
 
       &:hover {
-        color: var(--primary-electric);
+        color: var(--primary-gold);
         padding-left: 6px;
       }
     }
@@ -261,24 +279,24 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       white-space: nowrap;
       transition: color 0.2s;
 
-      &:hover { color: var(--primary-electric); }
+      &:hover { color: var(--primary-gold); }
     }
 
     .btn-demo {
       padding: 10px 22px;
-      background: var(--primary-electric);
+      background: var(--primary-deep);
       color: white;
       border-radius: 10px;
       font-size: 0.85rem;
       font-weight: 700;
       white-space: nowrap;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 91, 255, 0.25);
+      box-shadow: 0 4px 15px rgba(0, 45, 91, 0.2);
 
       &:hover {
-        background: var(--primary-deep);
+        background: var(--primary-gold);
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 91, 255, 0.35);
+        box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
       }
     }
 
@@ -290,7 +308,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       width: 42px;
       height: 42px;
       border-radius: 10px;
-      background: rgba(0, 91, 255, 0.06);
+      background: rgba(197, 160, 89, 0.06);
       color: var(--primary-deep);
       border: none;
       cursor: pointer;
@@ -377,8 +395,8 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
         transition: all 0.2s ease;
 
         &:hover, &.active {
-          color: var(--primary-electric);
-          background: rgba(0, 91, 255, 0.06);
+          color: var(--primary-gold);
+          background: rgba(197, 160, 89, 0.06);
         }
       }
     }
@@ -401,7 +419,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
 
         lucide-icon { transition: transform 0.3s ease; }
 
-        &:hover { background: rgba(0, 91, 255, 0.06); color: var(--primary-electric); }
+        &:hover { background: rgba(197, 160, 89, 0.06); color: var(--primary-gold); }
       }
 
       .group-links {

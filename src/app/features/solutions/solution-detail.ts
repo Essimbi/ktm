@@ -117,7 +117,7 @@ interface SolutionDetail {
       margin-top: 30px;
       h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px; }
       .tags { display: flex; flex-wrap: wrap; gap: 10px;
-        span { padding: 7px 16px; background: rgba(0,91,255,0.08); color: var(--primary-electric); border-radius: 50px; font-size: 0.82rem; font-weight: 600; }
+        span { padding: 7px 16px; background: rgba(197, 160, 89, 0.08); color: var(--primary-gold); border-radius: 50px; font-size: 0.82rem; font-weight: 600; }
       }
     }
     .features-box {
@@ -127,12 +127,12 @@ interface SolutionDetail {
       ul { list-style: none;
         li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F1F5F9; font-size: 0.95rem;
           &:last-child { border: none; }
-          lucide-icon { color: var(--primary-electric); flex-shrink: 0; }
+          lucide-icon { color: var(--primary-gold); flex-shrink: 0; }
         }
       }
     }
     .use-cases-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -171,7 +171,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'CATIA',
       tagline: 'Le leader mondial de la conception 3D et de l\'ingénierie avancée.',
       description: 'CATIA est la solution de conception 3D la plus avancée du marché. Utilisée par les leaders mondiaux de l\'aéronautique, l\'automobile et l\'industrie, elle offre des capacités de modélisation surfacique, de conception mécanique et d\'ingénierie système inégalées.',
-      gradient: 'linear-gradient(135deg, #0B1F3A 0%, #005BFF 100%)',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #001A38 100%)',
       features: ['Modélisation 3D paramétrique', 'Design surfacique avancé', 'Assemblages complexes', 'Simulation cinématique', 'Mise en plan technique', 'Gestion des configurations', 'Collaboration en temps réel'],
       useCases: [
         { title: 'Aéronautique', desc: 'Conception de structures aéronefs, moteurs et systèmes embarqués à haute précision.' },
@@ -186,7 +186,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'SOLIDWORKS',
       tagline: 'La CAO mécanique intuitive pour concevoir plus vite et mieux.',
       description: 'SOLIDWORKS est le logiciel de conception mécanique 3D le plus utilisé dans le monde. Alliant puissance et facilité d\'utilisation, il permet aux ingénieurs et concepteurs de créer des produits innovants, de les simuler et de les fabriquer avec une précision maximale.',
-      gradient: 'linear-gradient(135deg, #1a73e8 0%, #0B1F3A 100%)',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
       features: ['Conception de pièces 3D', 'Assemblages paramétriques', 'Simulation FEA', 'Analyse thermique', 'Conception de tôlerie', 'Modélisation de moules', 'Rendu photoréaliste'],
       useCases: [
         { title: 'PME Industrielles', desc: 'Conception rapide de produits mécaniques et prototypage virtuel.' },
@@ -201,7 +201,7 @@ export class SolutionDetailComponent implements OnInit {
       name: '3DEXPERIENCE',
       tagline: 'La plateforme unifiée pour l\'innovation collaborative.',
       description: 'La plateforme 3DEXPERIENCE de Dassault Systèmes connecte les personnes, les idées et les données sur une seule plateforme cloud. Elle permet une collaboration sans frontières et une gestion PLM complète, du concept au service après-vente.',
-      gradient: 'linear-gradient(135deg, #6B21A8 0%, #005BFF 100%)',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
       features: ['PLM intégré', 'Collaboration cloud', 'Gestion des données produit', 'Workflow intelligent', 'Tableau de bord analytique', 'Gestion des exigences', 'Intégration CATIA & SOLIDWORKS'],
       useCases: [
         { title: 'Co-développement', desc: 'Équipes distribuées collaborant en temps réel sur les mêmes modèles.' },
@@ -216,7 +216,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'SIMULIA',
       tagline: 'Simulation avancée pour des produits fiables et optimisés.',
       description: 'SIMULIA offre des capacités de simulation multi-physiques de pointe. De l\'analyse par éléments finis (FEA) à la dynamique des fluides (CFD), en passant par l\'analyse des matériaux composites, SIMULIA permet de prédire le comportement des produits avant leur fabrication.',
-      gradient: 'linear-gradient(135deg, #0B1F3A 0%, #6B21A8 100%)',
+      gradient: 'linear-gradient(135deg, #001A38 0%, #002D5B 100%)',
       features: ['Analyse statique et dynamique', 'Simulation thermique', 'Dynamique des fluides (CFD)', 'Analyse de fatigue', 'Optimisation topologique', 'Matériaux composites', 'Crash test virtuel'],
       useCases: [
         { title: 'Résistance des structures', desc: 'Vérification de la tenue mécanique sous contraintes statiques et dynamiques.' },
@@ -231,7 +231,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'ENOVIA',
       tagline: 'Gérez, sécurisez et collaborez autour de vos données produit.',
       description: 'ENOVIA est la solution PLM de Dassault Systèmes dédiée à la gestion des données produit et à la collaboration d\'entreprise. Elle centralise l\'ensemble des informations techniques, gère les workflows et assure la conformité réglementaire.',
-      gradient: 'linear-gradient(135deg, #0d3a6e 0%, #0B1F3A 100%)',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
       features: ['Gestion des nomenclatures (BOM)', 'Contrôle de version des documents', 'Workflow de validation', 'Conformité réglementaire', 'Gestion des modifications', 'Portail fournisseurs', 'Reporting et tableaux de bord'],
       useCases: [
         { title: 'Industrie pharmaceutique', desc: 'Gestion des dossiers réglementaires et validation des processus.' },
@@ -246,7 +246,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'DELMIA',
       tagline: 'Excellence opérationnelle et planification de la production du futur.',
       description: 'DELMIA est la solution de Dassault Systèmes dédiée à la planification et l\'optimisation des opérations industrielles. Elle permet de simuler les processus de fabrication, d\'optimiser les lignes de production et de réduire les temps de cycle.',
-      gradient: 'linear-gradient(135deg, #005BFF 0%, #0d3a6e 100%)',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, #001A38 100%)',
       features: ['Simulation des processus de fabrication', 'Planification de la production', 'Optimisation des flux', 'Ergonomie et sécurité opérateur', 'Programmation robots', 'Gestion MES', 'Jumeau numérique d\'usine'],
       useCases: [
         { title: 'Usine intelligente', desc: 'Simulation complète de l\'atelier de production avant investissement.' },

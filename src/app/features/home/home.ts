@@ -225,7 +225,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .overflow-hidden { overflow: hidden; }
     .slide-tag {
       display: inline-block; padding: 10px 25px;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       border-radius: 50px; font-weight: 800; font-size: 0.7rem;
       text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px;
       transform: translateY(100%); transition: transform 0.8s ease 0.6s;
@@ -245,26 +245,26 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .slide.active .hero-actions { opacity: 1; transform: translateY(0); }
 
     .slider-navigation { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 40px; z-index: 20; }
-    .nav-btn { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); &:hover { background: var(--primary-electric); transform: scale(1.1); } }
+    .nav-btn { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); &:hover { background: var(--primary-gold); transform: scale(1.1); } }
     .progress-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 30; }
-    .progress-bar { height: 100%; background: var(--primary-electric); transition: width 0.1s linear; }
-    .slider-dots { display: flex; gap: 12px; button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; &.active { background: var(--primary-electric); transform: scale(1.5); } } }
+    .progress-bar { height: 100%; background: var(--primary-gold); transition: width 0.1s linear; }
+    .slider-dots { display: flex; gap: 12px; button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; &.active { background: var(--primary-gold); transform: scale(1.5); } } }
 
     /* ── About Section ── */
-    .section-tag { display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary-electric); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .section-tag { display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; @media (max-width: 1024px) { grid-template-columns: 1fr; } }
     .value-props { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
     .vp-item { display: flex; gap: 20px; align-items: flex-start;
-      .vp-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(0, 91, 255, 0.08); color: var(--primary-electric); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .vp-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.08); color: var(--primary-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
       h4 { font-size: 1rem; margin-bottom: 4px; }
       p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
     }
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .stat-card { padding: 25px; background: #F8FAFC; border-radius: 20px; text-align: center; border: 1px solid #E2E8F0; h3 { color: var(--primary-electric); font-size: 2rem; margin-bottom: 5px; } p { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin: 0; } }
+    .stat-card { padding: 25px; background: #F8FAFC; border-radius: 20px; text-align: center; border: 1px solid #E2E8F0; h3 { color: var(--primary-gold); font-size: 2rem; margin-bottom: 5px; } p { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin: 0; } }
     .visual-wrapper { position: relative;
       img { width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
       .experience-badge { position: absolute; bottom: -30px; right: -30px; background: var(--primary-deep); color: white; padding: 30px; border-radius: 24px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); @media(max-width:480px){ right: 0; bottom: -10px; padding: 20px;}
-        .number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--primary-electric); line-height: 1; }
+        .number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--primary-gold); line-height: 1; }
         .text { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; opacity: 0.8; letter-spacing: 1px; }
       }
     }
@@ -274,11 +274,11 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .sec-header { text-align: center; margin-bottom: 60px; }
     .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .sol-card { padding: 40px; background: white; border-radius: 24px; border: 1px solid #E2E8F0; transition: all 0.4s; animation-delay: var(--delay);
-      &:hover { transform: translateY(-10px); box-shadow: 0 24px 50px rgba(0,91,255,0.1); border-color: var(--primary-electric); .sol-icon { transform: scale(1.1) rotate(5deg); } }
+      &:hover { transform: translateY(-10px); box-shadow: 0 24px 50px rgba(0, 45, 91, 0.1); border-color: var(--primary-gold); .sol-icon { transform: scale(1.1) rotate(5deg); } }
       .sol-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 25px; transition: transform 0.3s; }
       h3 { margin-bottom: 12px; font-size: 1.4rem; }
       p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 25px; line-height: 1.6; }
-      .learn-more { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary-electric); font-size: 0.9rem; transition: gap 0.2s; &:hover { gap: 12px; } }
+      .learn-more { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary-gold); font-size: 0.9rem; transition: gap 0.2s; &:hover { gap: 12px; } }
     }
     .view-all-cta { text-align: center; margin-top: 50px; }
 
@@ -287,7 +287,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .industry-card { position: relative; height: 280px; border-radius: 24px; overflow: hidden; cursor: pointer;
       &:hover { .ind-image-overlay { opacity: 0.8; transform: scale(1.1); } .ind-hover-cta { transform: translateY(0); opacity: 1; } }
     }
-    .ind-image-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%); transition: all 0.6s ease; }
+    .ind-image-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%); transition: all 0.6s ease; }
     .ind-content { position: relative; z-index: 2; padding: 40px; height: 100%; display: flex; flex-direction: column; color: white;
       .ind-icon-wrapper { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent-cyan); }
       h3 { font-size: 1.5rem; color: white; margin-bottom: 10px; }
@@ -297,7 +297,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
 
     /* ── Trust / Certs ── */
     .trust-section { padding-bottom: 100px; }
-    .trust-box { background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; color: white; @media(max-width:900px){ grid-template-columns: 1fr; text-align: center; padding: 40px; }
+    .trust-box { background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; color: white; @media(max-width:900px){ grid-template-columns: 1fr; text-align: center; padding: 40px; }
       h2 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
       p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
       .trust-list { list-style: none; margin-bottom: 40px; li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 600; lucide-icon { color: var(--accent-cyan); } } @media(max-width:900px){ display: inline-block; text-align: left; } }
@@ -308,7 +308,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
 
     /* ── Final CTA ── */
     .home-final-cta { position: relative; padding: 140px 5% 200px; background: url('/assets/hero-bg.png') center/cover; text-align: center; color: white; overflow: hidden;
-      .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-electric) 100%); opacity: 0.9; }
+      .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-gold) 100%); opacity: 0.9; }
       .cta-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; h2 { font-size: 3.5rem; color: white; margin-bottom: 20px; @media(max-width:768px){font-size:2.5rem} } p { font-size: 1.25rem; margin-bottom: 45px; opacity: 0.9; } }
       .cta-btns { display: flex; gap: 20px; justify-content: center; @media(max-width:480px){ flex-direction: column; } }
       .btn-premium.outline-white { border: 2px solid white; color: white; &:hover { background: white; color: var(--primary-deep); } }
@@ -365,12 +365,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   solutions = [
-    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', icon: Layers, link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #6B21A8, #005BFF)' },
-    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, #0B1F3A, #005BFF)' },
-    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', icon: Database, link: '/solutions/solidworks', color: 'linear-gradient(135deg, #1a73e8, #0B1F3A)' },
-    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', icon: Zap, link: '/solutions/simulia', color: 'linear-gradient(135deg, #0B1F3A, #6B21A8)' },
-    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, #0d3a6e, #0B1F3A)' },
-    { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', icon: Layout, link: '/solutions/delmia', color: 'linear-gradient(135deg, #005BFF, #0d3a6e)' }
+    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', icon: Layers, link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
+    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, #001A38, #002D5B)' },
+    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', icon: Database, link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
+    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', icon: Zap, link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
+    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, #001A38, #002D5B)' },
+    { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', icon: Layout, link: '/solutions/delmia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
   ];
 
   industries = [

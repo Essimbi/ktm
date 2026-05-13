@@ -9,8 +9,8 @@ import {
   Plane, Car, Building2, GraduationCap, Stethoscope, Scissors, Pickaxe,
   Clock, Users, Award, Star, Newspaper, Calendar, Tag,
   Target, Eye, Heart, TrendingUp,
-  MessageSquare, BarChart, HardHat, BookOpen, Settings, Headphones,
-  BellRing, ShieldCheck
+  MessageSquare, BarChart, BarChart2, HardHat, BookOpen, Settings, Headphones,
+  BellRing, ShieldCheck, FileText, Cpu, Network, FlaskConical, Leaf, Beaker, Send
 } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
@@ -25,8 +25,8 @@ export const appConfig: ApplicationConfig = {
         Plane, Car, Building2, GraduationCap, Stethoscope, Scissors, Pickaxe,
         Clock, Users, Award, Star, Newspaper, Calendar, Tag,
         Target, Eye, Heart, TrendingUp,
-        MessageSquare, BarChart, HardHat, BookOpen, Settings, Headphones,
-        BellRing, ShieldCheck
+        MessageSquare, BarChart, BarChart2, HardHat, BookOpen, Settings, Headphones,
+        BellRing, ShieldCheck, FileText, Cpu, Network, FlaskConical, Leaf, Beaker, Send
       })
     )
   ]

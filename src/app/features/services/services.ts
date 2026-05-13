@@ -126,7 +126,7 @@ import {
     /* ── Hero ── */
     .srv-hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 60%, var(--primary-electric) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
       padding: 130px 5% 100px;
       text-align: center;
       color: white;
@@ -152,7 +152,7 @@ import {
       text-transform: uppercase; letter-spacing: 2px;
     }
     .gradient-text-light {
-      background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+      background: linear-gradient(135deg, #fff 0%, var(--primary-gold) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -175,7 +175,7 @@ import {
       padding: 28px 20px; text-align: center;
       border-right: 1px solid #E2E8F0;
       &:last-child { border: none; }
-      strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--primary-electric); }
+      strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--primary-gold); }
       span { font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
     }
 
@@ -193,8 +193,8 @@ import {
       animation-delay: var(--delay, 0s);
       &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 24px 60px rgba(0, 91, 255, 0.1);
-        border-color: var(--primary-electric);
+        box-shadow: 0 24px 60px rgba(0, 45, 91, 0.1);
+        border-color: var(--primary-gold);
       }
     }
     .srv-icon {
@@ -214,13 +214,13 @@ import {
         font-size: 0.88rem; font-weight: 500; padding: 6px 0;
         border-bottom: 1px solid #F1F5F9;
         color: var(--primary-deep);
-        lucide-icon { color: var(--primary-electric); flex-shrink: 0; }
+        lucide-icon { color: var(--primary-gold); flex-shrink: 0; }
         &:last-child { border: none; }
       }
     }
     .srv-link {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.88rem; font-weight: 700; color: var(--primary-electric);
+      font-size: 0.88rem; font-weight: 700; color: var(--primary-gold);
       margin-top: auto; padding-top: 16px; border-top: 1px solid #E2E8F0;
       transition: gap 0.2s;
       &:hover { gap: 10px; }
@@ -228,7 +228,7 @@ import {
 
     /* ── Consulting banner ── */
     .consulting-banner {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 80px 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -239,7 +239,7 @@ import {
     }
     .banner-tag {
       display: inline-block; padding: 6px 16px;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       border-radius: 50px; font-size: 0.75rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
     }
@@ -250,7 +250,7 @@ import {
     .banner-list {
       list-style: none; margin-bottom: 36px;
       li { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 0.92rem; font-weight: 600; color: white;
-        lucide-icon { color: var(--accent-cyan); flex-shrink: 0; }
+        lucide-icon { color: var(--primary-gold); flex-shrink: 0; }
         border-bottom: 1px solid rgba(255,255,255,0.08);
         &:last-child { border: none; }
       }
@@ -263,7 +263,7 @@ import {
       border-radius: 16px; padding: 24px;
       display: flex; flex-direction: column; align-items: center; gap: 12px;
       text-align: center; color: white;
-      lucide-icon { color: var(--primary-electric); }
+      lucide-icon { color: var(--primary-gold); }
       span { font-size: 0.88rem; font-weight: 600; }
       transition: all 0.2s ease;
       &:hover { background: rgba(255,255,255,0.12); }
@@ -281,13 +281,13 @@ import {
       background: white; border-radius: 20px; border: 1px solid #E2E8F0;
       animation-delay: var(--delay, 0s);
       transition: all 0.3s ease;
-      &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,91,255,0.08); border-color: var(--primary-electric); }
+      &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 45, 91, 0.08); border-color: var(--primary-gold); }
       h4 { font-size: 1rem; margin-bottom: 10px; margin-top: 16px; }
       p  { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
     }
     .step-number {
       width: 52px; height: 52px; border-radius: 50%;
-      background: var(--primary-electric); color: white;
+      background: var(--primary-gold); color: white;
       font-size: 1.2rem; font-weight: 800;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto;
@@ -295,7 +295,7 @@ import {
 
     /* ── CTA final ── */
     .srv-cta {
-      background: linear-gradient(135deg, var(--primary-electric) 0%, var(--primary-deep) 100%);
+      background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-deep) 100%);
       padding: 100px 5%; text-align: center; color: white;
       h1, h2, h3, h4 { color: white; }
     }
@@ -336,37 +336,37 @@ export class ServicesComponent implements AfterViewInit {
     {
       title: 'Intégration de Solutions PLM',
       desc: 'Déploiement complet et configuration personnalisée des logiciels Dassault Systèmes au sein de votre infrastructure existante.',
-      icon: Settings, color: 'linear-gradient(135deg, #005BFF, #0B1F3A)',
+      icon: Settings, color: 'linear-gradient(135deg, #002D5B, #001A38)',
       features: ['Installation on-premise et cloud', 'Migration de données existantes', 'Configuration PLM sur mesure', 'Tests & recette utilisateurs']
     },
     {
       title: 'Formation Professionnelle',
       desc: 'Programmes certifiants animés par des instructeurs accrédités Dassault Systèmes pour monter en compétence vos équipes.',
-      icon: BookOpen, color: 'linear-gradient(135deg, #6B21A8, #005BFF)',
+      icon: BookOpen, color: 'linear-gradient(135deg, #C5A059, #002D5B)',
       features: ['CATIA, SOLIDWORKS, SIMULIA', 'Formations intra et inter-entreprises', 'Certifications officielles', 'E-learning et présentiel']
     },
     {
       title: 'Accompagnement Industriel',
       desc: 'Expertise technique de haut niveau pour vos projets de conception, simulation et optimisation des processus de fabrication.',
-      icon: HardHat, color: 'linear-gradient(135deg, #0d3a6e, #6B21A8)',
+      icon: HardHat, color: 'linear-gradient(135deg, #001A38, #C5A059)',
       features: ['Assistance à maîtrise d\'ouvrage', 'Optimisation des processus', 'Audit de conception et qualité', 'Ingénierie simultanée']
     },
     {
       title: 'Support & Maintenance',
       desc: 'Support réactif et proactif pour garantir la disponibilité et la performance de vos solutions digitales en continu.',
-      icon: Headphones, color: 'linear-gradient(135deg, #005BFF, #0d3a6e)',
+      icon: Headphones, color: 'linear-gradient(135deg, #002D5B, #001A38)',
       features: ['Hotline dédiée 5j/7', 'Mises à jour et montées de version', 'Monitoring des performances', 'Contrats de maintenance SLA']
     },
     {
       title: 'Certifications & Audit',
       desc: 'Préparation aux certifications Dassault Systèmes et audit de vos compétences internes pour identifier les axes d\'amélioration.',
-      icon: Award, color: 'linear-gradient(135deg, #0B1F3A, #005BFF)',
+      icon: Award, color: 'linear-gradient(135deg, #001A38, #002D5B)',
       features: ['Préparation CSWA/CSWP', 'Audit de compétences équipes', 'Plan de formation sur mesure', 'Suivi post-certification']
     },
     {
       title: 'Consulting Stratégique',
       desc: 'Conseils à haut niveau pour définir votre stratégie Industrie 4.0, prioriser vos investissements et maximiser le ROI.',
-      icon: BarChart, color: 'linear-gradient(135deg, #6B21A8, #0B1F3A)',
+      icon: BarChart, color: 'linear-gradient(135deg, #C5A059, #001A38)',
       features: ['Roadmap de transformation', 'Analyse ROI et business case', 'Benchmark sectoriel', 'Change management']
     },
   ];

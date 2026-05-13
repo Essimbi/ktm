@@ -1,22 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Colors */
-  --primary-deep: #0B1F3A;
-  --primary-electric: #005BFF;
-  --accent-cyan: #00F2FF;
-  --bg-light: #F8FAFC;
+  /* ── Palette KTM Green Energy Group (Logo Colors) ── */
+  --primary-deep: #002D5B;          /* Bleu sombre profond (Logo) */
+  --primary-gold: #C5A059;          /* Doré mat (Logo) */
+  --primary-electric: #0044CC;      /* Bleu d'accentuation */
+  --accent-gold: #C5A059;           /* Doré pour accents premium */
+  --accent-gold-light: #D4B67D;     /* Doré clair hover */
+  --accent-cyan: #00D4FF;           /* Cyan technologique */
+  --accent-warm: #C5A059;           /* Chaleur corporate */
+
+  /* ── Backgrounds ── */
+  --bg-light: #F2F2F2;              /* Gris très clair (Logo) */
+  --bg-section: #E5E9F0;
   --bg-white: #FFFFFF;
-  --text-main: #1E293B;
-  --text-muted: #64748B;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  
-  /* Spacing */
+
+  /* ── Texts ── */
+  --text-main: #1A2840;
+  --text-muted: #556380;
+
+  /* ── Glass ── */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.25);
+
+  /* ── Spacing ── */
   --section-padding: 100px 5%;
   --border-radius: 12px;
-  
-  /* Transitions */
+
+  /* ── Transitions ── */
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -54,22 +65,33 @@ button {
   font-family: inherit;
 }
 
-/* Premium Utilities */
+/* ── Premium Utilities ── */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
 }
 
+/* KTM gradient (Bleu profond → Doré mat) */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-electric) 100%);
+  background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* Variante claire pour fonds sombres */
+.gradient-text-light {
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Buttons ── */
 .btn-premium {
-  padding: 12px 28px;
+  padding: 13px 30px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.95rem;
@@ -77,32 +99,57 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  
+
   &.primary {
-    background: var(--primary-electric);
+    background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
     color: white;
-    box-shadow: 0 10px 20px rgba(0, 91, 255, 0.2);
-    
+    box-shadow: 0 8px 24px rgba(0, 45, 91, 0.2);
+
     &:hover {
-      background: var(--primary-deep);
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(11, 31, 58, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 45, 91, 0.3);
+      background: linear-gradient(135deg, #001A38 0%, var(--primary-gold) 100%);
     }
   }
-  
+
+  &.gold {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #A68545 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(197, 160, 89, 0.45);
+    }
+  }
+
   &.secondary {
     background: transparent;
-    border: 2px solid var(--primary-electric);
-    color: var(--primary-electric);
-    
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+
     &:hover {
-      background: var(--primary-electric);
+      background: var(--primary-gold);
       color: white;
+      transform: translateY(-2px);
+    }
+  }
+
+  &.outline-white {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    color: white;
+
+    &:hover {
+      background: white;
+      color: var(--primary-deep);
+      border-color: white;
       transform: translateY(-2px);
     }
   }
 }
 
+/* ── Layout ── */
 .section-container {
   padding: var(--section-padding);
   max-width: 1440px;
@@ -113,33 +160,45 @@ button {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  
+
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 }
 
-/* Animations */
+.section-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* ── Animations ── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 176, 90, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(0, 176, 90, 0); }
 }
 
 .reveal {
   opacity: 0;
   &.visible {
-    animation: fadeInUp 0.8s forwards ease-out;
+    animation: fadeInUp 0.75s forwards cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
-/* ── Dark/Blue background text overrides ─────────────────── */
-/* Force white text everywhere a dark or gradient background is used */
+/* ── Dark/Blue background text overrides ── */
 .about-hero,
 .about-cta,
 .history-section,
@@ -152,7 +211,11 @@ button {
 .page-hero,
 .partners-section.dark,
 section[class*="hero"],
-.mvv-cta-dark {
+.mvv-cta-dark,
+.srv-hero,
+.contact-hero,
+.consulting-banner,
+.srv-cta {
   color: white;
 
   h1, h2, h3, h4, h5, h6 {
@@ -168,23 +231,8 @@ section[class*="hero"],
   }
 }
 
-/* Gradient text should use light gradient on dark backgrounds */
 .about-hero .gradient-text {
   background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Light variant of the secondary button for dark backgrounds */
-.btn-premium.outline-white {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.55);
-  color: white;
-
-  &:hover {
-    background: white;
-    color: var(--primary-deep);
-    border-color: white;
-    transform: translateY(-2px);
-  }
 }

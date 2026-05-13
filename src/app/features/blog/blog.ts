@@ -90,7 +90,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
   `,
   styles: [`
     .page-hero {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #0d3a6e 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
       padding: 100px 5% 80px;
       text-align: center;
       color: white;
@@ -125,7 +125,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
         padding: 9px 22px; border-radius: 50px; border: 2px solid #E2E8F0;
         font-weight: 600; font-size: 0.85rem; background: white;
         color: var(--text-muted); cursor: pointer; transition: all 0.2s;
-        &:hover, &.active { background: var(--primary-electric); border-color: var(--primary-electric); color: white; }
+        &:hover, &.active { background: var(--primary-gold); border-color: var(--primary-gold); color: white; }
       }
     }
     .featured-article {
@@ -141,7 +141,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
       img { width: 100%; height: 100%; object-fit: cover; }
       .featured-badge {
         position: absolute; top: 20px; left: 20px;
-        background: var(--primary-electric); color: white;
+        background: var(--primary-gold); color: white;
         padding: 6px 16px; border-radius: 50px;
         font-size: 0.78rem; font-weight: 800; text-transform: uppercase;
       }
@@ -155,7 +155,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
     .article-cat {
       display: inline-block; font-size: 0.75rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 1.5px;
-      color: var(--primary-electric); margin-bottom: 12px;
+      color: var(--primary-gold); margin-bottom: 12px;
     }
     .article-meta {
       display: flex; gap: 20px;
@@ -189,17 +189,17 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
     }
     .read-more {
       display: flex; align-items: center; gap: 5px;
-      font-weight: 700; font-size: 0.85rem; color: var(--primary-electric);
+      font-weight: 700; font-size: 0.85rem; color: var(--primary-gold);
     }
     .newsletter-section {
-      background: linear-gradient(135deg, var(--primary-deep), #0d3a6e);
+      background: linear-gradient(135deg, var(--primary-deep), #001A38);
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }
     .newsletter-box {
       max-width: 600px; margin: 0 auto; text-align: center; color: white;
-      lucide-icon { color: var(--primary-electric); margin-bottom: 20px; }
+      lucide-icon { color: var(--primary-gold); margin-bottom: 20px; }
       h2 { font-size: 2.2rem; margin-bottom: 14px; }
       p { opacity: 0.75; font-size: 1rem; margin-bottom: 36px; }
     }
