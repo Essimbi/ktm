@@ -149,7 +149,7 @@ import {
     /* ── Hero ── */
     .sol-hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 55%, var(--primary-gold) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 55%, var(--primary-gold) 100%);
       padding: 140px 5% 100px;
       text-align: center;
       color: white;
@@ -368,7 +368,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Le leader mondial de la conception 3D et de l\'ingénierie système pour les industries aéronautique, automobile et industrielle de pointe.',
       features: ['CAO 3D avancée multi-discipline', 'Surfacique & carrosserie complexe', 'Ingénierie système (MBSE)', 'Conception mécatronique'],
       icon: Monitor,
-      color: 'linear-gradient(135deg, #001A38, #002D5B)'
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
       id: 'solidworks',
@@ -404,7 +404,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Gérez et sécurisez vos données produits avec une solution de gouvernance et de collaboration PLM à l\'échelle de l\'entreprise.',
       features: ['Gestion des nomenclatures (BOM)', 'Contrôle des versions documentaires', 'Workflows de validation', 'Gestion des exigences'],
       icon: Shield,
-      color: 'linear-gradient(135deg, #002D5B, #001A38)'
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
       id: 'geovia',
@@ -413,7 +413,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Solutions de simulation et de planification minière pour optimiser l\'extraction des ressources naturelles de manière durable.',
       features: ['Modélisation géologique 3D', 'Planification minière optimisée', 'Simulation des opérations', 'Gestion environnementale'],
       icon: Leaf,
-      color: 'linear-gradient(135deg, #001A38, #C5A059)'
+      color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)'
     },
     {
       id: 'biovia',
@@ -440,7 +440,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Plateforme BPM low-code pour modéliser, automatiser et optimiser vos processus métiers sans développement complexe.',
       features: ['Modélisation BPMN visuelle', 'Automatisation sans code', 'Intégration système SI', 'Suivi des performances KPI'],
       icon: Network,
-      color: 'linear-gradient(135deg, #002D5B, #001A38)'
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
   ];
 
@@ -461,7 +461,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Dématérialisez et centralisez l\'ensemble de vos documents avec une solution GED sécurisée, conforme et accessible partout.',
       features: ['Indexation automatique des documents', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Droits d\'accès granulaires'],
       icon: Database,
-      color: 'linear-gradient(135deg, #001A38, #002D5B)'
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
       id: 'neoledge-workflow',

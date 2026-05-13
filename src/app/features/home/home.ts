@@ -177,6 +177,61 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
         </div>
       </section>
 
+      <!-- ── Références Clients ── -->
+      <section class="clients-references-section">
+        <div class="section-container">
+          <div class="sec-header reveal">
+            <span class="section-tag">Ils nous font confiance</span>
+            <h2 class="section-title">Nos Références Clients</h2>
+            <p class="section-subtitle">Des entreprises leaders qui ont choisi KTM pour leur transformation digitale et leur montée en compétences.</p>
+          </div>
+          <div class="clients-grid reveal">
+            <div class="client-ref-card" *ngFor="let client of clientReferences; let i = index" [style.animation-delay.s]="i * 0.1">
+              <div class="client-logo-wrapper">
+                <div class="client-initial" [style.background]="client.color">{{client.name[0]}}</div>
+              </div>
+              <div class="client-details">
+                <h4>{{client.name}}</h4>
+                <span class="client-sector">{{client.sector}}</span>
+                <p class="client-description">{{client.description}}</p>
+                <div class="client-solutions">
+                  <span class="solution-tag" *ngFor="let solution of client.solutions">{{solution}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Partenaires ── -->
+      <section class="partners-section">
+        <div class="section-container">
+          <div class="sec-header reveal">
+            <span class="section-tag">Écosystème technologique</span>
+            <h2 class="section-title">Nos Partenaires Stratégiques</h2>
+            <p class="section-subtitle">Des alliances technologiques de premier plan pour vous offrir les meilleures solutions du marché.</p>
+          </div>
+          <div class="partners-grid reveal">
+            <div class="partner-card" *ngFor="let partner of partners; let i = index" [style.animation-delay.s]="i * 0.15">
+              <div class="partner-icon">
+                <lucide-icon [name]="partner.icon" size="32"></lucide-icon>
+              </div>
+              <div class="partner-content">
+                <h4>{{partner.name}}</h4>
+                <span class="partner-type">{{partner.type}}</span>
+                <p class="partner-description">{{partner.description}}</p>
+                <div class="partner-benefits">
+                  <span class="benefit-item" *ngFor="let benefit of partner.benefits">{{benefit}}</span>
+                </div>
+              </div>
+              <div class="partner-badge">
+                <lucide-icon [name]="Award" size="16"></lucide-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ── Final CTA ── -->
       <section class="home-final-cta">
         <div class="cta-overlay"></div>
@@ -287,7 +342,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .industry-card { position: relative; height: 280px; border-radius: 24px; overflow: hidden; cursor: pointer;
       &:hover { .ind-image-overlay { opacity: 0.8; transform: scale(1.1); } .ind-hover-cta { transform: translateY(0); opacity: 1; } }
     }
-    .ind-image-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%); transition: all 0.6s ease; }
+    .ind-image-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%); transition: all 0.6s ease; }
     .ind-content { position: relative; z-index: 2; padding: 40px; height: 100%; display: flex; flex-direction: column; color: white;
       .ind-icon-wrapper { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent-cyan); }
       h3 { font-size: 1.5rem; color: white; margin-bottom: 10px; }
@@ -297,13 +352,261 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
 
     /* ── Trust / Certs ── */
     .trust-section { padding-bottom: 100px; }
-    .trust-box { background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; color: white; @media(max-width:900px){ grid-template-columns: 1fr; text-align: center; padding: 40px; }
+    .trust-box { background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; color: white; @media(max-width:900px){ grid-template-columns: 1fr; text-align: center; padding: 40px; }
       h2 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
       p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
       .trust-list { list-style: none; margin-bottom: 40px; li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 600; lucide-icon { color: var(--accent-cyan); } } @media(max-width:900px){ display: inline-block; text-align: left; } }
     }
     .trust-badges { display: flex; flex-direction: column; gap: 15px;
       .t-badge { padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; font-weight: 700; color: rgba(255,255,255,0.6); span { color: white; display: block; font-size: 1rem; margin-bottom: 4px; } }
+    }
+
+    /* ── Références Clients ── */
+    .clients-references-section {
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      padding: 100px 0;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(197, 160, 89, 0.04) 0%, transparent 70%);
+        border-radius: 50%;
+      }
+    }
+    
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 28px;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
+      
+      @media(max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+    
+    .client-ref-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 28px;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-deep) 0%, var(--primary-gold) 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 45, 91, 0.1);
+        border-color: rgba(197, 160, 89, 0.3);
+        
+        &::before {
+          transform: scaleX(1);
+        }
+        
+        .client-initial {
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    .client-logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .client-initial {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    
+    .client-details {
+      text-align: center;
+      
+      h4 {
+        font-size: 1.2rem;
+        color: var(--primary-deep);
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+      
+      .client-sector {
+        font-size: 0.85rem;
+        color: var(--primary-gold);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 12px;
+      }
+      
+      .client-description {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+    }
+    
+    .client-solutions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    
+    .solution-tag {
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      background: rgba(197, 160, 89, 0.1);
+      color: var(--primary-gold);
+      border-radius: 20px;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      font-weight: 600;
+    }
+
+    /* ── Partenaires ── */
+    .partners-section {
+      background: white;
+      padding: 100px 0;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 50px;
+      
+      @media(max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
+    .partner-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 24px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 45, 91, 0.08);
+        border-color: var(--primary-gold);
+        
+        .partner-icon {
+          background: var(--primary-gold);
+          color: white;
+          transform: scale(1.05);
+        }
+        
+        .partner-badge {
+          background: var(--primary-gold);
+          color: white;
+        }
+      }
+    }
+    
+    .partner-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(0, 45, 91, 0.05) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .partner-content {
+      h4 {
+        font-size: 1.1rem;
+        color: var(--primary-deep);
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+      
+      .partner-type {
+        font-size: 0.8rem;
+        color: var(--primary-gold);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 12px;
+      }
+      
+      .partner-description {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+    }
+    
+    .partner-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .benefit-item {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      background: rgba(0, 45, 91, 0.05);
+      color: var(--primary-deep);
+      border-radius: 12px;
+      font-weight: 500;
+    }
+    
+    .partner-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: rgba(197, 160, 89, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+      transition: all 0.3s ease;
     }
 
     /* ── Final CTA ── */
@@ -366,11 +669,87 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   solutions = [
     { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', icon: Layers, link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
-    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, #001A38, #002D5B)' },
+    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
     { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', icon: Database, link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
     { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', icon: Zap, link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
-    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, #001A38, #002D5B)' },
+    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
     { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', icon: Layout, link: '/solutions/delmia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
+  ];
+
+  clientReferences = [
+    {
+      name: 'UCAC',
+      sector: 'Éducation Supérieure',
+      color: 'var(--primary-deep)',
+      description: 'Déploiement de CATIA et SOLIDWORKS pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
+      solutions: ['CATIA', 'SOLIDWORKS', 'Formation']
+    },
+    {
+      name: 'Alucam',
+      sector: 'Industrie Aluminium',
+      color: '#C5A059',
+      description: 'Optimisation des processus de production et conception d\'équipements industriels avec DELMIA et SIMULIA.',
+      solutions: ['DELMIA', 'SIMULIA', 'Consulting']
+    },
+    {
+      name: 'JFN Group',
+      sector: 'Conglomérat Industriel',
+      color: 'var(--primary-deep)',
+      description: 'Transformation digitale complète avec la plateforme 3DEXPERIENCE pour la gestion PLM multi-sites.',
+      solutions: ['3DEXPERIENCE', 'PLM', 'Formation']
+    },
+    {
+      name: 'De La Salle',
+      sector: 'Éducation Technique',
+      color: '#A68545',
+      description: 'Programme de formation technique avancée et certification SOLIDWORKS pour les étudiants en génie mécanique.',
+      solutions: ['SOLIDWORKS', 'Certification', 'Support']
+    },
+    {
+      name: 'IUC',
+      sector: 'Université Privée',
+      color: '#C5A059',
+      description: 'Partenariat académique 3DEXPERIENCE et mise en place d\'un laboratoire de conception numérique.',
+      solutions: ['3DEXPERIENCE', 'CATIA', 'Académique']
+    },
+    {
+      name: 'CUD',
+      sector: 'Collectivité Publique',
+      color: 'var(--primary-deep)',
+      description: 'Modernisation des services techniques avec des solutions de GED NeoLedge et formation des équipes.',
+      solutions: ['NeoLedge', 'GED', 'Formation']
+    }
+  ];
+
+  partners = [
+    {
+      name: 'Dassault Systèmes',
+      type: 'Partenaire Technologique Principal',
+      icon: Award,
+      description: 'Partenaire officiel et revendeur agréé pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.',
+      benefits: ['Support Officiel', 'Formation Certifiée', 'Licences Authentiques', 'Mises à jour']
+    },
+    {
+      name: 'SOLIDWORKS Corporation',
+      type: 'Revendeur Autorisé',
+      icon: Shield,
+      description: 'Partenaire autorisé pour la distribution, formation et support des solutions SOLIDWORKS de conception mécanique.',
+      benefits: ['VAR Officiel', 'Support Premium', 'Formation Agréée', 'Certification']
+    },
+    {
+      name: 'NeoLedge',
+      type: 'Partenaire GED & ECM',
+      icon: Database,
+      description: 'Partenaire pour les solutions de gestion électronique de documents et d\'archivage numérique.',
+      benefits: ['Solutions Cloud', 'IA Intégrée', 'Conformité', 'Sécurité']
+    },
+    {
+      name: 'Universités Partenaires',
+      type: 'Réseau Académique',
+      icon: GraduationCap,
+      description: 'Réseau de partenariats avec les principales universités d\'Afrique Centrale pour la formation technique.',
+      benefits: ['Programmes Certifiants', 'Stages Techniques', 'Recherche', 'Innovation']
+    }
   ];
 
   industries = [

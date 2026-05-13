@@ -91,7 +91,7 @@ import {
           <div class="values-grid">
             <div class="value-item reveal" *ngFor="let v of values; let i = index" [style.--delay]="i * 0.1 + 's'">
               <div class="value-number">0{{i + 1}}</div>
-              <lucide-icon [name]="v.icon" size="32"></lucide-icon>
+              <lucide-icon [name]="v.icon" size="32" color="#002D5B"></lucide-icon>
               <h4>{{v.title}}</h4>
               <p>{{v.desc}}</p>
             </div>
@@ -124,15 +124,23 @@ import {
         <div class="sec-header reveal">
           <span class="section-tag">Notre crédibilité</span>
           <h2 class="section-title">Certifications &amp; Accréditations</h2>
-          <p class="section-subtitle">Un portefeuille de certifications officielles qui attestent de notre expertise et de notre engagement qualité.</p>
+          <p class="section-subtitle">Un portefeuille de certifications officielles qui attestent de notre expertise technique et de notre engagement qualité auprès de nos partenaires technologiques.</p>
         </div>
         <div class="certs-grid">
-          <div class="cert-card reveal" *ngFor="let cert of certifications">
-            <div class="cert-icon"><lucide-icon [name]="cert.icon" size="26"></lucide-icon></div>
+          <div class="cert-card reveal" 
+               *ngFor="let cert of certifications; let i = index"
+               [class.partner-cert]="cert.category.includes('Partenariat') || cert.category.includes('officiel') || cert.category.includes('accréditée')"
+               [class.individual-cert]="cert.category.includes('individuelle') || cert.category.includes('avancée')"
+               [style.animation-delay.s]="i * 0.1">
+            <div class="cert-icon">
+              <lucide-icon [name]="cert.icon" size="28"></lucide-icon>
+            </div>
             <div class="cert-body">
               <span class="cert-cat">{{cert.category}}</span>
               <h4>{{cert.name}}</h4>
+              <p class="cert-description" *ngIf="cert.description">{{cert.description}}</p>
             </div>
+            <div class="cert-badge"></div>
           </div>
         </div>
       </section>
@@ -170,7 +178,7 @@ import {
     .about-hero {
       position: relative;
       min-height: 70vh;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -265,7 +273,7 @@ import {
 
     /* ── Timeline ── */
     .history-section {
-      background: linear-gradient(160deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(160deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 100px 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -409,7 +417,7 @@ import {
 
     /* ── Clients References ── */
     .clients-section {
-      background: linear-gradient(160deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(160deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 80px 0 100px;
       h2, h4 { color: white !important; }
     }
@@ -444,32 +452,263 @@ import {
     }
 
     /* ── Certifications ── */
-    .certs-section { background: white; }
+    .certs-section { 
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      position: relative;
+      overflow: hidden;
+      color: var(--text-main) !important;
+      
+      /* Forcer les couleurs correctes pour cette section */
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-deep) !important;
+      }
+      
+      p, .section-subtitle {
+        color: var(--text-muted) !important;
+      }
+      
+      .section-tag {
+        color: var(--primary-gold) !important;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(197, 160, 89, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 45, 91, 0.02) 0%, transparent 70%);
+        border-radius: 50%;
+      }
+    }
+    
     .certs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px; margin-top: 40px;
-    }
-    .cert-card {
-      background: white; border-radius: 20px; padding: 28px;
-      display: flex; align-items: flex-start; gap: 20px;
-      border: 1px solid #E2E8F0;
-      transition: all 0.3s ease;
-      &:hover { border-color: var(--primary-gold); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(197, 160, 89, 0.1); }
-    }
-    .cert-icon {
-      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(197, 160, 89, 0.12) 0%, rgba(0, 45, 91, 0.1) 100%);
-      border: 1px solid rgba(197, 160, 89, 0.2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--primary-gold);
-    }
-    .cert-body {
-      .cert-cat {
-        font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-        letter-spacing: 1.5px; color: var(--primary-gold); display: block; margin-bottom: 6px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px; 
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
+      
+      @media(max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
-      h4 { font-size: 0.95rem; color: var(--primary-deep); line-height: 1.4; }
+    }
+    
+    .cert-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-deep) 0%, var(--primary-gold) 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      
+      &:hover {
+        border-color: rgba(197, 160, 89, 0.3);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 45, 91, 0.08);
+        
+        &::before {
+          transform: scaleX(1);
+        }
+        
+        .cert-icon {
+          background: linear-gradient(135deg, var(--primary-gold) 0%, #D4B67D 100%);
+          color: white;
+          transform: scale(1.05);
+        }
+        
+        .cert-badge {
+          background: var(--primary-gold);
+          color: white;
+        }
+      }
+    }
+    
+    .cert-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(0, 45, 91, 0.05) 100%);
+      border: 1px solid rgba(197, 160, 89, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: 18px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(197, 160, 89, 0.2), rgba(0, 45, 91, 0.1));
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    }
+    
+    .cert-body {
+      flex: 1;
+      
+      .cert-cat {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        color: var(--primary-gold) !important;
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 4px 12px;
+        background: rgba(197, 160, 89, 0.08);
+        border-radius: 20px;
+        border: 1px solid rgba(197, 160, 89, 0.15);
+        transition: all 0.3s ease;
+      }
+      
+      h4 {
+        font-size: 1.05rem;
+        color: var(--primary-deep) !important;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      
+      .cert-description {
+        font-size: 0.88rem;
+        color: var(--text-muted) !important;
+        line-height: 1.5;
+        margin-top: 6px;
+      }
+    }
+    
+    .cert-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary-gold);
+      border-radius: 50%;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    
+    /* Styles spéciaux pour différents types de certifications */
+    .cert-card.partner-cert {
+      .cert-icon {
+        background: linear-gradient(135deg, rgba(0, 45, 91, 0.1) 0%, rgba(197, 160, 89, 0.05) 100%);
+        color: var(--primary-deep);
+      }
+      
+      &:hover .cert-icon {
+        background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+        color: white;
+      }
+    }
+    
+    .cert-card.individual-cert {
+      .cert-icon {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+        color: #10B981;
+        border-color: rgba(16, 185, 129, 0.15);
+      }
+      
+      &:hover .cert-icon {
+        background: linear-gradient(135deg, #10B981 0%, #22C55E 100%);
+        color: white;
+      }
+    }
+    
+    /* Animation d'apparition en cascade */
+    .cert-card.reveal {
+      animation: fadeInUp 0.6s ease forwards;
+      animation-fill-mode: both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Effet de brillance au survol */
+    .cert-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+    
+    .cert-card:hover::after {
+      left: 100%;
+    }
+    
+    /* Responsive design amélioré */
+    @media (max-width: 768px) {
+      .cert-card {
+        padding: 24px 20px;
+        gap: 16px;
+      }
+      
+      .cert-icon {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .cert-body h4 {
+        font-size: 0.95rem;
+      }
+      
+      .cert-body .cert-description {
+        font-size: 0.82rem;
+      }
     }
 
     /* ── Reveal animations ── */
@@ -513,10 +752,10 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   team = [
-    { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, #002D5B, #001A38)', skills: ['Stratégie', 'PLM', 'Partenariats'] },
+    { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Stratégie', 'PLM', 'Partenariats'] },
     { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SOLIDWORKS et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['CATIA', 'SOLIDWORKS', 'SIMULIA'] },
-    { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, #001A38, #C5A059)', skills: ['Formation', 'Certification', 'eLearning'] },
-    { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, #002D5B, #001A38)', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
+    { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)', skills: ['Formation', 'Certification', 'eLearning'] },
+    { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
   ];
 
   values = [
@@ -539,24 +778,70 @@ export class AboutComponent implements AfterViewInit {
 
   clientRefs = [
     { name: 'UCAC', sector: 'Éducation supérieure', color: '#002D5B' },
-    { name: 'JFN Group', sector: 'Industrie', color: '#001A38' },
+    { name: 'JFN Group', sector: 'Industrie', color: 'var(--primary-deep)' },
     { name: 'De La Salle', sector: 'Éducation', color: '#C5A059' },
     { name: 'IUC', sector: 'Université privée', color: '#A68545' },
     { name: 'Neo Industry', sector: 'Industrie', color: '#002D5B' },
-    { name: 'CUD', sector: 'Collectivité publique', color: '#001A38' },
+    { name: 'CUD', sector: 'Collectivité publique', color: 'var(--primary-deep)' },
     { name: 'Alucam', sector: 'Industrie aluminium', color: '#C5A059' },
     { name: 'Groupe Wagas', sector: 'Conglomérat', color: '#002D5B' },
   ];
 
   certifications = [
-    { name: 'Dassault Systèmes Certified Reseller', category: 'Partenariat officiel', icon: Award },
-    { name: 'SOLIDWORKS Authorized Reseller', category: 'Conception CAO', icon: Award },
-    { name: 'CATIA Certified Training Center', category: 'Formation accréditée', icon: Award },
-    { name: '3DEXPERIENCE Academic Partner', category: 'Partenariat académique', icon: Award },
-    { name: 'SIMULIA Certified Partner', category: 'Simulation', icon: Award },
-    { name: 'NeoLedge Reseller Partner', category: 'GED & ECM', icon: Award },
-    { name: 'CSWA — SolidWorks Associate', category: 'Certification individuelle', icon: CheckCircle },
-    { name: 'CSWP — SolidWorks Professional', category: 'Certification avancée', icon: CheckCircle },
+    { 
+      name: 'Dassault Systèmes Certified Reseller', 
+      category: 'Partenariat officiel', 
+      icon: Award,
+      description: 'Revendeur agréé officiel pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.'
+    },
+    { 
+      name: 'SOLIDWORKS Authorized Reseller', 
+      category: 'Conception CAO', 
+      icon: Award,
+      description: 'Partenaire autorisé pour la vente et le support des solutions SOLIDWORKS de conception mécanique.'
+    },
+    { 
+      name: 'CATIA Certified Training Center', 
+      category: 'Formation accréditée', 
+      icon: Award,
+      description: 'Centre de formation certifié pour dispenser les formations officielles CATIA avec certification.'
+    },
+    { 
+      name: '3DEXPERIENCE Academic Partner', 
+      category: 'Partenariat académique', 
+      icon: Award,
+      description: 'Partenaire académique pour l\'intégration de la plateforme 3DEXPERIENCE dans l\'enseignement supérieur.'
+    },
+    { 
+      name: 'SIMULIA Certified Partner', 
+      category: 'Simulation', 
+      icon: Award,
+      description: 'Certification pour le déploiement et la formation sur les solutions de simulation SIMULIA.'
+    },
+    { 
+      name: 'NeoLedge Reseller Partner', 
+      category: 'GED & ECM', 
+      icon: Award,
+      description: 'Partenaire revendeur pour les solutions de gestion électronique de documents NeoLedge.'
+    },
+    { 
+      name: 'CSWA — SolidWorks Associate', 
+      category: 'Certification individuelle', 
+      icon: CheckCircle,
+      description: 'Certification individuelle attestant de la maîtrise des fondamentaux SOLIDWORKS.'
+    },
+    { 
+      name: 'CSWP — SolidWorks Professional', 
+      category: 'Certification avancée', 
+      icon: CheckCircle,
+      description: 'Certification professionnelle avancée pour l\'expertise SOLIDWORKS de niveau expert.'
+    },
+    { 
+      name: 'ISO 9001:2015 Quality Management', 
+      category: 'Qualité & Processus', 
+      icon: Shield,
+      description: 'Certification qualité internationale pour nos processus de service et de formation.'
+    }
   ];
 
   ngAfterViewInit() {

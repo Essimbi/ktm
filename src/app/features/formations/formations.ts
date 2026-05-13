@@ -95,7 +95,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
     .page-hero {
       height: 55vh;
       min-height: 400px;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
       position: relative;
       display: flex;
       align-items: center;
@@ -240,7 +240,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       &:hover { background: var(--primary-deep); }
     }
     .certs-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -288,11 +288,11 @@ export class FormationsComponent {
   activeFilter = 'Tous';
 
   allCourses = [
-    { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, #002D5B, #001A38)', category: 'CATIA' },
-    { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, #001A38, #002D5B)', category: 'CATIA' },
+    { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
+    { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
     { title: 'SOLIDWORKS Essentiel', desc: 'Conception de pièces et assemblages mécaniques. Simulation basique et mise en plan.', duration: '3 jours', students: 200, level: 'Débutant', tags: ['SOLIDWORKS', 'Mécanique'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
     { title: 'SOLIDWORKS Simulation', desc: 'Analyse statique, fatigue, thermique et dynamique. Optimisation topologique.', duration: '4 jours', students: 90, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'Simulation', 'FEA'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: 'SOLIDWORKS' },
-    { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, #001A38, #002D5B)', category: 'SIMULIA' },
+    { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'SIMULIA' },
     { title: '3DEXPERIENCE Plateforme', desc: 'Administration, collaboration et gestion PLM sur la plateforme 3DEXPERIENCE de Dassault Systèmes.', duration: '4 jours', students: 60, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'PLM', 'Collaboration'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: '3DEXPERIENCE' },
   ];
 

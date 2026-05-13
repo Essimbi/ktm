@@ -146,7 +146,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
     
     .cta-box {
       background: var(--primary-deep);
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       border: 1px solid rgba(197, 160, 89, 0.2);
       border-radius: 35px;
       padding: 60px;
@@ -236,7 +236,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
       @media(max-width:640px){ grid-template-columns: 1fr; }
     }
 
-    .footer-logo { height: 50px; margin-bottom: 25px; filter: brightness(1.2); }
+    .footer-logo { height: 150px; margin-bottom: 25px; filter: brightness(1.2); }
     .brand-desc { color: #94A3B8; line-height: 1.7; margin-bottom: 30px; font-size: 0.95rem; max-width: 320px; }
 
     .social-links {

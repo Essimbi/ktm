@@ -126,7 +126,7 @@ import {
     /* ── Hero ── */
     .srv-hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
       padding: 130px 5% 100px;
       text-align: center;
       color: white;
@@ -228,7 +228,7 @@ import {
 
     /* ── Consulting banner ── */
     .consulting-banner {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 80px 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -336,7 +336,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       title: 'Intégration de Solutions PLM',
       desc: 'Déploiement complet et configuration personnalisée des logiciels Dassault Systèmes au sein de votre infrastructure existante.',
-      icon: Settings, color: 'linear-gradient(135deg, #002D5B, #001A38)',
+      icon: Settings, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['Installation on-premise et cloud', 'Migration de données existantes', 'Configuration PLM sur mesure', 'Tests & recette utilisateurs']
     },
     {
@@ -348,25 +348,25 @@ export class ServicesComponent implements AfterViewInit {
     {
       title: 'Accompagnement Industriel',
       desc: 'Expertise technique de haut niveau pour vos projets de conception, simulation et optimisation des processus de fabrication.',
-      icon: HardHat, color: 'linear-gradient(135deg, #001A38, #C5A059)',
+      icon: HardHat, color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)',
       features: ['Assistance à maîtrise d\'ouvrage', 'Optimisation des processus', 'Audit de conception et qualité', 'Ingénierie simultanée']
     },
     {
       title: 'Support & Maintenance',
       desc: 'Support réactif et proactif pour garantir la disponibilité et la performance de vos solutions digitales en continu.',
-      icon: Headphones, color: 'linear-gradient(135deg, #002D5B, #001A38)',
+      icon: Headphones, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['Hotline dédiée 5j/7', 'Mises à jour et montées de version', 'Monitoring des performances', 'Contrats de maintenance SLA']
     },
     {
       title: 'Certifications & Audit',
       desc: 'Préparation aux certifications Dassault Systèmes et audit de vos compétences internes pour identifier les axes d\'amélioration.',
-      icon: Award, color: 'linear-gradient(135deg, #001A38, #002D5B)',
+      icon: Award, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['Préparation CSWA/CSWP', 'Audit de compétences équipes', 'Plan de formation sur mesure', 'Suivi post-certification']
     },
     {
       title: 'Consulting Stratégique',
       desc: 'Conseils à haut niveau pour définir votre stratégie Industrie 4.0, prioriser vos investissements et maximiser le ROI.',
-      icon: BarChart, color: 'linear-gradient(135deg, #C5A059, #001A38)',
+      icon: BarChart, color: 'linear-gradient(135deg, #C5A059, var(--primary-deep))',
       features: ['Roadmap de transformation', 'Analyse ROI et business case', 'Benchmark sectoriel', 'Change management']
     },
   ];

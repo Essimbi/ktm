@@ -23,7 +23,7 @@ import { LucideAngularModule, ChevronUp } from 'lucide-angular';
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: var(--primary-electric);
+      background: var(--primary-deep);
       color: white;
       display: flex;
       align-items: center;

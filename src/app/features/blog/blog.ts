@@ -90,7 +90,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
   `,
   styles: [`
     .page-hero {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 100px 5% 80px;
       text-align: center;
       color: white;
@@ -192,7 +192,7 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
       font-weight: 700; font-size: 0.85rem; color: var(--primary-gold);
     }
     .newsletter-section {
-      background: linear-gradient(135deg, var(--primary-deep), #001A38);
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary-deep));
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }

@@ -132,7 +132,7 @@ interface SolutionDetail {
       }
     }
     .use-cases-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 80px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
@@ -171,7 +171,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'CATIA',
       tagline: 'Le leader mondial de la conception 3D et de l\'ingénierie avancée.',
       description: 'CATIA est la solution de conception 3D la plus avancée du marché. Utilisée par les leaders mondiaux de l\'aéronautique, l\'automobile et l\'industrie, elle offre des capacités de modélisation surfacique, de conception mécanique et d\'ingénierie système inégalées.',
-      gradient: 'linear-gradient(135deg, #002D5B 0%, #001A38 100%)',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%)',
       features: ['Modélisation 3D paramétrique', 'Design surfacique avancé', 'Assemblages complexes', 'Simulation cinématique', 'Mise en plan technique', 'Gestion des configurations', 'Collaboration en temps réel'],
       useCases: [
         { title: 'Aéronautique', desc: 'Conception de structures aéronefs, moteurs et systèmes embarqués à haute précision.' },
@@ -216,7 +216,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'SIMULIA',
       tagline: 'Simulation avancée pour des produits fiables et optimisés.',
       description: 'SIMULIA offre des capacités de simulation multi-physiques de pointe. De l\'analyse par éléments finis (FEA) à la dynamique des fluides (CFD), en passant par l\'analyse des matériaux composites, SIMULIA permet de prédire le comportement des produits avant leur fabrication.',
-      gradient: 'linear-gradient(135deg, #001A38 0%, #002D5B 100%)',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%)',
       features: ['Analyse statique et dynamique', 'Simulation thermique', 'Dynamique des fluides (CFD)', 'Analyse de fatigue', 'Optimisation topologique', 'Matériaux composites', 'Crash test virtuel'],
       useCases: [
         { title: 'Résistance des structures', desc: 'Vérification de la tenue mécanique sous contraintes statiques et dynamiques.' },
@@ -246,7 +246,7 @@ export class SolutionDetailComponent implements OnInit {
       name: 'DELMIA',
       tagline: 'Excellence opérationnelle et planification de la production du futur.',
       description: 'DELMIA est la solution de Dassault Systèmes dédiée à la planification et l\'optimisation des opérations industrielles. Elle permet de simuler les processus de fabrication, d\'optimiser les lignes de production et de réduire les temps de cycle.',
-      gradient: 'linear-gradient(135deg, #C5A059 0%, #001A38 100%)',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, var(--primary-deep) 100%)',
       features: ['Simulation des processus de fabrication', 'Planification de la production', 'Optimisation des flux', 'Ergonomie et sécurité opérateur', 'Programmation robots', 'Gestion MES', 'Jumeau numérique d\'usine'],
       useCases: [
         { title: 'Usine intelligente', desc: 'Simulation complète de l\'atelier de production avant investissement.' },

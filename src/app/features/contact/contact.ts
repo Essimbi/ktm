@@ -200,7 +200,7 @@ import {
     /* ── Hero ── */
     .contact-hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 60%, var(--primary-gold) 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
       padding: 120px 5% 100px;
       text-align: center;
       color: white;
@@ -359,7 +359,7 @@ import {
 
     /* ── Promise section ── */
     .promise-section {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, #001A38 100%);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
       padding: 60px 0 140px;
       color: white;
       h1, h2, h3, h4 { color: white; }
