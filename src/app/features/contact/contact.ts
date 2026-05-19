@@ -75,7 +75,7 @@ import {
                 <div class="ic-body">
                   <h4>Adresse</h4>
                   <p>BP 6596 Douala-Yassa<br>Cameroun</p>
-                  <span class="ic-badge">RC: RC/YAO/2022/B/1366</span>
+                  <!-- <span class="ic-badge">RC: RC/YAO/2022/B/1366</span> -->
                 </div>
               </div>
               <div class="info-card">

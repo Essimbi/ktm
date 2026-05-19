@@ -105,9 +105,9 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
               <lucide-icon [name]="Mail" size="16"></lucide-icon>
               <span>infos&#64;ktm-digit-innov.com</span>
             </div>
-            <div class="legal-badge">
+            <!-- <div class="legal-badge">
               RC: RC/YAO/2022/B/1366
-            </div>
+            </div> -->
           </div>
         </div>
 
