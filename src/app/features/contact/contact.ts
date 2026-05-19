@@ -201,7 +201,7 @@ import {
     .contact-hero {
       position: relative;
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
-      padding: 120px 5% 100px;
+      padding: 100px 5% 80px;
       text-align: center;
       color: white;
       overflow: hidden;
@@ -360,7 +360,7 @@ import {
     /* ── Promise section ── */
     .promise-section {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
-      padding: 60px 0 140px;
+      padding: 0 0 60px;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }

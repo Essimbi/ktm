@@ -127,7 +127,7 @@ import {
     .srv-hero {
       position: relative;
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 60%, var(--primary-gold) 100%);
-      padding: 130px 5% 100px;
+      padding: 100px 5% 80px;
       text-align: center;
       color: white;
       overflow: hidden;
@@ -229,7 +229,7 @@ import {
     /* ── Consulting banner ── */
     .consulting-banner {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
-      padding: 80px 0;
+      padding: 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }
@@ -296,8 +296,9 @@ import {
     /* ── CTA final ── */
     .srv-cta {
       background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-deep) 100%);
-      padding: 100px 5%; text-align: center; color: white;
-      h1, h2, h3, h4 { color: white; }
+      padding: 60px 5%; text-align: center; color: white;
+      h1, h2, h3, h4 { color: white; };
+      margin-bottom: 60px;
     }
     .cta-inner {
       max-width: 680px; margin: 0 auto;

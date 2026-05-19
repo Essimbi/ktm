@@ -188,7 +188,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
           <div class="clients-grid reveal">
             <div class="client-ref-card" *ngFor="let client of clientReferences; let i = index" [style.animation-delay.s]="i * 0.1">
               <div class="client-logo-wrapper">
-                <div class="client-initial" [style.background]="client.color">{{client.name[0]}}</div>
+                <img [src]="client.logo" [alt]="client.name + ' logo'" class="client-logo">
               </div>
               <div class="client-details">
                 <h4>{{client.name}}</h4>
@@ -306,7 +306,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .slider-dots { display: flex; gap: 12px; button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; &.active { background: var(--primary-gold); transform: scale(1.5); } } }
 
     /* ── About Section ── */
-    .section-tag { display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .section-tag { display: inline-block; font-size: 0.85rem; font-weight: 800; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; @media (max-width: 1024px) { grid-template-columns: 1fr; } }
     .value-props { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
     .vp-item { display: flex; gap: 20px; align-items: flex-start;
@@ -325,7 +325,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     }
 
     /* ── Solutions ── */
-    .solutions-section { background: #F1F5F9; padding: 100px 0; }
+    .solutions-section { background: #F1F5F9; padding: 0; }
     .sec-header { text-align: center; margin-bottom: 60px; }
     .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .sol-card { padding: 40px; background: white; border-radius: 24px; border: 1px solid #E2E8F0; transition: all 0.4s; animation-delay: var(--delay);
@@ -351,7 +351,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .ind-hover-cta { position: absolute; bottom: 30px; left: 40px; right: 40px; display: flex; align-items: center; justify-content: space-between; color: white; font-weight: 700; transform: translateY(20px); opacity: 0; transition: all 0.4s; }
 
     /* ── Trust / Certs ── */
-    .trust-section { padding-bottom: 100px; }
+    .trust-section { padding-bottom: 0; }
     .trust-box { background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; color: white; @media(max-width:900px){ grid-template-columns: 1fr; text-align: center; padding: 40px; }
       h2 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
       p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
@@ -381,27 +381,41 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     
     .clients-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px;
       margin-top: 50px;
       position: relative;
       z-index: 2;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      
+      @media(max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
       
       @media(max-width: 768px) {
         grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 20px;
       }
     }
     
     .client-ref-card {
       background: white;
-      border-radius: 24px;
-      padding: 32px 28px;
+      border-radius: 20px;
+      padding: 20px;
       border: 1px solid rgba(226, 232, 240, 0.6);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       
       &::before {
         content: '';
@@ -425,8 +439,9 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
           transform: scaleX(1);
         }
         
-        .client-initial {
-          transform: scale(1.1);
+        .client-logo {
+          transform: scale(1.05);
+          filter: grayscale(0);
         }
       }
     }
@@ -434,34 +449,42 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .client-logo-wrapper {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
+      height: 80px;
+      padding: 8px;
     }
     
-    .client-initial {
-      width: 60px;
-      height: 60px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: white;
-      transition: transform 0.3s ease;
+    .client-logo {
+      max-width: 120px;
+      max-height: 70px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: all 0.3s ease;
+      filter: grayscale(0.1);
+      
+      @media(max-width: 768px) {
+        max-width: 100px;
+        max-height: 60px;
+      }
     }
     
     .client-details {
-      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       
       h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--primary-deep);
         margin-bottom: 6px;
         font-weight: 700;
       }
       
       .client-sector {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: var(--primary-gold);
         font-weight: 600;
         text-transform: uppercase;
@@ -471,34 +494,39 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
       }
       
       .client-description {
-        font-size: 0.9rem;
+        font-size: 0.82rem;
         color: var(--text-muted);
-        line-height: 1.6;
+        line-height: 1.4;
         margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex: 1;
       }
     }
     
     .client-solutions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
       justify-content: center;
     }
     
     .solution-tag {
-      font-size: 0.75rem;
-      padding: 4px 12px;
-      background: rgba(197, 160, 89, 0.1);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      background: rgba(197, 160, 89, 0.08);
       color: var(--primary-gold);
-      border-radius: 20px;
-      border: 1px solid rgba(197, 160, 89, 0.2);
-      font-weight: 600;
+      border-radius: 12px;
+      border: 1px solid rgba(197, 160, 89, 0.15);
+      font-weight: 500;
     }
 
     /* ── Partenaires ── */
     .partners-section {
       background: white;
-      padding: 100px 0;
+      padding: 0;
     }
     
     .partners-grid {
@@ -610,7 +638,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     }
 
     /* ── Final CTA ── */
-    .home-final-cta { position: relative; padding: 140px 5% 200px; background: url('/assets/hero-bg.png') center/cover; text-align: center; color: white; overflow: hidden;
+    .home-final-cta { position: relative; padding: 80px 5% 100px; background: url('/assets/hero-bg.png') center/cover; text-align: center; color: white; overflow: hidden;
       .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-gold) 100%); opacity: 0.9; }
       .cta-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; h2 { font-size: 3.5rem; color: white; margin-bottom: 20px; @media(max-width:768px){font-size:2.5rem} } p { font-size: 1.25rem; margin-bottom: 45px; opacity: 0.9; } }
       .cta-btns { display: flex; gap: 20px; justify-content: center; @media(max-width:480px){ flex-direction: column; } }
@@ -681,6 +709,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'UCAC',
       sector: 'Éducation Supérieure',
       color: 'var(--primary-deep)',
+      logo: '/assets/clients/Logo-UCAC.png',
       description: 'Déploiement de CATIA et SOLIDWORKS pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
       solutions: ['CATIA', 'SOLIDWORKS', 'Formation']
     },
@@ -688,6 +717,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'Alucam',
       sector: 'Industrie Aluminium',
       color: '#C5A059',
+      logo: '/assets/clients/Alucam_logo.png',
       description: 'Optimisation des processus de production et conception d\'équipements industriels avec DELMIA et SIMULIA.',
       solutions: ['DELMIA', 'SIMULIA', 'Consulting']
     },
@@ -695,6 +725,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'JFN Group',
       sector: 'Conglomérat Industriel',
       color: 'var(--primary-deep)',
+      logo: '/assets/clients/JFN_Group.png',
       description: 'Transformation digitale complète avec la plateforme 3DEXPERIENCE pour la gestion PLM multi-sites.',
       solutions: ['3DEXPERIENCE', 'PLM', 'Formation']
     },
@@ -702,6 +733,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'De La Salle',
       sector: 'Éducation Technique',
       color: '#A68545',
+      logo: '/assets/clients/De_La_Salle.jpeg',
       description: 'Programme de formation technique avancée et certification SOLIDWORKS pour les étudiants en génie mécanique.',
       solutions: ['SOLIDWORKS', 'Certification', 'Support']
     },
@@ -709,6 +741,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'IUC',
       sector: 'Université Privée',
       color: '#C5A059',
+      logo: '/assets/clients/IUC.png',
       description: 'Partenariat académique 3DEXPERIENCE et mise en place d\'un laboratoire de conception numérique.',
       solutions: ['3DEXPERIENCE', 'CATIA', 'Académique']
     },
@@ -716,6 +749,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       name: 'CUD',
       sector: 'Collectivité Publique',
       color: 'var(--primary-deep)',
+      logo: '/assets/clients/CUD.png',
       description: 'Modernisation des services techniques avec des solutions de GED NeoLedge et formation des équipes.',
       solutions: ['NeoLedge', 'GED', 'Formation']
     }

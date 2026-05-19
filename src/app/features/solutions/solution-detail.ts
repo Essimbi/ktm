@@ -95,7 +95,7 @@ interface SolutionDetail {
   `,
   styles: [`
     .sol-hero {
-      padding: 100px 5% 80px;
+      padding: 85px 5% 65px;
       color: white; text-align: center;
       h1, h2, h3, h4 { color: white; }
       .breadcrumb {
@@ -133,7 +133,7 @@ interface SolutionDetail {
     }
     .use-cases-section {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
-      padding: 80px 5%;
+      padding: 60px 5%;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }
@@ -149,13 +149,13 @@ interface SolutionDetail {
       p { font-size: 0.9rem; opacity: 0.7; line-height: 1.6; }
       &:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
     }
-    .cta-bottom { padding: 80px 5%; }
+    .cta-bottom { padding: 60px 5%; padding-bottom: 140px;}
     .cta-box {
       max-width: 700px; margin: 0 auto; text-align: center;
       h2 { font-size: 2.5rem; margin-bottom: 16px; }
       p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 36px; }
     }
-    .not-found { text-align: center; padding: 120px 20px; h2 { margin-bottom: 24px; } }
+    .not-found { text-align: center; padding: 80px 20px; padding-bottom: 140px; h2 { margin-bottom: 24px; } }
   `]
 })
 export class SolutionDetailComponent implements OnInit {
@@ -255,6 +255,81 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Formation opérateurs', desc: 'Réalité virtuelle pour former les opérateurs aux gestes métier.' },
       ],
       industries: ['Automobile', 'Aéronautique', 'Agroalimentaire', 'Électronique', 'Énergie'],
+    },
+    {
+      id: 'geovia',
+      name: 'GEOVIA',
+      tagline: 'Solutions géosciences pour l\'exploitation durable des ressources naturelles.',
+      description: 'GEOVIA de Dassault Systèmes offre des solutions complètes pour l\'industrie minière et les géosciences. De la modélisation géologique 3D à la planification minière optimisée, GEOVIA permet une exploitation responsable et rentable des ressources naturelles tout en respectant l\'environnement.',
+      gradient: 'linear-gradient(135deg, #2D5B2D 0%, #C5A059 100%)',
+      features: ['Modélisation géologique 3D', 'Planification minière optimisée', 'Simulation des opérations', 'Gestion environnementale', 'Analyse géostatistique', 'Optimisation des ressources', 'Conformité réglementaire'],
+      useCases: [
+        { title: 'Exploration minière', desc: 'Modélisation 3D des gisements pour optimiser l\'exploration.' },
+        { title: 'Planification de mine', desc: 'Optimisation des séquences d\'extraction et des coûts.' },
+        { title: 'Impact environnemental', desc: 'Évaluation et minimisation de l\'impact écologique.' },
+        { title: 'Sécurité minière', desc: 'Simulation des risques et optimisation de la sécurité.' },
+      ],
+      industries: ['Mines & Métaux', 'Pétrole & Gaz', 'Géotechnique', 'Environnement', 'Énergie'],
+    },
+    {
+      id: 'biovia',
+      name: 'BIOVIA',
+      tagline: 'Plateforme scientifique pour accélérer l\'innovation en sciences de la vie.',
+      description: 'BIOVIA est la plateforme scientifique de Dassault Systèmes dédiée aux sciences de la vie, chimie et matériaux. Elle permet aux chercheurs et scientifiques de collaborer, d\'innover et de découvrir de nouveaux médicaments, matériaux et formulations grâce à des outils de modélisation moléculaire et de gestion des données scientifiques.',
+      gradient: 'linear-gradient(135deg, #10B981 0%, #002D5B 100%)',
+      features: ['Cahiers de laboratoire électroniques', 'Gestion des données scientifiques', 'Modélisation moléculaire', 'Conformité réglementaire', 'Collaboration scientifique', 'Analyse prédictive', 'Workflow automatisés'],
+      useCases: [
+        { title: 'Découverte de médicaments', desc: 'Accélération du développement pharmaceutique par la simulation.' },
+        { title: 'Recherche matériaux', desc: 'Innovation dans les nouveaux matériaux et composites.' },
+        { title: 'Conformité qualité', desc: 'Respect des normes FDA, EMA et autres réglementations.' },
+        { title: 'Collaboration R&D', desc: 'Partage sécurisé des données entre équipes de recherche.' },
+      ],
+      industries: ['Pharmaceutique', 'Biotechnologie', 'Chimie', 'Matériaux', 'Cosmétique'],
+    },
+    {
+      id: 'netvibes',
+      name: 'NETVIBES',
+      tagline: 'Intelligence artificielle et veille stratégique pour piloter votre entreprise.',
+      description: 'NETVIBES est la plateforme d\'intelligence artificielle et de veille stratégique de Dassault Systèmes. Elle transforme les données en insights actionnables grâce à l\'IA, permettant aux entreprises de prendre des décisions éclairées, d\'anticiper les tendances du marché et d\'optimiser leurs performances business.',
+      gradient: 'linear-gradient(135deg, #6366F1 0%, #002D5B 100%)',
+      features: ['Tableaux de bord IA temps réel', 'Veille concurrentielle automatisée', 'Alertes intelligentes', 'Analyse prédictive', 'Traitement du langage naturel', 'Visualisation avancée', 'Intégration multi-sources'],
+      useCases: [
+        { title: 'Veille concurrentielle', desc: 'Surveillance automatisée de la concurrence et du marché.' },
+        { title: 'Analyse de tendances', desc: 'Détection précoce des signaux faibles et opportunités.' },
+        { title: 'Pilotage performance', desc: 'Tableaux de bord exécutifs avec KPI en temps réel.' },
+        { title: 'Intelligence client', desc: 'Analyse des sentiments et comportements clients.' },
+      ],
+      industries: ['Retail', 'Finance', 'Média', 'Consulting', 'Technologie'],
+    },
+    {
+      id: 'neoledge',
+      name: 'NeoLedge ECM',
+      tagline: 'La plateforme ECM tout-en-un propulsée par l\'IA pour moderniser la gestion documentaire.',
+      description: 'NeoLedge ECM est une solution complète de gestion de contenu d\'entreprise (ECM) qui révolutionne la façon dont les organisations gèrent leurs documents et processus. Propulsée par l\'intelligence artificielle, elle automatise la capture, le traitement et l\'archivage des documents tout en garantissant la conformité réglementaire.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #059669 100%)',
+      features: ['Capture multicanal & LAD/RAD', 'Gestion de dossiers & workflows', 'Signature électronique intégrée', 'Intelligence artificielle AI.Lise', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Conformité RGPD'],
+      useCases: [
+        { title: 'Dématérialisation RH', desc: 'Digitalisation complète des processus ressources humaines.' },
+        { title: 'Gestion comptable', desc: 'Automatisation du traitement des factures et documents comptables.' },
+        { title: 'Conformité réglementaire', desc: 'Archivage légal et respect des obligations de conservation.' },
+        { title: 'Collaboration documentaire', desc: 'Partage sécurisé et co-édition de documents en temps réel.' },
+      ],
+      industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie'],
+    },
+    {
+      id: 'iterop',
+      name: 'ITEROP',
+      tagline: 'Plateforme BPM low-code pour modéliser, automatiser et optimiser vos processus métiers.',
+      description: 'ITEROP est une plateforme BPM (Business Process Management) nouvelle génération qui permet aux entreprises de modéliser, automatiser et optimiser leurs processus métiers sans développement complexe. Grâce à son approche low-code et ses connecteurs natifs, ITEROP démocratise l\'automatisation des processus.',
+      gradient: 'linear-gradient(135deg, #8B5CF6 0%, #002D5B 100%)',
+      features: ['Modélisation BPMN visuelle', 'Automatisation sans code', 'Intégration système SI', 'Suivi des performances KPI', 'Workflows intelligents', 'Connecteurs pré-configurés', 'Tableau de bord analytique'],
+      useCases: [
+        { title: 'Automatisation RH', desc: 'Digitalisation des processus de recrutement et onboarding.' },
+        { title: 'Gestion des achats', desc: 'Automatisation du cycle procure-to-pay complet.' },
+        { title: 'Service client', desc: 'Orchestration des processus de support et réclamations.' },
+        { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
+      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration'],
     },
   ];
 

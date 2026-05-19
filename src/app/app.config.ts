@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { 
   LucideAngularModule, 
@@ -16,7 +16,9 @@ import {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes),
+    provideRouter(routes,
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
+    ),
     importProvidersFrom(
       LucideAngularModule.pick({
         Menu, X, ChevronDown, ChevronUp, ChevronRight, Search, Globe,

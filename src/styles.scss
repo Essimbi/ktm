@@ -24,7 +24,7 @@
   --glass-border: rgba(255, 255, 255, 0.25);
 
   /* ── Spacing ── */
-  --section-padding: 100px 5%;
+  --section-padding: 60px 5%;
   --border-radius: 12px;
 
   /* ── Transitions ── */
@@ -168,15 +168,15 @@ button {
 
 .section-tag {
   display: inline-block;
-  padding: 6px 18px;
-  background: rgba(197, 160, 89, 0.1);
-  border: 1px solid rgba(197, 160, 89, 0.2);
+  padding: 8px 22px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.25);
   border-radius: 50px;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--primary-gold);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin-bottom: 16px;
 }
 

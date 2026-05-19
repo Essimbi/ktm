@@ -109,7 +109,8 @@ import {
           </div>
           <div class="clients-grid">
             <div class="client-card reveal" *ngFor="let c of clientRefs">
-              <div class="client-initial" [style.background]="c.color">{{c.name[0]}}</div>
+              <div class="client-initial" *ngIf="!c.logo" [style.background]="c.color">{{c.name[0]}}</div>
+              <img *ngIf="c.logo" [src]="c.logo" [alt]="c.name + ' logo'" class="client-logo">
               <div class="client-info">
                 <h4>{{c.name}}</h4>
                 <span>{{c.sector}}</span>
@@ -185,7 +186,7 @@ import {
       justify-content: center;
       text-align: center;
       color: white;
-      padding: 120px 5% 80px;
+      padding: 90px 5% 60px;
       overflow: hidden;
     }
     .hero-bg-shapes {
@@ -274,7 +275,7 @@ import {
     /* ── Timeline ── */
     .history-section {
       background: linear-gradient(160deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
-      padding: 100px 0;
+      padding: 0;
       color: white;
       h1, h2, h3, h4 { color: white; }
     }
@@ -375,7 +376,7 @@ import {
       border: 1px solid #E2E8F0; position: relative; overflow: hidden;
       transition: all 0.3s ease;
       animation-delay: var(--delay, 0s);
-      lucide-icon { color: var(--primary-electric); margin-bottom: 20px; }
+      lucide-icon { color: var(--primary-gold); margin-bottom: 20px; }
       h4 { font-size: 1.15rem; margin-bottom: 12px; }
       p  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
       &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 45, 91, 0.1); border-color: var(--primary-gold); }
@@ -406,7 +407,8 @@ import {
     /* ── CTA Final ── */
     .about-cta {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-gold) 100%);
-      padding: 100px 5%; text-align: center; color: white;
+      padding: 60px 5%; text-align: center; color: white;
+      margin-bottom: 60px;
     }
     .cta-inner {
       max-width: 700px; margin: 0 auto;
@@ -418,37 +420,87 @@ import {
     /* ── Clients References ── */
     .clients-section {
       background: linear-gradient(160deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
-      padding: 80px 0 100px;
+      padding: 0;
       h2, h4 { color: white !important; }
     }
     .sec-header { text-align: center; margin-bottom: 50px; }
     .section-tag {
-      display: inline-block; padding: 6px 18px;
-      background: rgba(0, 176, 90, 0.15); border: 1px solid rgba(0, 176, 90, 0.35);
-      border-radius: 50px; font-size: 0.72rem; font-weight: 800;
-      color: var(--primary-gold); text-transform: uppercase; letter-spacing: 2px;
+      display: inline-block; padding: 8px 22px;
+      background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25);
+      border-radius: 50px; font-size: 0.85rem; font-weight: 800;
+      color: var(--primary-gold); text-transform: uppercase; letter-spacing: 1.5px;
       margin-bottom: 16px;
     }
     .clients-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
       gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      
+      @media(max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+      }
+      
+      @media(max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      @media(max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
     }
     .client-card {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; padding: 24px;
-      display: flex; align-items: center; gap: 18px;
+      background: rgba(255,255,255,0.08); 
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; 
+      padding: 16px;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      text-align: center;
+      gap: 12px;
       transition: all 0.3s ease;
-      &:hover { background: rgba(255,255,255,0.12); transform: translateY(-6px); }
+      height: 140px;
+      
+      &:hover { 
+        background: rgba(255,255,255,0.15); 
+        transform: translateY(-4px); 
+        border-color: rgba(197, 160, 89, 0.4);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
     }
     .client-initial {
-      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; font-weight: 900; color: white;
+      font-size: 1.2rem; font-weight: 900; color: white;
     }
+    
+    .client-logo {
+      width: 60px; height: 48px; 
+      object-fit: contain;
+      border-radius: 8px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.95);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      filter: brightness(1.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        transform: scale(1.05);
+        background: white;
+        filter: brightness(1);
+        box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+      }
+    }
+    
     .client-info {
-      h4 { font-size: 1rem; margin-bottom: 4px; color: white !important; }
-      span { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+      h4 { font-size: 0.9rem; margin-bottom: 2px; color: white !important; font-weight: 600; }
+      span { font-size: 0.7rem; color: rgba(255,255,255,0.65); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
     }
 
     /* ── Certifications ── */
@@ -777,13 +829,13 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   clientRefs = [
-    { name: 'UCAC', sector: 'Éducation supérieure', color: '#002D5B' },
-    { name: 'JFN Group', sector: 'Industrie', color: 'var(--primary-deep)' },
-    { name: 'De La Salle', sector: 'Éducation', color: '#C5A059' },
-    { name: 'IUC', sector: 'Université privée', color: '#A68545' },
-    { name: 'Neo Industry', sector: 'Industrie', color: '#002D5B' },
-    { name: 'CUD', sector: 'Collectivité publique', color: 'var(--primary-deep)' },
-    { name: 'Alucam', sector: 'Industrie aluminium', color: '#C5A059' },
+    { name: 'UCAC', sector: 'Éducation supérieure', color: '#002D5B', logo: '/assets/clients/Logo-UCAC.png' },
+    { name: 'JFN Group', sector: 'Industrie', color: 'var(--primary-deep)', logo: '/assets/clients/JFN_Group.png' },
+    { name: 'De La Salle', sector: 'Éducation', color: '#C5A059', logo: '/assets/clients/De_La_Salle.jpeg' },
+    { name: 'IUC', sector: 'Université privée', color: '#A68545', logo: '/assets/clients/IUC.png' },
+    { name: 'Neo Industry', sector: 'Industrie', color: '#002D5B', logo: '/assets/clients/Neo_Industry.jpg' },
+    { name: 'CUD', sector: 'Collectivité publique', color: 'var(--primary-deep)', logo: '/assets/clients/CUD.png' },
+    { name: 'Alucam', sector: 'Industrie aluminium', color: '#C5A059', logo: '/assets/clients/Alucam_logo.png' },
     { name: 'Groupe Wagas', sector: 'Conglomérat', color: '#002D5B' },
   ];
 

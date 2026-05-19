@@ -95,13 +95,13 @@ import { LucideAngularModule, Calendar, Clock, User, ArrowLeft, Share2, Linkedin
       max-width: 900px; margin: 0 auto;
       .back-link {
         display: flex; align-items: center; gap: 8px;
-        color: var(--primary-electric); font-weight: 700; margin-bottom: 30px;
+        color: var(--primary-gold); font-weight: 700; margin-bottom: 30px;
         transition: transform 0.2s;
         &:hover { transform: translateX(-5px); }
       }
       .category-tag {
         display: inline-block; padding: 6px 16px;
-        background: var(--primary-electric); border-radius: 50px;
+        background: var(--primary-gold); border-radius: 50px;
         font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
         margin-bottom: 20px;
       }
@@ -134,7 +134,7 @@ import { LucideAngularModule, Calendar, Clock, User, ArrowLeft, Share2, Linkedin
         background: #F1F5F9; color: var(--primary-deep);
         display: flex; align-items: center; justify-content: center;
         transition: all 0.3s;
-        &:hover { background: var(--primary-electric); color: white; transform: translateY(-3px); }
+        &:hover { background: var(--primary-gold); color: white; transform: translateY(-3px); }
       }
     }
     .article-content {
@@ -145,7 +145,7 @@ import { LucideAngularModule, Calendar, Clock, User, ArrowLeft, Share2, Linkedin
     }
     .article-tags {
       margin-top: 60px; display: flex; gap: 12px; flex-wrap: wrap;
-      span { font-weight: 700; color: var(--primary-electric); font-size: 0.9rem; }
+      span { font-weight: 700; color: var(--primary-gold); font-size: 0.9rem; }
     }
 
     /* ── Related ── */
@@ -160,9 +160,9 @@ import { LucideAngularModule, Calendar, Clock, User, ArrowLeft, Share2, Linkedin
     }
     .card-img { height: 180px; img { width: 100%; height: 100%; object-fit: cover; } }
     .card-body { padding: 24px;
-      .card-cat { display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary-electric); text-transform: uppercase; margin-bottom: 10px; }
+      .card-cat { display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary-gold); text-transform: uppercase; margin-bottom: 10px; }
       h4 { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.4; }
-      .read-link { font-weight: 700; color: var(--primary-electric); font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
+      .read-link { font-weight: 700; color: var(--primary-gold); font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
     }
   `]
 })

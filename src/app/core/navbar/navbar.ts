@@ -435,7 +435,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
           color: var(--text-muted);
           padding: 9px 16px;
 
-          &:hover { color: var(--primary-electric); }
+          &:hover { color: var(--primary-gold); }
         }
       }
     }

@@ -150,7 +150,7 @@ import {
     .sol-hero {
       position: relative;
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 55%, var(--primary-gold) 100%);
-      padding: 140px 5% 100px;
+      padding: 100px 5% 80px;
       text-align: center;
       color: white;
       overflow: hidden;
@@ -293,14 +293,14 @@ import {
     /* ── Sectors ── */
     .sectors-section {
       background: linear-gradient(160deg, var(--primary-deep) 0%, #0a2d5e 100%);
-      padding: 80px 0;
+      padding: 0;
     }
     .sec-header { text-align: center; margin-bottom: 50px; }
     .section-tag {
-      display: inline-block; padding: 6px 18px;
-      background: rgba(0,176,90,0.15); border: 1px solid rgba(0,176,90,0.35);
-      border-radius: 50px; font-size: 0.7rem; font-weight: 800;
-      color: var(--accent-green); text-transform: uppercase; letter-spacing: 2px;
+      display: inline-block; padding: 8px 22px;
+      background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25);
+      border-radius: 50px; font-size: 0.85rem; font-weight: 800;
+      color: var(--primary-gold); text-transform: uppercase; letter-spacing: 1.5px;
       margin-bottom: 16px;
     }
     .sectors-grid {
@@ -319,7 +319,7 @@ import {
     }
 
     /* ── CTA ── */
-    .sol-cta { padding: 80px 5% 150px; text-align: center; }
+    .sol-cta { padding: 60px 5% 80px; text-align: center; }
     .cta-card {
       max-width: 1100px; margin: 0 auto;
       padding: 70px; border-radius: 40px;

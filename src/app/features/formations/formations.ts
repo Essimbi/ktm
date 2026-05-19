@@ -260,7 +260,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       p { font-size: 0.88rem; opacity: 0.7; }
       &:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
     }
-    .cta-section { text-align: center; padding-top: 80px; padding-bottom: 80px; }
+    .cta-section { text-align: center; padding-top: 80px; padding-bottom: 140px; }
     .cta-box {
       max-width: 700px; margin: 0 auto;
       h2 { font-size: 2.8rem; margin-bottom: 16px; color: var(--primary-deep); }
