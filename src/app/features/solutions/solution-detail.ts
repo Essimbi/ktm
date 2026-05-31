@@ -12,6 +12,7 @@ interface SolutionDetail {
   features: string[];
   useCases: { title: string; desc: string }[];
   industries: string[];
+  certifications: { name: string; level: string; duration: string; desc: string }[];
 }
 
 @Component({
@@ -70,6 +71,30 @@ interface SolutionDetail {
             <div class="use-case-card" *ngFor="let uc of solution.useCases">
               <h4>{{uc.title}}</h4>
               <p>{{uc.desc}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="certifications-section">
+        <div class="section-container">
+          <div class="cert-header">
+            <h2 class="section-title">Certifications {{solution.name}}</h2>
+            <p>Validez votre expertise et boostez votre carrière avec nos certifications officielles reconnues mondialement.</p>
+          </div>
+          <div class="certifications-grid">
+            <div class="cert-card" *ngFor="let cert of solution.certifications">
+              <div class="cert-level-badge" [class]="cert.level.toLowerCase()">{{cert.level}}</div>
+              <h4>{{cert.name}}</h4>
+              <div class="cert-duration">
+                <lucide-icon [name]="CheckCircle" size="14"></lucide-icon>
+                <span>{{cert.duration}}</span>
+              </div>
+              <p>{{cert.desc}}</p>
+              <a routerLink="/formations" class="cert-cta">
+                S'inscrire <lucide-icon [name]="ArrowRight" size="14"></lucide-icon>
+              </a>
             </div>
           </div>
         </div>
@@ -149,6 +174,51 @@ interface SolutionDetail {
       p { font-size: 0.9rem; opacity: 0.7; line-height: 1.6; }
       &:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
     }
+    
+    /* ── Certifications ── */
+    .certifications-section {
+      background: #F8FAFC; padding: 80px 5%;
+    }
+    .cert-header {
+      text-align: center; margin-bottom: 50px;
+      h2 { font-size: 2.5rem; margin-bottom: 16px; }
+      p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    }
+    .certifications-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .cert-card {
+      background: white; border-radius: 20px; padding: 28px;
+      border: 1px solid #E2E8F0; box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      transition: all 0.3s ease; position: relative;
+      &:hover {
+        transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,45,91,0.08);
+        border-color: var(--primary-gold);
+      }
+      h4 { font-size: 1.2rem; margin-bottom: 12px; color: var(--primary-deep); }
+      p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+    }
+    .cert-level-badge {
+      position: absolute; top: 16px; right: 16px;
+      padding: 4px 12px; border-radius: 12px; font-size: 0.7rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      &.débutant { background: rgba(34, 197, 94, 0.1); color: #16A34A; }
+      &.intermédiaire { background: rgba(251, 191, 36, 0.1); color: #D97706; }
+      &.avancé { background: rgba(239, 68, 68, 0.1); color: #DC2626; }
+      &.expert { background: rgba(147, 51, 234, 0.1); color: #9333EA; }
+    }
+    .cert-duration {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+      lucide-icon { color: var(--primary-gold); }
+      span { font-size: 0.85rem; font-weight: 600; color: var(--primary-deep); }
+    }
+    .cert-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.9rem; font-weight: 700; color: var(--primary-gold);
+      transition: gap 0.2s ease;
+      &:hover { gap: 12px; }
+    }
     .cta-bottom { padding: 60px 5%; padding-bottom: 140px;}
     .cta-box {
       max-width: 700px; margin: 0 auto; text-align: center;
@@ -180,6 +250,12 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'BTP', desc: 'Ingénierie des structures, gros œuvre et équipements de construction.' },
       ],
       industries: ['Aéronautique', 'Automobile', 'Énergie', 'BTP', 'Naval', 'Défense'],
+      certifications: [
+        { name: 'CATIA V5 Essentials', level: 'Débutant', duration: '5 jours', desc: 'Maîtrisez les fondamentaux de la modélisation 3D et des assemblages avec CATIA V5.' },
+        { name: 'CATIA V5 Surfacique', level: 'Intermédiaire', duration: '3 jours', desc: 'Apprenez les techniques avancées de modélisation surfacique pour le design complexe.' },
+        { name: 'CATIA V6 3DEXPERIENCE', level: 'Intermédiaire', duration: '4 jours', desc: 'Découvrez la nouvelle génération CATIA sur plateforme collaborative 3DEXPERIENCE.' },
+        { name: 'CATIA Expert Certification', level: 'Expert', duration: '2 jours', desc: 'Certification officielle Dassault Systèmes pour devenir expert CATIA reconnu.' },
+      ],
     },
     {
       id: 'solidworks',
@@ -195,6 +271,12 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Électronique', desc: 'Intégration mécatronique et conception de boîtiers électroniques.' },
       ],
       industries: ['PME', 'Médical', 'Électronique', 'Éducation', 'Mécanique générale'],
+      certifications: [
+        { name: 'SOLIDWORKS Associate (CSWA)', level: 'Débutant', duration: '3 jours', desc: 'Certification de base pour maîtriser les fondamentaux de SOLIDWORKS.' },
+        { name: 'SOLIDWORKS Professional (CSWP)', level: 'Intermédiaire', duration: '5 jours', desc: 'Certification avancée pour les utilisateurs expérimentés de SOLIDWORKS.' },
+        { name: 'SOLIDWORKS Simulation', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisez-vous dans l\'analyse par éléments finis avec SOLIDWORKS Simulation.' },
+        { name: 'SOLIDWORKS Expert (CSWE)', level: 'Expert', duration: '2 jours', desc: 'Le plus haut niveau de certification SOLIDWORKS pour les experts.' },
+      ],
     },
     {
       id: '3dexperience',
@@ -210,6 +292,11 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Industrie agile', desc: 'Accélération du time-to-market grâce aux workflows automatisés.' },
       ],
       industries: ['Toutes industries', 'Éducation', 'Défense', 'Sciences de la vie'],
+      certifications: [
+        { name: '3DEXPERIENCE Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Découvrez les bases de la plateforme collaborative 3DEXPERIENCE.' },
+        { name: '3DEXPERIENCE PLM', level: 'Intermédiaire', duration: '4 jours', desc: 'Maîtrisez la gestion du cycle de vie produit sur 3DEXPERIENCE.' },
+        { name: '3DEXPERIENCE Administrator', level: 'Avancé', duration: '3 jours', desc: 'Administrez et configurez la plateforme 3DEXPERIENCE pour votre entreprise.' },
+      ],
     },
     {
       id: 'simulia',
@@ -225,6 +312,11 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Électronique & thermique', desc: 'Gestion thermique des composants électroniques sous contrainte.' },
       ],
       industries: ['Aéronautique', 'Automobile', 'Énergie', 'Défense', 'Médical'],
+      certifications: [
+        { name: 'SIMULIA Abaqus Fundamentals', level: 'Débutant', duration: '4 jours', desc: 'Apprenez les bases de la simulation par éléments finis avec Abaqus.' },
+        { name: 'SIMULIA Advanced Nonlinear', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les analyses non-linéaires complexes avec SIMULIA.' },
+        { name: 'SIMULIA CFD Specialist', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisez-vous dans la dynamique des fluides computationnelle.' },
+      ],
     },
     {
       id: 'enovia',
@@ -240,6 +332,10 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Qualité & conformité', desc: 'Gestion des non-conformités et actions correctives.' },
       ],
       industries: ['Pharmaceutique', 'Aéronautique', 'Automobile', 'Électronique'],
+      certifications: [
+        { name: 'ENOVIA Fundamentals', level: 'Débutant', duration: '3 jours', desc: 'Découvrez les bases de la gestion PLM avec ENOVIA.' },
+        { name: 'ENOVIA Administrator', level: 'Avancé', duration: '4 jours', desc: 'Administrez et configurez ENOVIA pour votre organisation.' },
+      ],
     },
     {
       id: 'delmia',
@@ -255,6 +351,10 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Formation opérateurs', desc: 'Réalité virtuelle pour former les opérateurs aux gestes métier.' },
       ],
       industries: ['Automobile', 'Aéronautique', 'Agroalimentaire', 'Électronique', 'Énergie'],
+      certifications: [
+        { name: 'DELMIA Process Planning', level: 'Intermédiaire', duration: '4 jours', desc: 'Maîtrisez la planification des processus de fabrication avec DELMIA.' },
+        { name: 'DELMIA Robotics', level: 'Avancé', duration: '3 jours', desc: 'Programmation et simulation robotique avancée avec DELMIA.' },
+      ],
     },
     {
       id: 'geovia',
@@ -270,6 +370,10 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Sécurité minière', desc: 'Simulation des risques et optimisation de la sécurité.' },
       ],
       industries: ['Mines & Métaux', 'Pétrole & Gaz', 'Géotechnique', 'Environnement', 'Énergie'],
+      certifications: [
+        { name: 'GEOVIA Surpac Essentials', level: 'Débutant', duration: '3 jours', desc: 'Apprenez les bases de la modélisation géologique avec Surpac.' },
+        { name: 'GEOVIA Urban Planning', level: 'Intermédiaire', duration: '2 jours', desc: 'Maîtrisez la planification urbaine avec les outils GEOVIA.' },
+      ],
     },
     {
       id: 'biovia',
@@ -285,6 +389,10 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Collaboration R&D', desc: 'Partage sécurisé des données entre équipes de recherche.' },
       ],
       industries: ['Pharmaceutique', 'Biotechnologie', 'Chimie', 'Matériaux', 'Cosmétique'],
+      certifications: [
+        { name: 'BIOVIA Discovery Studio', level: 'Intermédiaire', duration: '3 jours', desc: 'Modélisation moléculaire et découverte de médicaments.' },
+        { name: 'BIOVIA Pipeline Pilot', level: 'Avancé', duration: '2 jours', desc: 'Automatisation des workflows scientifiques.' },
+      ],
     },
     {
       id: 'netvibes',
@@ -300,6 +408,10 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Intelligence client', desc: 'Analyse des sentiments et comportements clients.' },
       ],
       industries: ['Retail', 'Finance', 'Média', 'Consulting', 'Technologie'],
+      certifications: [
+        { name: 'NETVIBES Dashboard Creation', level: 'Débutant', duration: '1 jour', desc: 'Créez des tableaux de bord intelligents avec NETVIBES.' },
+        { name: 'NETVIBES AI Analytics', level: 'Intermédiaire', duration: '2 jours', desc: 'Exploitez l\'IA pour l\'analyse prédictive et la veille.' },
+      ],
     },
     {
       id: 'neoledge',
@@ -315,6 +427,11 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Collaboration documentaire', desc: 'Partage sécurisé et co-édition de documents en temps réel.' },
       ],
       industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie'],
+      certifications: [
+        { name: 'NeoLedge User Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Maîtrisez les fonctionnalités de base de la plateforme NeoLedge ECM.' },
+        { name: 'NeoLedge Administrator', level: 'Intermédiaire', duration: '2 jours', desc: 'Administrez et configurez NeoLedge pour votre organisation.' },
+        { name: 'NeoLedge AI.Lise Specialist', level: 'Avancé', duration: '2 jours', desc: 'Exploitez pleinement les capacités d\'IA pour l\'automatisation documentaire.' },
+      ],
     },
     {
       id: 'iterop',
@@ -330,6 +447,67 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
       ],
       industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration'],
+      certifications: [
+        { name: 'ITEROP Process Designer', level: 'Débutant', duration: '2 jours', desc: 'Concevez et modélisez vos processus métiers avec ITEROP.' },
+        { name: 'ITEROP Advanced Automation', level: 'Intermédiaire', duration: '2 jours', desc: 'Automatisez vos workflows complexes sans développement.' },
+      ],
+    },
+    {
+      id: 'neoledge-ged',
+      name: 'NeoLedge GED & Archivage',
+      tagline: 'Dématérialisez et centralisez l\'ensemble de vos documents avec une solution GED sécurisée.',
+      description: 'La solution GED & Archivage de NeoLedge permet aux entreprises de dématérialiser, centraliser et sécuriser l\'ensemble de leurs documents. Avec des fonctionnalités d\'indexation automatique, d\'archivage à valeur probante et de recherche avancée, elle transforme la gestion documentaire traditionnelle en un système intelligent et conforme.',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, #059669 100%)',
+      features: ['Indexation automatique des documents', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Droits d\'accès granulaires', 'Versioning automatique', 'Conformité RGPD', 'Sauvegarde sécurisée cloud'],
+      useCases: [
+        { title: 'Archivage légal', desc: 'Conservation sécurisée des documents avec valeur probante juridique.' },
+        { title: 'Dématérialisation RH', desc: 'Digitalisation complète des dossiers employés et processus RH.' },
+        { title: 'Gestion comptable', desc: 'Centralisation et archivage des factures et documents comptables.' },
+        { title: 'Documentation qualité', desc: 'Gestion des procédures, certifications et documents qualité.' },
+      ],
+      industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie'],
+      certifications: [
+        { name: 'NeoLedge GED Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Maîtrisez la gestion électronique de documents avec NeoLedge.' },
+        { name: 'NeoLedge Archiving Specialist', level: 'Intermédiaire', duration: '1 jour', desc: 'Spécialisez-vous dans l\'archivage à valeur probante.' },
+      ],
+    },
+    {
+      id: 'neoledge-workflow',
+      name: 'NeoLedge Workflows & RPA',
+      tagline: 'Automatisez vos flux de travail et processus répétitifs grâce à l\'intelligence artificielle.',
+      description: 'La solution Workflows & RPA de NeoLedge révolutionne l\'automatisation des processus métiers. Combinant workflows collaboratifs intelligents et robotisation des tâches répétitives (RPA), elle permet aux entreprises d\'optimiser leur productivité, réduire les erreurs et accélérer leurs processus de validation.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #A68545 100%)',
+      features: ['Workflow de validation collaboratif', 'Parapheur électronique', 'RPA — automatisation robotisée', 'Intégration ERP/SAP', 'Notifications intelligentes', 'Tableau de bord des processus', 'API REST complète'],
+      useCases: [
+        { title: 'Validation de factures', desc: 'Automatisation complète du circuit de validation des factures fournisseurs.' },
+        { title: 'Processus RH', desc: 'Workflows de recrutement, congés et évaluations automatisés.' },
+        { title: 'Approbations budgétaires', desc: 'Circuits de validation hiérarchique avec seuils automatiques.' },
+        { title: 'Gestion des contrats', desc: 'Workflow de création, validation et signature des contrats.' },
+      ],
+      industries: ['Services', 'Finance', 'Administration', 'Industrie', 'Santé'],
+      certifications: [
+        { name: 'NeoLedge Workflow Designer', level: 'Débutant', duration: '1 jour', desc: 'Concevez des workflows collaboratifs avec NeoLedge.' },
+        { name: 'NeoLedge RPA Specialist', level: 'Intermédiaire', duration: '2 jours', desc: 'Automatisez vos processus avec la robotisation RPA.' },
+      ],
+    },
+    {
+      id: 'neoledge-ai',
+      name: 'AI.Lise — IA Documentaire',
+      tagline: 'Décuplez votre capacité à organiser et exploiter vos données grâce à l\'IA.',
+      description: 'AI.Lise est le moteur d\'intelligence artificielle intégré à la plateforme NeoLedge. Cette solution révolutionnaire utilise les dernières avancées en IA pour automatiser la classification, l\'extraction de données et l\'analyse documentaire. Elle transforme vos documents en données exploitables et actionables.',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
+      features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies', 'Reconnaissance optique avancée', 'Analyse sémantique', 'Machine Learning adaptatif'],
+      useCases: [
+        { title: 'Traitement automatique factures', desc: 'Extraction automatique des données de facturation avec validation IA.' },
+        { title: 'Classification intelligente', desc: 'Tri automatique des documents entrants par type et priorité.' },
+        { title: 'Analyse de contrats', desc: 'Extraction des clauses importantes et détection des risques.' },
+        { title: 'Veille documentaire', desc: 'Surveillance automatique et résumé des documents critiques.' },
+      ],
+      industries: ['Finance', 'Juridique', 'Assurance', 'Administration', 'Santé'],
+      certifications: [
+        { name: 'AI.Lise Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Découvrez les capacités d\'IA documentaire avec AI.Lise.' },
+        { name: 'AI.Lise Advanced Analytics', level: 'Avancé', duration: '2 jours', desc: 'Exploitez pleinement l\'IA pour l\'analyse documentaire avancée.' },
+      ],
     },
   ];
 

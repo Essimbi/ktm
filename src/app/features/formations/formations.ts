@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, CheckCircle, Star } from 'lucide-angular';
+import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, CheckCircle, Star, Monitor, Wifi, MapPin, BookOpen, Settings, Laptop } from 'lucide-angular';
 
 @Component({
   selector: 'app-formations',
@@ -15,7 +15,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         <div class="hero-content">
           <span class="hero-tag">Académie KTM</span>
           <h1>Formations & Certifications</h1>
-          <p>Développez votre expertise sur les solutions Dassault Systèmes avec nos programmes officiels, animés par des instructeurs certifiés.</p>
+          <p>Développez votre expertise sur les solutions Dassault Systèmes et NeoLedge avec nos programmes officiels, animés par des instructeurs certifiés.</p>
         </div>
       </section>
 
@@ -27,10 +27,32 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         </div>
       </section>
 
-      <!-- Catalogue -->
+      <!-- Types de formations -->
       <section class="section-container">
+        <h2 class="section-title">Nos Modalités de Formation</h2>
+        <p class="section-subtitle">Choisissez la formule qui correspond le mieux à vos besoins et contraintes.</p>
+        
+        <div class="formation-types-grid">
+          <div class="formation-type-card" *ngFor="let type of formationTypes">
+            <div class="type-icon" [style.background]="type.color">
+              <lucide-icon [name]="type.icon" size="28"></lucide-icon>
+            </div>
+            <h3>{{type.name}}</h3>
+            <p>{{type.description}}</p>
+            <ul class="type-features">
+              <li *ngFor="let feature of type.features">
+                <lucide-icon [name]="CheckCircle" size="14"></lucide-icon>
+                {{feature}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalogue -->
+      <section class="section-container catalog-section">
         <h2 class="section-title">Catalogue des Formations</h2>
-        <p class="section-subtitle">Des programmes adaptés à tous les niveaux, du débutant au expert certifié.</p>
+        <p class="section-subtitle">Des programmes adaptés à tous les niveaux, du débutant à l'expert certifié.</p>
 
         <!-- Filters -->
         <div class="filter-bar">
@@ -149,6 +171,70 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         span { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
       }
       @media(max-width:768px) { flex-wrap: wrap; .stat { flex: 1 1 50%; } }
+    }
+    
+    /* Formation Types */
+    .formation-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .formation-type-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0,45,91,0.08);
+        border-color: var(--primary-gold);
+      }
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        color: var(--primary-deep);
+      }
+      p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+    }
+    .type-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .type-features {
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--primary-deep);
+        margin-bottom: 8px;
+        lucide-icon {
+          color: var(--primary-gold);
+          flex-shrink: 0;
+        }
+      }
+    }
+    
+    .catalog-section {
+      background: #F8FAFC;
+      padding: 80px 5%;
     }
     .filter-bar {
       display: flex;
@@ -276,6 +362,12 @@ export class FormationsComponent {
   readonly ArrowRight = ArrowRight;
   readonly CheckCircle = CheckCircle;
   readonly Star = Star;
+  readonly Monitor = Monitor;
+  readonly Wifi = Wifi;
+  readonly MapPin = MapPin;
+  readonly BookOpen = BookOpen;
+  readonly Settings = Settings;
+  readonly Laptop = Laptop;
 
   stats = [
     { value: '500+', label: 'Professionnels formés' },
@@ -284,16 +376,79 @@ export class FormationsComponent {
     { value: '15+', label: 'Certifications officielles' },
   ];
 
-  filters = ['Tous', 'CATIA', 'SOLIDWORKS', 'SIMULIA', '3DEXPERIENCE', 'Gestion de projet'];
+  formationTypes = [
+    {
+      name: 'Formations Inter-entreprises',
+      description: 'Rejoignez d\'autres professionnels dans nos sessions collectives pour partager expériences et bonnes pratiques.',
+      icon: Users,
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
+      features: ['6 participants maximum', 'Échanges entre professionnels', 'Calendrier fixe', 'Tarif optimisé']
+    },
+    {
+      name: 'Formations Intra-entreprise',
+      description: 'Des programmes personnalisés construits pour répondre aux besoins spécifiques de votre organisation.',
+      icon: Settings,
+      color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))',
+      features: ['Programme sur mesure', 'Dans vos locaux', 'Équipe dédiée', 'Flexibilité totale']
+    },
+    {
+      name: 'Formations en Salle',
+      description: 'Sessions présentielles dans nos centres de formation équipés des dernières technologies.',
+      icon: MapPin,
+      color: 'linear-gradient(135deg, #059669, var(--primary-deep))',
+      features: ['Matériel professionnel', 'Formateur présent', '7 heures par jour', 'Exercices pratiques']
+    },
+    {
+      name: 'Formations à Distance',
+      description: 'Formations en temps réel avec accompagnement personnalisé, depuis votre poste de travail.',
+      icon: Wifi,
+      color: 'linear-gradient(135deg, var(--primary-deep), #059669)',
+      features: ['Temps réel avec formateur', 'Depuis votre bureau', 'Exercices pratiques', 'Support technique']
+    },
+    {
+      name: 'Formations Catalogue',
+      description: 'Programmes standardisés couvrant l\'ensemble des fonctionnalités des solutions Dassault Systèmes.',
+      icon: BookOpen,
+      color: 'linear-gradient(135deg, #8B5CF6, var(--primary-deep))',
+      features: ['Contenu structuré', 'Progression pédagogique', 'Supports inclus', 'Certification possible']
+    },
+    {
+      name: 'Formations E-learning',
+      description: 'Apprenez à votre rythme avec nos modules interactifs disponibles 24h/24.',
+      icon: Laptop,
+      color: 'linear-gradient(135deg, var(--primary-deep), #8B5CF6)',
+      features: ['Accès 24h/24', 'Rythme personnel', 'Modules interactifs', 'Suivi de progression']
+    }
+  ];
+
+  filters = ['Tous', 'CATIA', 'SOLIDWORKS', 'SIMULIA', '3DEXPERIENCE', 'NeoLedge', 'GEOVIA'];
   activeFilter = 'Tous';
 
   allCourses = [
+    // CATIA
     { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
     { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
+    { title: 'CATIA V5 – Surfacique', desc: 'Maîtrisez la modélisation surfacique pour les formes complexes et le design industriel.', duration: '3 jours', students: 65, level: 'Intermédiaire', tags: ['CATIA', 'Surfacique', 'Design'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
+    
+    // SOLIDWORKS
     { title: 'SOLIDWORKS Essentiel', desc: 'Conception de pièces et assemblages mécaniques. Simulation basique et mise en plan.', duration: '3 jours', students: 200, level: 'Débutant', tags: ['SOLIDWORKS', 'Mécanique'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
     { title: 'SOLIDWORKS Simulation', desc: 'Analyse statique, fatigue, thermique et dynamique. Optimisation topologique.', duration: '4 jours', students: 90, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'Simulation', 'FEA'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: 'SOLIDWORKS' },
+    { title: 'SOLIDWORKS PDM', desc: 'Gestion des données techniques et collaboration en équipe avec SOLIDWORKS PDM.', duration: '2 jours', students: 75, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'PDM', 'Gestion'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
+    
+    // SIMULIA
     { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'SIMULIA' },
+    { title: 'SIMULIA CST Studio', desc: 'Simulation électromagnétique pour les applications haute fréquence et antennes.', duration: '3 jours', students: 30, level: 'Avancé', tags: ['SIMULIA', 'Électromagnétisme'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'SIMULIA' },
+    
+    // 3DEXPERIENCE
     { title: '3DEXPERIENCE Plateforme', desc: 'Administration, collaboration et gestion PLM sur la plateforme 3DEXPERIENCE de Dassault Systèmes.', duration: '4 jours', students: 60, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'PLM', 'Collaboration'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: '3DEXPERIENCE' },
+    { title: '3DEXPERIENCE CATIA', desc: 'Conception 3D collaborative sur la plateforme cloud 3DEXPERIENCE.', duration: '4 jours', students: 55, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'CATIA', 'Cloud'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: '3DEXPERIENCE' },
+    
+    // NeoLedge
+    { title: 'NeoLedge ECM Fundamentals', desc: 'Maîtrisez les bases de la gestion électronique de documents avec NeoLedge.', duration: '2 jours', students: 85, level: 'Débutant', tags: ['NeoLedge', 'GED', 'ECM'], color: 'linear-gradient(135deg, #002D5B, #059669)', category: 'NeoLedge' },
+    { title: 'NeoLedge Workflows & RPA', desc: 'Automatisez vos processus métiers avec les workflows intelligents NeoLedge.', duration: '2 jours', students: 40, level: 'Intermédiaire', tags: ['NeoLedge', 'Workflow', 'RPA'], color: 'linear-gradient(135deg, #059669, #002D5B)', category: 'NeoLedge' },
+    
+    // GEOVIA
+    { title: 'GEOVIA Surpac Essentials', desc: 'Modélisation géologique 3D et planification minière avec Surpac.', duration: '4 jours', students: 25, level: 'Intermédiaire', tags: ['GEOVIA', 'Mines', 'Géologie'], color: 'linear-gradient(135deg, #2D5B2D, #C5A059)', category: 'GEOVIA' },
   ];
 
   certifications = [
@@ -301,6 +456,10 @@ export class FormationsComponent {
     { name: 'CSWP – SOLIDWORKS Professional', desc: 'Le standard international pour les ingénieurs SOLIDWORKS confirmés.' },
     { name: 'CATIA V5 Certified', desc: 'Reconnaissance officielle Dassault Systèmes pour les experts CATIA.' },
     { name: '3DEXPERIENCE Certified', desc: 'Maîtrise de la plateforme collaborative Dassault Systèmes.' },
+    { name: 'SIMULIA Abaqus Certified', desc: 'Expertise reconnue en simulation par éléments finis avec Abaqus.' },
+    { name: 'NeoLedge ECM Specialist', desc: 'Spécialiste certifié en gestion électronique de documents.' },
+    { name: 'GEOVIA Surpac Professional', desc: 'Certification en modélisation géologique et planification minière.' },
+    { name: 'DELMIA Manufacturing Expert', desc: 'Expert certifié en planification et optimisation industrielle.' },
   ];
 
   get filteredCourses() {

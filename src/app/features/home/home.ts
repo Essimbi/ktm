@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield, Zap, Monitor, Layers, Plane, Car, Building2, GraduationCap, Stethoscope, X, Award, TrendingUp, Users } from 'lucide-angular';
+import { RouterModule, Router } from '@angular/router';
+import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield, Zap, Monitor, Layers, Plane, Car, Building2, GraduationCap, Stethoscope, X, Award, TrendingUp, Users, Factory, Pickaxe, FileText, Brain, Cog } from 'lucide-angular';
 
 @Component({
   selector: 'app-home',
@@ -113,7 +113,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
           <div class="solutions-grid">
             <div class="sol-card reveal" *ngFor="let sol of solutions; let i = index" [style.--delay]="i * 0.1 + 's'">
               <div class="sol-icon" [style.background]="sol.color">
-                <lucide-icon [name]="sol.icon" size="28"></lucide-icon>
+                <img [src]="sol.logo" [alt]="sol.name + ' logo'" class="sol-logo-img">
               </div>
               <h3>{{sol.name}}</h3>
               <p>{{sol.desc}}</p>
@@ -137,7 +137,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
         </div>
         
         <div class="industries-grid">
-          <div class="industry-card reveal" *ngFor="let ind of industries">
+          <div class="industry-card reveal" *ngFor="let ind of industries" (click)="navigateToSolutions(ind.name)">
             <div class="ind-image-overlay"></div>
             <div class="ind-content">
               <div class="ind-icon-wrapper">
@@ -172,6 +172,8 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
               <div class="t-badge"><span>Dassault Systèmes</span> Elite Partner</div>
               <div class="t-badge"><span>CATIA</span> Specialist</div>
               <div class="t-badge"><span>SOLIDWORKS</span> Professional</div>
+              <div class="t-badge"><span>GEOVIA</span> Urban Planning</div>
+              <div class="t-badge"><span>GEOVIA</span> Surpac</div>
             </div>
           </div>
         </div>
@@ -330,7 +332,8 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .sol-card { padding: 40px; background: white; border-radius: 24px; border: 1px solid #E2E8F0; transition: all 0.4s; animation-delay: var(--delay);
       &:hover { transform: translateY(-10px); box-shadow: 0 24px 50px rgba(0, 45, 91, 0.1); border-color: var(--primary-gold); .sol-icon { transform: scale(1.1) rotate(5deg); } }
-      .sol-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 25px; transition: transform 0.3s; }
+      .sol-icon { width: 110px; height: 110px; border-radius: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; transition: transform 0.3s; overflow: hidden; padding: 8px; box-sizing: border-box; background: white !important; border: 2px solid rgba(0,0,0,0.06); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+      .sol-logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
       h3 { margin-bottom: 12px; font-size: 1.4rem; }
       p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 25px; line-height: 1.6; }
       .learn-more { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary-gold); font-size: 0.9rem; transition: gap 0.2s; &:hover { gap: 12px; } }
@@ -338,9 +341,26 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     .view-all-cta { text-align: center; margin-top: 50px; }
 
     /* ── Industries ── */
-    .industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-    .industry-card { position: relative; height: 280px; border-radius: 24px; overflow: hidden; cursor: pointer;
-      &:hover { .ind-image-overlay { opacity: 0.8; transform: scale(1.1); } .ind-hover-cta { transform: translateY(0); opacity: 1; } }
+    .industries-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 24px; 
+      
+      @media(max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    .industry-card { position: relative; height: 280px; border-radius: 24px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;
+      &:hover { 
+        .ind-image-overlay { opacity: 0.8; transform: scale(1.1); } 
+        .ind-hover-cta { transform: translateY(0); opacity: 1; }
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 45, 91, 0.15);
+      }
+      &:active {
+        transform: translateY(-2px);
+      }
     }
     .ind-image-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%); transition: all 0.6s ease; }
     .ind-content { position: relative; z-index: 2; padding: 40px; height: 100%; display: flex; flex-direction: column; color: white;
@@ -657,6 +677,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   readonly Award = Award;
   readonly TrendingUp = TrendingUp;
   readonly Users = Users;
+  readonly Factory = Factory;
+  readonly Pickaxe = Pickaxe;
+  readonly FileText = FileText;
+  readonly Brain = Brain;
+  readonly Cog = Cog;
 
   currentSlide = 0;
   prevSlideIndex = -1;
@@ -664,6 +689,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private slideInterval: any;
   private progressInterval: any;
   private readonly SLIDE_DURATION = 7000;
+
+  constructor(private router: Router) {}
 
   slides = [
     {
@@ -696,12 +723,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   solutions = [
-    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', icon: Layers, link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
-    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', icon: Database, link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
-    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', icon: Zap, link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
-    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', icon: Layout, link: '/solutions/delmia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
+    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', logo: '/assets/solutions/3D.jpeg', link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
+    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', logo: '/assets/solutions/catia.png', link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
+    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', logo: '/assets/solutions/solid.png', link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
+    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', logo: '/assets/solutions/simulia.png', link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
+    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', logo: '/assets/solutions/enovia.png', link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
+    { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', logo: '/assets/solutions/delmia.png', link: '/solutions/delmia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
   ];
 
   clientReferences = [
@@ -787,10 +814,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   industries = [
-    { name: 'Aéronautique', desc: 'Ingénierie de systèmes aéronautiques complexes.', icon: Plane },
-    { name: 'Automobile', desc: 'Production optimisée et design véhicule futuriste.', icon: Car },
-    { name: 'Énergie', desc: 'Infrastructures durables et simulation de réseaux.', icon: Zap },
-    { name: 'Éducation', desc: 'Programmes académiques Dassault Systèmes.', icon: GraduationCap }
+    { name: 'Industrie manufacturière', desc: 'Optimisation des processus de production et conception d\'équipements industriels.', icon: Factory },
+    { name: 'Énergie & Utilities', desc: 'Infrastructures énergétiques durables et simulation de réseaux électriques.', icon: Zap },
+    { name: 'Mines & Géologie', desc: 'Modélisation géologique 3D et planification minière optimisée.', icon: Pickaxe },
+    { name: 'Aéronautique & Défense', desc: 'Ingénierie de systèmes aéronautiques et de défense complexes.', icon: Plane },
+    { name: 'Automobile & Transport', desc: 'Conception véhicules et optimisation des systèmes de transport.', icon: Car },
+    { name: 'Construction & Infrastructures', desc: 'BIM, conception d\'ouvrages et gestion de projets de construction.', icon: Building2 },
+    { name: 'Éducation & Recherche', desc: 'Programmes académiques et laboratoires de recherche avancée.', icon: GraduationCap },
+    { name: 'Transformation Digitale', desc: 'Accompagnement dans la digitalisation des processus métiers.', icon: Monitor },
+    { name: 'Gestion Documentaire & Gouvernance', desc: 'Solutions ECM et gouvernance de l\'information d\'entreprise.', icon: FileText },
+    { name: 'Data & Intelligence Artificielle', desc: 'Analytics avancés et solutions d\'intelligence artificielle.', icon: Brain }
   ];
 
   ngAfterViewInit() {
@@ -800,6 +833,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.stopSlider();
+  }
+
+  navigateToSolutions(industryName: string) {
+    // Navigate to solutions page with industry filter
+    this.router.navigate(['/solutions'], { 
+      queryParams: { industry: industryName.toLowerCase().replace(/\s+/g, '-') } 
+    });
   }
 
   private initScrollReveal() {
