@@ -13,9 +13,9 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       <section class="page-hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <span class="hero-tag">Académie KTM</span>
-          <h1>Formations & Certifications</h1>
-          <p>Développez votre expertise sur les solutions Dassault Systèmes et NeoLedge avec nos programmes officiels, animés par des instructeurs certifiés.</p>
+          <span class="hero-tag">Centre de formation</span>
+          <h1>Toutes nos formations</h1>
+          <p>Des parcours pour prendre en main les solutions de conception, simulation, PLM, fabrication et collaboration, avec des formats adaptés aux équipes métier, bureaux d'études et administrateurs.</p>
         </div>
       </section>
 
@@ -28,71 +28,68 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       </section>
 
       <!-- Types de formations -->
-      <section class="section-container">
-        <h2 class="section-title">Nos Modalités de Formation</h2>
-        <p class="section-subtitle">Choisissez la formule qui correspond le mieux à vos besoins et contraintes.</p>
-        
-        <div class="formation-types-grid">
-          <div class="formation-type-card" *ngFor="let type of formationTypes">
-            <div class="type-icon" [style.background]="type.color">
-              <lucide-icon [name]="type.icon" size="28"></lucide-icon>
+      <section class="formation-types-section">
+        <div class="section-container">
+          <h2 class="section-title">Se former avec KTM</h2>
+          <p class="section-subtitle">Un accompagnement structuré autour des logiciels Dassault Systèmes, des solutions NeoLedge et des technologies industrielles associées.</p>
+          
+          <div class="formation-types-grid">
+            <div class="formation-type-card" *ngFor="let type of formationTypes">
+              <div class="type-icon" [style.background]="type.color">
+                <lucide-icon [name]="type.icon" size="32"></lucide-icon>
+              </div>
+              <h3>{{type.name}}</h3>
+              <p>{{type.description}}</p>
+              <ul class="type-features">
+                <li *ngFor="let feature of type.features">
+                  <lucide-icon [name]="CheckCircle" size="14"></lucide-icon>
+                  {{feature}}
+                </li>
+              </ul>
             </div>
-            <h3>{{type.name}}</h3>
-            <p>{{type.description}}</p>
-            <ul class="type-features">
-              <li *ngFor="let feature of type.features">
-                <lucide-icon [name]="CheckCircle" size="14"></lucide-icon>
-                {{feature}}
-              </li>
-            </ul>
           </div>
         </div>
       </section>
 
       <!-- Catalogue -->
       <section class="section-container catalog-section">
-        <h2 class="section-title">Catalogue des Formations</h2>
-        <p class="section-subtitle">Des programmes adaptés à tous les niveaux, du débutant à l'expert certifié.</p>
-
-        <!-- Filters -->
-        <div class="filter-bar">
-          <button *ngFor="let f of filters" [class.active]="activeFilter === f" (click)="setFilter(f)">{{f}}</button>
-        </div>
+        <h2 class="section-title">L'ensemble des domaines de formations</h2>
+        <p class="section-subtitle">Retrouvez les grandes familles de formations proposées pour développer, fiabiliser et partager vos savoir-faire numériques.</p>
 
         <div class="courses-grid">
-          <div class="course-card" *ngFor="let c of filteredCourses">
-            <div class="course-header" [style.background]="c.color">
-              <div class="course-icon">
-                <lucide-icon [name]="GraduationCap" size="28"></lucide-icon>
-              </div>
-              <span class="course-level">{{c.level}}</span>
+          <article class="course-card" *ngFor="let c of allCourses">
+            <div class="course-media">
+              <img [src]="c.image" [alt]="c.title">
+              <span class="course-level">{{c.family}}</span>
             </div>
             <div class="course-body">
               <h3>{{c.title}}</h3>
               <p>{{c.desc}}</p>
-              <div class="course-meta">
-                <span><lucide-icon [name]="Clock" size="14"></lucide-icon> {{c.duration}}</span>
-                <span><lucide-icon [name]="Users" size="14"></lucide-icon> {{c.students}}+ inscrits</span>
-              </div>
-              <div class="course-tags">
-                <span *ngFor="let t of c.tags">{{t}}</span>
-              </div>
             </div>
             <div class="course-footer">
-              <div class="price">
-                <span class="amount">Sur devis</span>
-              </div>
-              <button class="btn-enroll">S'inscrire <lucide-icon [name]="ArrowRight" size="14"></lucide-icon></button>
+              <a routerLink="/contact" class="btn-enroll">{{c.cta}} <lucide-icon [name]="ArrowRight" size="17"></lucide-icon></a>
             </div>
-          </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Ressources pratiques -->
+      <section class="section-container resources-section">
+        <h2 class="section-title">En savoir plus</h2>
+        <p class="section-subtitle">Les informations utiles pour organiser un parcours, vérifier un niveau ou préparer une certification.</p>
+        <div class="resources-grid">
+          <a routerLink="/contact" class="resource-card" *ngFor="let resource of resources">
+            <lucide-icon [name]="resource.icon" size="24"></lucide-icon>
+            <span>{{resource.name}}</span>
+          </a>
         </div>
       </section>
 
       <!-- Certifications -->
       <section class="certs-section">
         <div class="section-container">
-          <h2 class="section-title" style="color:white">Certifications Officielles</h2>
-          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Valorisez votre expertise avec des certifications reconnues mondialement.</p>
+          <h2 class="section-title" style="color:white">Certifications Dassault Systèmes</h2>
+          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Préparez les validations de compétences attendues sur les solutions SOLIDWORKS, CATIA, 3DEXPERIENCE, SIMULIA et DELMIA.</p>
           <div class="certs-grid">
             <div class="cert-item" *ngFor="let cert of certifications">
               <lucide-icon [name]="Award" size="32"></lucide-icon>
@@ -106,9 +103,9 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       <!-- CTA -->
       <section class="cta-section section-container">
         <div class="cta-box">
-          <h2>Besoin d'un programme sur mesure ?</h2>
-          <p>Nous concevons des formations intra-entreprise adaptées à vos objectifs et vos équipes.</p>
-          <a routerLink="/contact" class="btn-premium primary">Contactez notre équipe pédagogique <lucide-icon [name]="ArrowRight" size="18"></lucide-icon></a>
+          <h2>Contactez un expert formation</h2>
+          <p>Définissons le bon format, le bon niveau et les modules utiles à vos équipes avant de planifier votre parcours.</p>
+          <a routerLink="/contact" class="btn-premium primary">Être accompagné <lucide-icon [name]="ArrowRight" size="18"></lucide-icon></a>
         </div>
       </section>
     </main>
@@ -173,68 +170,185 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       @media(max-width:768px) { flex-wrap: wrap; .stat { flex: 1 1 50%; } }
     }
     
+    /* Formation Types Section */
+    .formation-types-section {
+      background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 30%, #CBD5E1 100%);
+      padding: 100px 0;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 25% 25%, rgba(197, 160, 89, 0.06) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(0, 45, 91, 0.04) 0%, transparent 50%),
+          linear-gradient(45deg, rgba(197, 160, 89, 0.02) 0%, transparent 30%, rgba(0, 45, 91, 0.02) 100%);
+        pointer-events: none;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23002D5B' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+      
+      .section-container {
+        position: relative;
+        z-index: 1;
+      }
+    }
+    
     /* Formation Types */
     .formation-types-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
+      gap: 32px;
+      margin-top: 60px;
     }
     .formation-type-card {
-      background: white;
-      border-radius: 20px;
-      padding: 28px;
-      border: 1px solid #E2E8F0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 32px rgba(0, 45, 91, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(197, 160, 89, 0.03) 0%, rgba(0, 45, 91, 0.02) 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+      
       &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 40px rgba(0,45,91,0.08);
-        border-color: var(--primary-gold);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 45, 91, 0.15);
+        border-color: rgba(197, 160, 89, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+        
+        &::before {
+          opacity: 1;
+        }
+        
+        .type-icon {
+          transform: scale(1.05);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
       }
+      
       h3 {
-        font-size: 1.2rem;
-        margin-bottom: 12px;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
         color: var(--primary-deep);
+        font-weight: 700;
+        position: relative;
+        z-index: 2;
       }
+      
       p {
         color: var(--text-muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        opacity: 0.85;
+        position: relative;
+        z-index: 2;
       }
     }
+    
     .type-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
+      margin-bottom: 24px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
     }
+    
+    .formation-type-card:hover .type-icon::after {
+      opacity: 1;
+    }
+    
     .type-features {
       list-style: none;
+      
       li {
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-size: 0.85rem;
+        gap: 12px;
+        font-size: 0.9rem;
         font-weight: 600;
         color: var(--primary-deep);
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        padding: 8px 0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(197, 160, 89, 0.04);
+          padding-left: 8px;
+        }
+        
         lucide-icon {
           color: var(--primary-gold);
           flex-shrink: 0;
+          background: rgba(197, 160, 89, 0.1);
+          border-radius: 50%;
+          padding: 2px;
+          width: 18px;
+          height: 18px;
         }
       }
     }
     
     .catalog-section {
-      background: #F8FAFC;
-      padding: 80px 5%;
+      // background: #FFFFFF;
+      padding: 86px 5% 96px;
+      .section-title {
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        color: #151515;
+        font-size: 2.1rem;
+        line-height: 1.15;
+      }
+      .section-subtitle {
+        display: none;
+      }
     }
     .filter-bar {
       display: flex;
@@ -260,70 +374,154 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
     }
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 980px;
+      margin: 70px auto 0;
     }
     .course-card {
-      background: white;
-      border-radius: 20px;
+      min-height: 410px;
+      background: #F4F4FB;
+      border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #E2E8F0;
+      border: none;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease;
-      &:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 42px rgba(17, 24, 39, 0.08);
+      }
     }
-    .course-header {
-      padding: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      color: white;
-      .course-icon {
-        width: 52px; height: 52px;
-        background: rgba(255,255,255,0.2);
-        border-radius: 12px;
-        display: flex; align-items: center; justify-content: center;
+    .course-media {
+      position: relative;
+      height: 157px;
+      overflow: hidden;
+      background: #DADDE7;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.35s ease;
       }
       .course-level {
-        font-size: 0.75rem; font-weight: 700;
-        background: rgba(255,255,255,0.2);
-        padding: 5px 12px; border-radius: 50px;
-        text-transform: uppercase; letter-spacing: 1px;
+        position: absolute;
+        left: 24px;
+        bottom: 16px;
+        min-width: 142px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: #FFFFFF;
+        color: #3D3D43;
+        font-size: 0.74rem;
+        line-height: 1;
+        font-weight: 600;
+        box-shadow: 0 7px 20px rgba(20, 20, 25, 0.08);
       }
     }
+    .course-card:hover .course-media img {
+      transform: scale(1.035);
+    }
     .course-body {
-      padding: 24px;
+      padding: 17px 17px 0;
       flex: 1;
-      h3 { font-size: 1.2rem; margin-bottom: 10px; }
-      p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
-    }
-    .course-meta {
-      display: flex; gap: 20px; margin-bottom: 16px;
-      span { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); font-weight: 600; }
-    }
-    .course-tags {
-      display: flex; gap: 8px; flex-wrap: wrap;
-      span {
-        font-size: 0.75rem; padding: 4px 10px;
-        background: rgba(197, 160, 89, 0.08);
-        color: var(--primary-gold);
-        border-radius: 50px; font-weight: 600;
+      h3 {
+        margin-bottom: 10px;
+        color: #3F3F46;
+        font-size: 1.04rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+      p {
+        color: #44444A;
+        font-size: 0.91rem;
+        line-height: 1.48;
+        margin-bottom: 0;
       }
     }
     .course-footer {
-      padding: 16px 24px 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid #E2E8F0;
-      .amount { font-weight: 800; font-size: 1rem; color: var(--primary-deep); }
+      padding: 28px 17px 31px;
+      display: flex;
+      align-items: center;
+      border-top: none;
     }
     .btn-enroll {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 20px; border-radius: 10px;
-      background: var(--primary-gold); color: white;
-      font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 42px;
+      padding: 10px 23px 10px 25px;
+      border-radius: 999px;
+      background: transparent;
+      color: #2D2D33;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: 2px solid #2D2D33;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      &:hover {
+        background: #2D2D33;
+        color: #FFFFFF;
+      }
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+    @media(max-width: 1100px) {
+      .catalog-section .section-title,
+      .courses-grid {
+        max-width: 100%;
+      }
+    }
+    @media(max-width: 900px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 42px;
+      }
+    }
+    @media(max-width: 620px) {
+      .catalog-section {
+        padding: 62px 5% 72px;
+        .section-title { font-size: 1.7rem; }
+      }
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+      .course-card {
+        min-height: auto;
+      }
+    }
+    .resources-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .resource-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 72px;
+      padding: 18px 20px;
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      color: var(--primary-deep);
+      text-decoration: none;
+      font-weight: 700;
       transition: all 0.2s ease;
-      &:hover { background: var(--primary-deep); }
+      lucide-icon { color: var(--primary-gold); flex-shrink: 0; }
+      &:hover {
+        border-color: var(--primary-gold);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(0,45,91,0.08);
+      }
     }
     .certs-section {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
@@ -370,102 +568,87 @@ export class FormationsComponent {
   readonly Laptop = Laptop;
 
   stats = [
-    { value: '500+', label: 'Professionnels formés' },
-    { value: '20+', label: 'Modules disponibles' },
-    { value: '95%', label: 'Taux de satisfaction' },
-    { value: '15+', label: 'Certifications officielles' },
+    { value: '35+', label: "Ans d'expérience formation" },
+    { value: '11', label: 'Domaines de formation' },
+    { value: '2021', label: 'Référence Qualiopi' },
+    { value: '100%', label: 'Parcours orientés métier' },
   ];
 
   formationTypes = [
     {
-      name: 'Formations Inter-entreprises',
-      description: 'Rejoignez d\'autres professionnels dans nos sessions collectives pour partager expériences et bonnes pratiques.',
+      name: 'Formations en présentiel',
+      description: 'Des sessions encadrées dans un environnement structuré, avec un formateur disponible et des manipulations guidées.',
       icon: Users,
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
-      features: ['6 participants maximum', 'Échanges entre professionnels', 'Calendrier fixe', 'Tarif optimisé']
+      features: ['Accompagnement direct', 'Exercices pratiques', 'Supports pédagogiques', 'Progression encadrée']
     },
     {
-      name: 'Formations Intra-entreprise',
-      description: 'Des programmes personnalisés construits pour répondre aux besoins spécifiques de votre organisation.',
+      name: 'Formations à distance',
+      description: 'Des cours animés en temps réel depuis le poste de travail, avec interactions, ressources digitales et suivi du formateur.',
       icon: Settings,
       color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))',
-      features: ['Programme sur mesure', 'Dans vos locaux', 'Équipe dédiée', 'Flexibilité totale']
+      features: ['Classe virtuelle', 'Outils interactifs', 'Environnement simulé possible', 'Connexion simple']
     },
     {
-      name: 'Formations en Salle',
-      description: 'Sessions présentielles dans nos centres de formation équipés des dernières technologies.',
+      name: 'Formations inter-entreprises',
+      description: "Des sessions collectives qui favorisent le partage d'expérience entre professionnels de secteurs variés.",
       icon: MapPin,
       color: 'linear-gradient(135deg, #059669, var(--primary-deep))',
-      features: ['Matériel professionnel', 'Formateur présent', '7 heures par jour', 'Exercices pratiques']
+      features: ['Calendrier planifié', 'Groupes métier', 'Échanges de pratiques', 'Cadre standardisé']
     },
     {
-      name: 'Formations à Distance',
-      description: 'Formations en temps réel avec accompagnement personnalisé, depuis votre poste de travail.',
+      name: 'Formations personnalisées',
+      description: 'Des contenus adaptés aux objectifs, aux données métier et au niveau réel des utilisateurs à former.',
       icon: Wifi,
       color: 'linear-gradient(135deg, var(--primary-deep), #059669)',
-      features: ['Temps réel avec formateur', 'Depuis votre bureau', 'Exercices pratiques', 'Support technique']
+      features: ['Programme sur mesure', "Cas d'usage internes", 'Objectifs opérationnels', 'Accompagnement ciblé']
     },
     {
-      name: 'Formations Catalogue',
-      description: 'Programmes standardisés couvrant l\'ensemble des fonctionnalités des solutions Dassault Systèmes.',
+      name: 'Formations en ligne',
+      description: 'Des ressources digitales pour progresser à son rythme, revoir des notions clés ou consolider les acquis.',
       icon: BookOpen,
       color: 'linear-gradient(135deg, #8B5CF6, var(--primary-deep))',
-      features: ['Contenu structuré', 'Progression pédagogique', 'Supports inclus', 'Certification possible']
+      features: ['myCADacademy', 'myCADultimate', 'Accès autonome', 'Parcours complémentaires']
     },
     {
-      name: 'Formations E-learning',
-      description: 'Apprenez à votre rythme avec nos modules interactifs disponibles 24h/24.',
+      name: 'Bilans et quiz',
+      description: "Des évaluations pour situer le niveau de connaissances avant d'engager un cursus ou une certification.",
       icon: Laptop,
       color: 'linear-gradient(135deg, var(--primary-deep), #8B5CF6)',
-      features: ['Accès 24h/24', 'Rythme personnel', 'Modules interactifs', 'Suivi de progression']
+      features: ['Quiz SOLIDWORKS', 'Quiz CATIA', 'Bilan de compétences', 'Orientation de parcours']
     }
   ];
 
-  filters = ['Tous', 'CATIA', 'SOLIDWORKS', 'SIMULIA', '3DEXPERIENCE', 'NeoLedge', 'GEOVIA'];
-  activeFilter = 'Tous';
-
   allCourses = [
-    // CATIA
-    { title: 'CATIA V5 – Initiation', desc: 'Maîtrisez les fondamentaux de la conception 3D avec CATIA V5. Pièces, assemblages et mise en plan.', duration: '3 jours', students: 120, level: 'Débutant', tags: ['CATIA', 'CAO', '3D'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
-    { title: 'CATIA V5 – Conception Avancée', desc: 'Surfaces complexes, tolérancement, structures mécaniques avancées et automatisation.', duration: '5 jours', students: 80, level: 'Avancé', tags: ['CATIA', 'Surface', 'Expert'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
-    { title: 'CATIA V5 – Surfacique', desc: 'Maîtrisez la modélisation surfacique pour les formes complexes et le design industriel.', duration: '3 jours', students: 65, level: 'Intermédiaire', tags: ['CATIA', 'Surfacique', 'Design'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'CATIA' },
-    
-    // SOLIDWORKS
-    { title: 'SOLIDWORKS Essentiel', desc: 'Conception de pièces et assemblages mécaniques. Simulation basique et mise en plan.', duration: '3 jours', students: 200, level: 'Débutant', tags: ['SOLIDWORKS', 'Mécanique'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
-    { title: 'SOLIDWORKS Simulation', desc: 'Analyse statique, fatigue, thermique et dynamique. Optimisation topologique.', duration: '4 jours', students: 90, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'Simulation', 'FEA'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: 'SOLIDWORKS' },
-    { title: 'SOLIDWORKS PDM', desc: 'Gestion des données techniques et collaboration en équipe avec SOLIDWORKS PDM.', duration: '2 jours', students: 75, level: 'Intermédiaire', tags: ['SOLIDWORKS', 'PDM', 'Gestion'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: 'SOLIDWORKS' },
-    
-    // SIMULIA
-    { title: 'SIMULIA Abaqus', desc: 'Simulation éléments finis avancée pour la mécanique des structures et des fluides.', duration: '5 jours', students: 45, level: 'Expert', tags: ['SIMULIA', 'FEM', 'Abaqus'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'SIMULIA' },
-    { title: 'SIMULIA CST Studio', desc: 'Simulation électromagnétique pour les applications haute fréquence et antennes.', duration: '3 jours', students: 30, level: 'Avancé', tags: ['SIMULIA', 'Électromagnétisme'], color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', category: 'SIMULIA' },
-    
-    // 3DEXPERIENCE
-    { title: '3DEXPERIENCE Plateforme', desc: 'Administration, collaboration et gestion PLM sur la plateforme 3DEXPERIENCE de Dassault Systèmes.', duration: '4 jours', students: 60, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'PLM', 'Collaboration'], color: 'linear-gradient(135deg, #C5A059, #002D5B)', category: '3DEXPERIENCE' },
-    { title: '3DEXPERIENCE CATIA', desc: 'Conception 3D collaborative sur la plateforme cloud 3DEXPERIENCE.', duration: '4 jours', students: 55, level: 'Intermédiaire', tags: ['3DEXPERIENCE', 'CATIA', 'Cloud'], color: 'linear-gradient(135deg, #002D5B, #C5A059)', category: '3DEXPERIENCE' },
-    
-    // NeoLedge
-    { title: 'NeoLedge ECM Fundamentals', desc: 'Maîtrisez les bases de la gestion électronique de documents avec NeoLedge.', duration: '2 jours', students: 85, level: 'Débutant', tags: ['NeoLedge', 'GED', 'ECM'], color: 'linear-gradient(135deg, #002D5B, #059669)', category: 'NeoLedge' },
-    { title: 'NeoLedge Workflows & RPA', desc: 'Automatisez vos processus métiers avec les workflows intelligents NeoLedge.', duration: '2 jours', students: 40, level: 'Intermédiaire', tags: ['NeoLedge', 'Workflow', 'RPA'], color: 'linear-gradient(135deg, #059669, #002D5B)', category: 'NeoLedge' },
-    
-    // GEOVIA
-    { title: 'GEOVIA Surpac Essentials', desc: 'Modélisation géologique 3D et planification minière avec Surpac.', duration: '4 jours', students: 25, level: 'Intermédiaire', tags: ['GEOVIA', 'Mines', 'Géologie'], color: 'linear-gradient(135deg, #2D5B2D, #C5A059)', category: 'GEOVIA' },
+    { title: 'Formations SOLIDWORKS', desc: "Parcours dédiés à la CAO 3D, à la conception mécanique, aux assemblages, à la mise en plan, à la simulation, à l'électricité, à l'usinage et aux solutions complémentaires.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/solid.png', category: 'SOLIDWORKS' },
+    { title: 'Formations 3DEXPERIENCE', desc: 'Modules pour mieux collaborer, piloter les projets et délivrer plus vite sur la plateforme 3DEXPERIENCE, dans le respect des processus métier.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/collab.png', category: '3DEXPERIENCE' },
+    { title: 'Formations CATIA V5', desc: "Formations orientées conception avancée, modélisation 3D, assemblages, surfaces et méthodes de bureau d'études pour les environnements CATIA V5.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/catia.png', category: 'CATIA V5' },
+    { title: 'Formations COMPOSER', desc: 'Apprendre à produire des livrables techniques, notices, vues éclatées et supports de documentation à partir des données de conception.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/catia.png', category: 'COMPOSER' },
+    { title: 'Formations ORTEMS', desc: "Parcours autour de la planification industrielle et de l'ordonnancement pour améliorer la visibilité de production et la prise de décision.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/factory.png', category: 'ORTEMS' },
+    { title: 'Formations ABAQUS', desc: 'Modules SIMULIA pour aborder la simulation numérique, les calculs avancés et les analyses par éléments finis avec Abaqus.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/simulia.png', category: 'ABAQUS' },
+    { title: 'Formations VISIATIV PLM', desc: 'Formations dédiées à la gestion documentaire et au PLM pour sécuriser le partage des données techniques tout au long du cycle de vie produit.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/enovia.png', category: 'VISIATIV' },
+    { title: 'Formations VISIATIV', desc: "Parcours sur les solutions Visiativ pour identifier les usages adaptés, accélérer l'adoption et structurer les processus numériques.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/hero-bg.png', category: 'VISIATIV' },
+    { title: 'Formations VISIATIV CPQ', desc: "Modules orientés configuration, chiffrage et génération d'offres commerciales pour fiabiliser les parcours de vente complexes.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/collab.png', category: 'VISIATIV' },
+    { title: 'Formations IMPRESSION 3D', desc: "Formations consacrées aux usages de fabrication additive, à la préparation des pièces et à l'exploitation des équipements associés.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/3D.jpeg', category: 'IMPRESSION 3D' },
+    { title: 'Formations RV-RA', desc: 'Parcours autour de la réalité virtuelle et augmentée pour visualiser, former, assister et valoriser les contenus industriels.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/delmia.png', category: 'RV-RA' },
+  ];
+
+  resources = [
+    { name: 'Calendrier des formations', icon: Clock },
+    { name: 'Financer sa formation', icon: Award },
+    { name: 'Cursus métier', icon: GraduationCap },
+    { name: 'Informations pratiques', icon: MapPin },
+    { name: 'Démarche qualité', icon: CheckCircle },
+    { name: 'Tester ses connaissances', icon: Laptop },
   ];
 
   certifications = [
-    { name: 'CSWA – SOLIDWORKS Associate', desc: 'Certification officielle pour les professionnels de la CAO SOLIDWORKS.' },
-    { name: 'CSWP – SOLIDWORKS Professional', desc: 'Le standard international pour les ingénieurs SOLIDWORKS confirmés.' },
-    { name: 'CATIA V5 Certified', desc: 'Reconnaissance officielle Dassault Systèmes pour les experts CATIA.' },
-    { name: '3DEXPERIENCE Certified', desc: 'Maîtrise de la plateforme collaborative Dassault Systèmes.' },
-    { name: 'SIMULIA Abaqus Certified', desc: 'Expertise reconnue en simulation par éléments finis avec Abaqus.' },
-    { name: 'NeoLedge ECM Specialist', desc: 'Spécialiste certifié en gestion électronique de documents.' },
-    { name: 'GEOVIA Surpac Professional', desc: 'Certification en modélisation géologique et planification minière.' },
-    { name: 'DELMIA Manufacturing Expert', desc: 'Expert certifié en planification et optimisation industrielle.' },
+    { name: 'Certifications SOLIDWORKS', desc: 'Préparation aux validations de niveau associé, professionnel et expert sur les usages CAO.' },
+    { name: 'Certifications CATIA', desc: 'Valorisation des compétences de conception, modélisation et méthodologie sur les environnements CATIA.' },
+    { name: 'Certifications 3DEXPERIENCE', desc: 'Validation des pratiques de collaboration, gestion de données et pilotage sur la plateforme.' },
+    { name: 'Certifications SIMULIA', desc: 'Reconnaissance des compétences en simulation numérique et analyse avancée.' },
+    { name: 'Certifications DELMIA', desc: 'Validation des connaissances autour de la fabrication, de la planification et des opérations industrielles.' },
+    { name: 'Certifications Dassault Systèmes', desc: "Parcours destinés à attester officiellement les compétences acquises sur les solutions de l'éditeur." },
   ];
 
-  get filteredCourses() {
-    if (this.activeFilter === 'Tous') return this.allCourses;
-    return this.allCourses.filter(c => c.category === this.activeFilter);
-  }
-
-  setFilter(f: string) { this.activeFilter = f; }
 }
