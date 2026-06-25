@@ -303,9 +303,9 @@ export class SolutionDetailComponent implements OnInit {
     },
     {
       id: 'neoledge',
-      name: 'NeoLedge ECM',
+      name: 'NeoLedge',
       tagline: 'La plateforme ECM tout-en-un propulsée par l\'IA pour moderniser la gestion documentaire.',
-      description: 'NeoLedge ECM est une solution complète de gestion de contenu d\'entreprise (ECM) qui révolutionne la façon dont les organisations gèrent leurs documents et processus. Propulsée par l\'intelligence artificielle, elle automatise la capture, le traitement et l\'archivage des documents tout en garantissant la conformité réglementaire.',
+      description: 'NeoLedge est une solution complète de gestion de contenu d\'entreprise (ECM) qui révolutionne la façon dont les organisations gèrent leurs documents et processus. Propulsée par l\'intelligence artificielle, elle automatise la capture, le traitement et l\'archivage des documents tout en garantissant la conformité réglementaire.',
       gradient: 'linear-gradient(135deg, #002D5B 0%, #059669 100%)',
       features: ['Capture multicanal & LAD/RAD', 'Gestion de dossiers & workflows', 'Signature électronique intégrée', 'Intelligence artificielle AI.Lise', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Conformité RGPD'],
       useCases: [
