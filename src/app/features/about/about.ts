@@ -783,7 +783,7 @@ export class AboutComponent implements AfterViewInit {
 
   heroStats = [
     { value: '10+', label: 'Années d\'expérience' },
-    { value: '50+', label: 'Projets réalisés' },
+    { value: '60+', label: 'Projets réalisés' },
     { value: '20+', label: 'Clients majeurs' },
     { value: '15+', label: 'Certifications' },
   ];
@@ -829,7 +829,7 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   clientRefs = [
-    { name: 'UCAC', sector: 'Éducation supérieure', color: '#002D5B', logo: '/assets/clients/Logo-UCAC.png' },
+    { name: 'UCAC-ICAM', sector: 'Éducation supérieure', color: '#002D5B', logo: '/assets/clients/Logo-UCAC.png' },
     { name: 'JFN Group', sector: 'Industrie', color: 'var(--primary-deep)', logo: '/assets/clients/JFN_Group.png' },
     { name: 'De La Salle', sector: 'Éducation', color: '#C5A059', logo: '/assets/clients/De_La_Salle.jpeg' },
     { name: 'IUC', sector: 'Université privée', color: '#A68545', logo: '/assets/clients/IUC.png' },
@@ -879,7 +879,7 @@ export class AboutComponent implements AfterViewInit {
     { 
       name: 'CSWA — SolidWorks Associate', 
       category: 'Certification individuelle', 
-      icon: CheckCircle,
+      icon: CheckCircle, 
       description: 'Certification individuelle attestant de la maîtrise des fondamentaux SOLIDWORKS.'
     },
     { 
@@ -902,4 +902,3 @@ export class AboutComponent implements AfterViewInit {
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
-}
