@@ -902,3 +902,4 @@ export class AboutComponent implements AfterViewInit {
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
+}
