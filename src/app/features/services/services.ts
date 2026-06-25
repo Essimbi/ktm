@@ -328,7 +328,7 @@ export class ServicesComponent implements AfterViewInit {
 
   stats = [
     { value: '50+', label: 'Projets déployés' },
-    { value: '500+', label: 'Professionnels formés' },
+    { value: '300+', label: 'Professionnels formés' },
     { value: '98%', label: 'Clients satisfaits' },
     { value: '24h', label: 'Délai de réponse' },
   ];

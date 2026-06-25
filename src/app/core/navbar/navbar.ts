@@ -46,7 +46,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
                 </div>
                 <div class="mega-col">
                   <span class="col-label">Digitalisation</span>
-                  <a routerLink="/solutions/neoledge">NeoLedge ECM</a>
+                  <a routerLink="/solutions/neoledge">NeoLedge</a>
                   <a routerLink="/solutions/iterop">ITEROP</a>
                 </div>
               </div>

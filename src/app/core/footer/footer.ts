@@ -74,7 +74,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
               <li><a routerLink="/solutions/simulia">SIMULIA</a></li>
               <li><a routerLink="/solutions/delmia">DELMIA</a></li>
               <li><a routerLink="/solutions/enovia">ENOVIA</a></li>
-              <li><a routerLink="/solutions/neoledge">NeoLedge ECM</a></li>
+              <li><a routerLink="/solutions/neoledge">NeoLedge</a></li>
             </ul>
           </div>
 

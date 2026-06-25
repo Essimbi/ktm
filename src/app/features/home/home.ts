@@ -64,14 +64,14 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
           <div class="about-text reveal">
             <span class="section-tag">Qui sommes-nous</span>
             <h2 class="section-title" style="text-align: left;">Partenaire de votre <span class="gradient-text">Réussite Industrielle</span></h2>
-            <p>KTM est le leader de l'accompagnement technologique en Afrique Centrale. Nous combinons expertise locale et solutions de classe mondiale pour transformer votre vision en réalité industrielle.</p>
+            <p>KTM Green Energy Group est le leader de l'accompagnement technologique en Afrique Centrale. Nous combinons expertise locale et solutions de classe mondiale pour transformer votre vision en réalité industrielle.</p>
             
             <div class="value-props">
               <div class="vp-item">
                 <div class="vp-icon"><lucide-icon [name]="Award" size="20"></lucide-icon></div>
                 <div>
                   <h4>Expertise Certifiée</h4>
-                  <p>Seul partenaire Elite Dassault Systèmes de la région.</p>
+                  <p>Seul partenaire Elite Dassault Systèmes de la région sous Région Afrique Centrale.</p>
                 </div>
               </div>
               <div class="vp-item">
@@ -717,27 +717,27 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   mainStats = [
-    { value: '50+', label: 'Projets' },
-    { value: '20+', label: 'Clients' },
-    { value: '15+', label: 'Certs' }
+    { value: '50+', label: 'Projets Réalisés' },
+    { value: '20+', label: 'Clients Satisfaits' },
+    { value: '98%', label: 'Taux de Satisfaction' }
   ];
 
   solutions = [
-    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', logo: '/assets/solutions/3D.jpeg', link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
-    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', logo: '/assets/solutions/catia.png', link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', logo: '/assets/solutions/solid.png', link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
-    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', logo: '/assets/solutions/simulia.png', link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
-    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', logo: '/assets/solutions/enovia.png', link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'DELMIA', desc: 'Planification et optimisation des opérations pour l\'excellence industrielle.', logo: '/assets/solutions/delmia.png', link: '/solutions/delmia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
+    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', icon: Layers, link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
+    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', icon: Monitor, link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
+    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', icon: Database, link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
+    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', icon: Zap, link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
+    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', icon: Shield, link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
+    { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', icon: Layout, link: '/solutions/GEOVIA', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
   ];
 
   clientReferences = [
     {
-      name: 'UCAC',
+      name: 'UCAC-ICAM',
       sector: 'Éducation Supérieure',
       color: 'var(--primary-deep)',
       logo: '/assets/clients/Logo-UCAC.png',
-      description: 'Déploiement de CATIA et SOLIDWORKS pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
+      description: 'Déploiement de la 3DEXPériences pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
       solutions: ['CATIA', 'SOLIDWORKS', 'Formation']
     },
     {
@@ -777,8 +777,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       sector: 'Collectivité Publique',
       color: 'var(--primary-deep)',
       logo: '/assets/clients/CUD.png',
-      description: 'Modernisation des services techniques avec des solutions de GED NeoLedge et formation des équipes.',
-      solutions: ['NeoLedge', 'GED', 'Formation']
+      description: 'Mise en place du Juméau Numérique de la ville de Douala.',
+      solutions: ['GEOVIA', 'Smart city', 'Formation']
     }
   ];
 
