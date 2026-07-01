@@ -728,7 +728,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', logo: '/assets/solutions/solid.png', link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
     { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', logo: '/assets/solutions/simulia.png', link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
     { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', logo: '/assets/solutions/enovia.png', link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', logo: '/assets/solutions/delmia.png', link: '/solutions/GEOVIA', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
+    { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', logo: '/assets/solutions/geovia.jpeg', link: '/solutions/geovia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
   ];
 
   clientReferences = [
