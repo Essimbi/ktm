@@ -29,7 +29,6 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
                 <div class="mega-col">
                   <span class="col-label">Conception & Design</span>
                   <a routerLink="/solutions/catia">CATIA</a>
-                  <a routerLink="/solutions/solidworks">SOLIDWORKS</a>
                   <a routerLink="/solutions/3dexperience">3DEXPERIENCE</a>
                 </div>
                 <div class="mega-col">
@@ -48,6 +47,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
                   <span class="col-label">Digitalisation</span>
                   <a routerLink="/solutions/neoledge">NeoLedge</a>
                   <a routerLink="/solutions/iterop">ITEROP</a>
+                  <a routerLink="/solutions/intelligence-artificielle">Intelligence artificielle</a>
                 </div>
               </div>
             </div>
@@ -93,9 +93,9 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
             </button>
             <div class="group-links" [class.open]="solutionsOpen">
               <a routerLink="/solutions/catia" (click)="closeMenu()">CATIA</a>
-              <a routerLink="/solutions/solidworks" (click)="closeMenu()">SOLIDWORKS</a>
               <a routerLink="/solutions/simulia" (click)="closeMenu()">SIMULIA</a>
               <a routerLink="/solutions/3dexperience" (click)="closeMenu()">3DEXPERIENCE</a>
+              <a routerLink="/solutions/intelligence-artificielle" (click)="closeMenu()">Intelligence artificielle</a>
             </div>
           </div>
           <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>

@@ -70,7 +70,6 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
             <ul>
               <li><a routerLink="/solutions/3dexperience">3DEXPERIENCE</a></li>
               <li><a routerLink="/solutions/catia">CATIA</a></li>
-              <li><a routerLink="/solutions/solidworks">SOLIDWORKS</a></li>
               <li><a routerLink="/solutions/simulia">SIMULIA</a></li>
               <li><a routerLink="/solutions/delmia">DELMIA</a></li>
               <li><a routerLink="/solutions/enovia">ENOVIA</a></li>

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
   LucideAngularModule, Settings, BookOpen, Award, BarChart,
-  HardHat, Headphones, ArrowRight, CheckCircle, Zap, Shield, TrendingUp, Users
+  HardHat, Headphones, ArrowRight, CheckCircle, Zap, Shield, TrendingUp, Users,
+  Layers, Scan, Cpu, Network
 } from 'lucide-angular';
 
 @Component({
@@ -64,21 +65,21 @@ import {
         </div>
       </section>
 
-      <!-- ── Featured: Consulting ── -->
+      <!-- ── Featured: Jumeaux Numériques & Advanced Engineering ── -->
       <section class="consulting-banner">
         <div class="section-container">
           <div class="banner-inner reveal">
             <div class="banner-text">
-              <span class="banner-tag">Notre Flagship</span>
-              <h2>Consulting Technologique & Stratégie Industrie 4.0</h2>
-              <p>Nos consultants certifiés analysent vos processus actuels, identifient les goulots d'étranglement et co-construisent avec vous une feuille de route de digitalisation ambitieuse et réaliste.</p>
+              <span class="banner-tag">Notre Excellence</span>
+              <h2>Parc Technologique Digitale & Jumeaux Numériques</h2>
+              <p>Centre agréé Dassault Systèmes, le Parc Technologique Digitale vous accompagne vers la réussite de vos certifications professionnelles et la réalisation de jumeaux numériques haute fidélité pour optimiser vos performances industrielles.</p>
               <ul class="banner-list">
-                <li *ngFor="let item of consultingPoints">
+                <li *ngFor="let item of techParkPoints">
                   <lucide-icon [name]="CheckCircle" size="16"></lucide-icon>
                   {{item}}
                 </li>
               </ul>
-              <a routerLink="/contact" class="btn-premium primary">Réserver une consultation <lucide-icon [name]="ArrowRight" size="18"></lucide-icon></a>
+              <a routerLink="/contact" class="btn-premium primary">Découvrir nos capacités <lucide-icon [name]="ArrowRight" size="18"></lucide-icon></a>
             </div>
             <div class="banner-visual">
               <div class="visual-card" *ngFor="let v of visualCards">
@@ -325,26 +326,36 @@ export class ServicesComponent implements AfterViewInit {
   readonly Shield = Shield;
   readonly TrendingUp = TrendingUp;
   readonly Users = Users;
+  readonly Layers = Layers;
+  readonly Scan = Scan;
+  readonly Cpu = Cpu;
+  readonly Network = Network;
 
   stats = [
-    { value: '50+', label: 'Projets déployés' },
+    { value: '50+', label: 'Jumeaux Numériques' },
     { value: '300+', label: 'Professionnels formés' },
-    { value: '98%', label: 'Clients satisfaits' },
-    { value: '24h', label: 'Délai de réponse' },
+    { value: '98%', label: 'Taux de réussite' },
+    { value: '24h', label: 'Support réactif' },
   ];
 
   services = [
     {
-      title: 'Intégration de Solutions PLM',
-      desc: 'Déploiement complet et configuration personnalisée des logiciels Dassault Systèmes au sein de votre infrastructure existante.',
-      icon: Settings, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
-      features: ['Installation on-premise et cloud', 'Migration de données existantes', 'Configuration PLM sur mesure', 'Tests & recette utilisateurs']
+      title: 'Réalisation de Jumeaux Numériques',
+      desc: 'Création de répliques numériques exactes de vos produits, processus et systèmes pour optimiser les performances et réduire les coûts.',
+      icon: Layers, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
+      features: ['Modélisation 3D haute fidélité', 'Simulation temps réel', 'Intégration IoT et capteurs', 'Analyse prédictive et maintenance']
     },
     {
-      title: 'Formation Professionnelle',
-      desc: 'Programmes certifiants animés par des instructeurs accrédités Dassault Systèmes pour monter en compétence vos équipes.',
-      icon: BookOpen, color: 'linear-gradient(135deg, #C5A059, #002D5B)',
-      features: ['CATIA, SOLIDWORKS, SIMULIA', 'Formations intra et inter-entreprises', 'Certifications officielles', 'E-learning et présentiel']
+      title: 'Intégration Solutions Dassault Systèmes',
+      desc: 'Déploiement complet et intégration sur mesure de l\'écosystème Dassault Systèmes au cœur de votre infrastructure IT.',
+      icon: Network, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
+      features: ['3DEXPERIENCE Platform', 'CATIA, SIMULIA, DELMIA', 'Connecteurs ERP/PLM', 'Architecture cloud & on-premise']
+    },
+    {
+      title: 'Rétro-Ingénierie Avancée',
+      desc: 'Reconstruction numérique précise de pièces et assemblages existants grâce aux technologies de numérisation 3D et CAO inverse.',
+      icon: Scan, color: 'linear-gradient(135deg, #C5A059, var(--primary-deep))',
+      features: ['Scanning 3D haute précision', 'Reconstruction CAO paramétrique', 'Analyse dimensionnelle', 'Documentation technique complète']
     },
     {
       title: 'Accompagnement Industriel',
@@ -353,16 +364,22 @@ export class ServicesComponent implements AfterViewInit {
       features: ['Assistance à maîtrise d\'ouvrage', 'Optimisation des processus', 'Audit de conception et qualité', 'Ingénierie simultanée']
     },
     {
+      title: 'Formation Professionnelle',
+      desc: 'Programmes certifiants animés par des instructeurs accrédités Dassault Systèmes pour monter en compétence vos équipes.',
+      icon: BookOpen, color: 'linear-gradient(135deg, #C5A059, #002D5B)',
+      features: ['CATIA, SIMULIA, DELMIA', 'Formations intra et inter-entreprises', 'Certifications officielles', 'E-learning et présentiel']
+    },
+    {
+      title: 'Parc Technologique Digitale',
+      desc: 'Centre d\'excellence technologique pour l\'accompagnement vers la réussite de vos certifications professionnelles en conception 3D.',
+      icon: Cpu, color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))',
+      features: ['Centre agréé Dassault Systèmes', 'Laboratoire équipé haute technologie', 'Expertise 3D certifiée', 'Accompagnement personnalisé']
+    },
+    {
       title: 'Support & Maintenance',
       desc: 'Support réactif et proactif pour garantir la disponibilité et la performance de vos solutions digitales en continu.',
       icon: Headphones, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['Hotline dédiée 5j/7', 'Mises à jour et montées de version', 'Monitoring des performances', 'Contrats de maintenance SLA']
-    },
-    {
-      title: 'Certifications & Audit',
-      desc: 'Préparation aux certifications Dassault Systèmes et audit de vos compétences internes pour identifier les axes d\'amélioration.',
-      icon: Award, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
-      features: ['Préparation CSWA/CSWP', 'Audit de compétences équipes', 'Plan de formation sur mesure', 'Suivi post-certification']
     },
     {
       title: 'Consulting Stratégique',
@@ -372,19 +389,19 @@ export class ServicesComponent implements AfterViewInit {
     },
   ];
 
-  consultingPoints = [
-    'Audit complet de vos processus actuels',
-    'Identification des opportunités de digitalisation',
-    'Définition d\'une roadmap sur 12 à 36 mois',
-    'Accompagnement au changement (conduite du changement)',
-    'Mesure du ROI et des indicateurs de performance',
+  techParkPoints = [
+    'Centre agréé Dassault Systèmes avec équipements haute technologie',
+    'Expertise certifiée en conception 3D et ingénierie avancée', 
+    'Réalisation de jumeaux numériques pour l\'optimisation industrielle',
+    'Rétro-ingénierie et reconstruction CAO de précision',
+    'Accompagnement personnalisé vers la réussite professionnelle',
   ];
 
   visualCards = [
-    { icon: Zap, label: 'Analyse rapide' },
-    { icon: TrendingUp, label: 'Croissance mesurable' },
-    { icon: Shield, label: 'Approche sécurisée' },
-    { icon: Users, label: 'Équipes engagées' },
+    { icon: Layers, label: 'Jumeaux Numériques' },
+    { icon: Scan, label: 'Rétro-ingénierie' },
+    { icon: Network, label: 'Intégration DS' },
+    { icon: Cpu, label: 'Parc Tech. Digitale' },
   ];
 
   process = [

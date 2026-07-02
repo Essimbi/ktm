@@ -13,6 +13,7 @@ interface SolutionDetail {
   useCases: { title: string; desc: string }[];
   industries: string[];
   certifications: { name: string; level: string; duration: string; desc: string }[];
+  sectors?: { name: string; description: string; features: string[]; kpis: string[]; alert: string }[];
 }
 
 @Component({
@@ -59,6 +60,38 @@ interface SolutionDetail {
                 <span>{{f}}</span>
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sector details -->
+      <section class="sector-details-section" *ngIf="solution.sectors?.length">
+        <div class="section-container">
+          <div class="sec-header">
+            <span class="section-tag">Solutions sectorielles</span>
+            <h2 class="section-title">Une réponse précise pour chaque secteur</h2>
+          </div>
+          <div class="sector-detail-grid">
+            <article class="sector-card" *ngFor="let sector of solution.sectors">
+              <h3>{{sector.name}}</h3>
+              <p>{{sector.description}}</p>
+              <div class="sector-block">
+                <h4>Fonctionnalités</h4>
+                <ul>
+                  <li *ngFor="let feature of sector.features">{{feature}}</li>
+                </ul>
+              </div>
+              <div class="sector-block">
+                <h4>KPIs</h4>
+                <ul class="kpi-list">
+                  <li *ngFor="let kpi of sector.kpis">{{kpi}}</li>
+                </ul>
+              </div>
+              <div class="sector-alert">
+                <h4>Exemple d'alerte IA</h4>
+                <p>{{sector.alert}}</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -155,6 +188,39 @@ interface SolutionDetail {
           lucide-icon { color: var(--primary-gold); flex-shrink: 0; }
         }
       }
+    }
+    .sector-details-section {
+      background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+      padding: 80px 5%;
+    }
+    .sec-header { text-align: center; margin-bottom: 40px; }
+    .section-tag {
+      display: inline-block; padding: 8px 20px; border-radius: 999px; font-size: 0.75rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      background: rgba(197, 160, 89, 0.12); color: var(--primary-gold);
+      margin-bottom: 16px;
+    }
+    .section-title { font-size: 2.2rem; margin-bottom: 10px; color: var(--primary-deep); }
+    .sector-detail-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+    }
+    .sector-card {
+      background: white; border-radius: 24px; padding: 28px; border: 1px solid #E2E8F0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--primary-deep); }
+      p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    }
+    .sector-block {
+      margin-top: 18px;
+      h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+      ul { list-style: none; padding: 0; margin: 0; }
+      li { padding: 6px 0; font-size: 0.9rem; color: var(--primary-deep); }
+    }
+    .kpi-list li { color: var(--primary-gold); font-weight: 700; }
+    .sector-alert {
+      margin-top: 18px; background: rgba(197, 160, 89, 0.08); border-radius: 16px; padding: 16px;
+      h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-gold); margin-bottom: 10px; }
+      p { font-size: 0.9rem; color: var(--primary-deep); margin: 0; }
     }
     .use-cases-section {
       background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%);
@@ -258,33 +324,12 @@ export class SolutionDetailComponent implements OnInit {
       ],
     },
     {
-      id: 'solidworks',
-      name: 'SOLIDWORKS',
-      tagline: 'La CAO mécanique intuitive pour concevoir plus vite et mieux.',
-      description: 'SOLIDWORKS est le logiciel de conception mécanique 3D le plus utilisé dans le monde. Alliant puissance et facilité d\'utilisation, il permet aux ingénieurs et concepteurs de créer des produits innovants, de les simuler et de les fabriquer avec une précision maximale.',
-      gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
-      features: ['Conception de pièces 3D', 'Assemblages paramétriques', 'Simulation FEA', 'Analyse thermique', 'Conception de tôlerie', 'Modélisation de moules', 'Rendu photoréaliste'],
-      useCases: [
-        { title: 'PME Industrielles', desc: 'Conception rapide de produits mécaniques et prototypage virtuel.' },
-        { title: 'Formation académique', desc: 'Outil pédagogique idéal pour les écoles d\'ingénieurs et universités.' },
-        { title: 'Équipements médicaux', desc: 'Conception de dispositifs médicaux avec respect des normes ISO.' },
-        { title: 'Électronique', desc: 'Intégration mécatronique et conception de boîtiers électroniques.' },
-      ],
-      industries: ['PME', 'Médical', 'Électronique', 'Éducation', 'Mécanique générale'],
-      certifications: [
-        { name: 'SOLIDWORKS Associate (CSWA)', level: 'Débutant', duration: '3 jours', desc: 'Certification de base pour maîtriser les fondamentaux de SOLIDWORKS.' },
-        { name: 'SOLIDWORKS Professional (CSWP)', level: 'Intermédiaire', duration: '5 jours', desc: 'Certification avancée pour les utilisateurs expérimentés de SOLIDWORKS.' },
-        { name: 'SOLIDWORKS Simulation', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisez-vous dans l\'analyse par éléments finis avec SOLIDWORKS Simulation.' },
-        { name: 'SOLIDWORKS Expert (CSWE)', level: 'Expert', duration: '2 jours', desc: 'Le plus haut niveau de certification SOLIDWORKS pour les experts.' },
-      ],
-    },
-    {
       id: '3dexperience',
       name: '3DEXPERIENCE',
       tagline: 'La plateforme unifiée pour l\'innovation collaborative.',
       description: 'La plateforme 3DEXPERIENCE de Dassault Systèmes connecte les personnes, les idées et les données sur une seule plateforme cloud. Elle permet une collaboration sans frontières et une gestion PLM complète, du concept au service après-vente.',
       gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
-      features: ['PLM intégré', 'Collaboration cloud', 'Gestion des données produit', 'Workflow intelligent', 'Tableau de bord analytique', 'Gestion des exigences', 'Intégration CATIA & SOLIDWORKS'],
+      features: ['PLM intégré', 'Collaboration cloud', 'Gestion des données produit', 'Workflow intelligent', 'Tableau de bord analytique', 'Gestion des exigences', 'Intégration CATIA & applications métiers'],
       useCases: [
         { title: 'Co-développement', desc: 'Équipes distribuées collaborant en temps réel sur les mêmes modèles.' },
         { title: 'Gestion du cycle de vie', desc: 'Suivi complet du produit de la conception à la maintenance.' },
@@ -359,20 +404,30 @@ export class SolutionDetailComponent implements OnInit {
     {
       id: 'geovia',
       name: 'GEOVIA',
-      tagline: 'Solutions géosciences pour l\'exploitation durable des ressources naturelles.',
-      description: 'GEOVIA de Dassault Systèmes offre des solutions complètes pour l\'industrie minière et les géosciences. De la modélisation géologique 3D à la planification minière optimisée, GEOVIA permet une exploitation responsable et rentable des ressources naturelles tout en respectant l\'environnement.',
+      tagline: 'Smart Mining et Smart Cities - Mines et villes intelligentes.',
+      description: 'GEOVIA de Dassault Systèmes offre une suite complète de solutions pour l\'industrie minière et l\'aménagement urbain. Avec ses modules Surpac, MineSched, Whittle, GEMS et City Planner, GEOVIA permet une gestion intelligente des ressources naturelles et un développement urbain durable grâce aux jumeaux numériques.',
       gradient: 'linear-gradient(135deg, #2D5B2D 0%, #C5A059 100%)',
-      features: ['Modélisation géologique 3D', 'Planification minière optimisée', 'Simulation des opérations', 'Gestion environnementale', 'Analyse géostatistique', 'Optimisation des ressources', 'Conformité réglementaire'],
-      useCases: [
-        { title: 'Exploration minière', desc: 'Modélisation 3D des gisements pour optimiser l\'exploration.' },
-        { title: 'Planification de mine', desc: 'Optimisation des séquences d\'extraction et des coûts.' },
-        { title: 'Impact environnemental', desc: 'Évaluation et minimisation de l\'impact écologique.' },
-        { title: 'Sécurité minière', desc: 'Simulation des risques et optimisation de la sécurité.' },
+      features: [
+        'GEOVIA Surpac - Modélisation géologique et planification minière',
+        'GEOVIA MineSched - Exploitation et production minières', 
+        'GEOVIA Whittle - Optimisation stratégique des ressources minières',
+        'GEOVIA GEMS - Gestion centralisée des données minières',
+        'City Planner - Aménagement urbain et jumeaux numériques',
+        'Intégration IoT et capteurs intelligents',
+        'Analyse prédictive et optimisation des opérations'
       ],
-      industries: ['Mines & Métaux', 'Pétrole & Gaz', 'Géotechnique', 'Environnement', 'Énergie'],
+      useCases: [
+        { title: 'Modélisation géologique 3D', desc: 'Création de modèles géologiques précis avec GEOVIA Surpac pour optimiser l\'exploration et l\'extraction.' },
+        { title: 'Planification minière avancée', desc: 'Optimisation des séquences d\'extraction et gestion de la production avec MineSched et Whittle.' },
+        { title: 'Smart Cities & Aménagement urbain', desc: 'Conception de villes intelligentes et jumeaux numériques urbains avec City Planner.' },
+        { title: 'Gestion centralisée des données', desc: 'Centralisation et gouvernance des données géosciences avec GEOVIA GEMS.' },
+      ],
+      industries: ['Mines & Géologie', 'Ingénieurs Génie Civil & Infrastructures', 'Urbanistes & Aménageurs', 'Bureaux d\'Études'],
       certifications: [
-        { name: 'GEOVIA Surpac Essentials', level: 'Débutant', duration: '3 jours', desc: 'Apprenez les bases de la modélisation géologique avec Surpac.' },
-        { name: 'GEOVIA Urban Planning', level: 'Intermédiaire', duration: '2 jours', desc: 'Maîtrisez la planification urbaine avec les outils GEOVIA.' },
+        { name: 'GEOVIA Surpac Certified', level: 'Intermédiaire', duration: '4 jours', desc: 'Certification officielle en modélisation géologique et planification minière avec Surpac.' },
+        { name: 'GEOVIA MineSched Professional', level: 'Avancé', duration: '3 jours', desc: 'Expertise en exploitation et production minières avec MineSched.' },
+        { name: 'City Planner Urban Design', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisation en aménagement urbain et conception de villes intelligentes.' },
+        { name: '3DEXPERIENCE GEOVIA', level: 'Expert', duration: '2 jours', desc: 'Maîtrise complète de l\'écosystème GEOVIA sur plateforme 3DEXPERIENCE.' },
       ],
     },
     {
@@ -414,6 +469,56 @@ export class SolutionDetailComponent implements OnInit {
       ],
     },
     {
+      id: 'intelligence-artificielle',
+      name: 'Intelligence artificielle',
+      tagline: 'Une réponse précise pour chaque secteur, déployée en quelques semaines sans remplacer vos systèmes existants.',
+      description: 'Notre solution d’intelligence artificielle connecte vos équipements, vos données et vos équipes pour anticiper les incidents, améliorer la sécurité et optimiser la performance opérationnelle. Déployée en quelques semaines, elle s’intègre à vos systèmes existants sans remplacement.',
+      gradient: 'linear-gradient(135deg, #0F766E 0%, #002D5B 100%)',
+      features: ['Connectivité IoT et intégration aux systèmes existants', 'Détection précoce des anomalies', 'Alertes sécurité et maintenance prédictive', 'Tableaux de bord décisionnels et conformité'],
+      useCases: [
+        { title: 'Ports maritimes', desc: 'Surveillez grues, quais et équipements de manutention pour réduire les arrêts imprévus et anticiper les pannes.' },
+        { title: 'Dépôts pétroliers', desc: 'Suivez cuves, pipelines et équipements critiques pour détecter les fuites, anomalies et risques de sécurité.' },
+        { title: 'Villes & FEICOM', desc: 'Pilotez l’éclairage public, les infrastructures urbaines et le patrimoine municipal grâce à des décisions basées sur les données.' },
+        { title: 'Industries', desc: 'Optimisez la maintenance, la planification des arrêts et la durabilité des équipements critiques.' },
+      ],
+      industries: ['Ports maritimes', 'Dépôts pétroliers', 'Villes & FEICOM', 'Industries', 'Utilities'],
+      certifications: [
+        { name: 'Déploiement rapide', level: 'Débutant', duration: '2 à 6 semaines', desc: 'Mise en place rapide de la solution, sans remplacement des systèmes existants.' },
+        { name: 'Intégration IoT & data', level: 'Intermédiaire', duration: '3 à 8 semaines', desc: 'Connexion des capteurs, équipements et plateformes de supervision existantes.' },
+        { name: 'Accompagnement opérationnel', level: 'Avancé', duration: 'Selon périmètre', desc: 'Formation des équipes terrain et mise en place d’un plan de gouvernance.' },
+      ],
+      sectors: [
+        {
+          name: 'Ports maritimes',
+          description: 'Chaque grue, quai, conteneur et équipement de manutention devient un actif connecté. L’IA surveille, prédit et prescrit pour que votre port ne s’arrête jamais.',
+          features: ['Digital Twin 3D du port', 'Capteurs IoT sur équipements critiques', 'Détection précoce de défaillances', 'Alertes sécurité workers', 'Tableau de bord directorial'],
+          kpis: ['−42 % arrêts non planifiés', '24/7 surveillance active', '+14 jours d’anticipation des pannes', '−35 % coûts maintenance'],
+          alert: 'Grue n°4 — Quai 7 · Vibration anormale détectée sur palier roulement · Intervention recommandée avant J+5 · Durée estimée : 3h'
+        },
+        {
+          name: 'Dépôts pétroliers',
+          description: 'Sur un dépôt pétrolier, chaque seconde compte. Notre solution surveille en continu les cuves, pipelines et équipements pour anticiper les incidents avant qu’ils ne se produisent.',
+          features: ['Surveillance continue des cuves', 'Analyse corrosion prédictive', 'Conformité automatisée', 'Détection gaz & fuites', 'Plan d’intervention automatique'],
+          kpis: ['0 tolérance incidents', '−60 % risque de fuite', '100 % traçabilité conformité', '30 s délai détection anomalie'],
+          alert: 'Cuve 12 — Zone B · Variation de pression inhabituelle · Inspection recommandée · Priorité : HAUTE'
+        },
+        {
+          name: 'Villes & FEICOM',
+          description: 'Donnez à vos élus et directeurs techniques une vision complète du patrimoine municipal et optimisez la gestion des infrastructures urbaines.',
+          features: ['Tableau de bord patrimonial', 'Priorisation budgétaire par IA', 'Rapports automatiques pour le FEICOM', 'Gestion intelligente de l’éclairage public', 'Suivi du réseau d’eau potable'],
+          kpis: ['360 communes éligibles', '−30 % coûts opérationnels', '100 % traçabilité dépenses', 'Smart City ready'],
+          alert: 'Quartier Bastos — 14 points lumineux hors service · Bon de travail généré automatiquement'
+        },
+        {
+          name: 'Industries',
+          description: 'Cimenteries, agro-industrie, mines et usines de transformation bénéficient d’une maintenance prédictive et d’un pilotage opérationnel plus fiable.',
+          features: ['Monitoring des machines critiques', 'Planification optimisée des arrêts', 'Gestion prédictive des pièces de rechange', 'Analyse des causes racines', 'Formation des équipes terrain'],
+          kpis: ['−45 % pannes imprévues', '+20 % durée de vie équipements', 'ROI dès le 1er semestre'],
+          alert: 'Broyeur 3 — Usure anormale détectée · Remplacement conseillé sous 9 jours'
+        }
+      ]
+    },
+    {
       id: 'neoledge',
       name: 'NeoLedge',
       tagline: 'La plateforme ECM tout-en-un propulsée par l\'IA pour moderniser la gestion documentaire.',
@@ -421,7 +526,7 @@ export class SolutionDetailComponent implements OnInit {
       gradient: 'linear-gradient(135deg, #002D5B 0%, #059669 100%)',
       features: ['Capture multicanal & LAD/RAD', 'Gestion de dossiers & workflows', 'Signature électronique intégrée', 'Intelligence artificielle AI.Lise', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Conformité RGPD'],
       useCases: [
-        { title: 'Dématérialisation RH', desc: 'Digitalisation complète des processus ressources humaines.' },
+        { title: 'Transformation digitale RH', desc: 'Transformation digitale complète des processus ressources humaines.' },
         { title: 'Gestion comptable', desc: 'Automatisation du traitement des factures et documents comptables.' },
         { title: 'Conformité réglementaire', desc: 'Archivage légal et respect des obligations de conservation.' },
         { title: 'Collaboration documentaire', desc: 'Partage sécurisé et co-édition de documents en temps réel.' },

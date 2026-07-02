@@ -171,9 +171,9 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
             <div class="trust-badges">
               <div class="t-badge"><span>Dassault Systèmes</span> Elite Partner</div>
               <div class="t-badge"><span>CATIA</span> Specialist</div>
-              <div class="t-badge"><span>SOLIDWORKS</span> Professional</div>
               <div class="t-badge"><span>GEOVIA</span> Urban Planning</div>
               <div class="t-badge"><span>GEOVIA</span> Surpac</div>
+              <div class="t-badge"><span>SIMULIA</span> Certified</div>
             </div>
           </div>
         </div>
@@ -725,10 +725,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   solutions = [
     { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', logo: '/assets/solutions/3D.jpeg', link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
     { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', logo: '/assets/solutions/catia.png', link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'SOLIDWORKS', desc: 'Conception mécanique puissante et intuitive pour accélérer l\'innovation.', logo: '/assets/solutions/solid.png', link: '/solutions/solidworks', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
     { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', logo: '/assets/solutions/simulia.png', link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
     { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', logo: '/assets/solutions/enovia.png', link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', logo: '/assets/solutions/geovia.jpeg', link: '/solutions/geovia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' }
+    { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', logo: '/assets/solutions/geovia.jpeg', link: '/solutions/geovia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
+    { name: 'DELMIA', desc: 'Optimisation des processus industriels et simulation de production.', logo: '/assets/solutions/delmia.png', link: '/solutions/delmia', color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))' }
   ];
 
   clientReferences = [
@@ -737,8 +737,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       sector: 'Éducation Supérieure',
       color: 'var(--primary-deep)',
       logo: '/assets/clients/Logo-UCAC.png',
-      description: 'Déploiement de la 3DEXPériences pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
-      solutions: ['CATIA', 'SOLIDWORKS', 'Formation']
+      description: 'Déploiement de la 3DEXPERIENCE pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
+      solutions: ['CATIA', '3DEXPERIENCE', 'Formation']
     },
     {
       name: 'Alucam',
@@ -761,8 +761,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       sector: 'Éducation Technique',
       color: '#A68545',
       logo: '/assets/clients/De_La_Salle.jpeg',
-      description: 'Programme de formation technique avancée et certification SOLIDWORKS pour les étudiants en génie mécanique.',
-      solutions: ['SOLIDWORKS', 'Certification', 'Support']
+      description: 'Programme de formation technique avancée et certification CATIA pour les étudiants en génie mécanique.',
+      solutions: ['CATIA', 'Certification', 'Support']
     },
     {
       name: 'IUC',
@@ -777,7 +777,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       sector: 'Collectivité Publique',
       color: 'var(--primary-deep)',
       logo: '/assets/clients/CUD.png',
-      description: 'Mise en place du Juméau Numérique de la ville de Douala.',
+      description: 'Mise en place du Jumeau Numérique de la ville de Douala.',
       solutions: ['GEOVIA', 'Smart city', 'Formation']
     }
   ];
@@ -789,13 +789,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       icon: Award,
       description: 'Partenaire officiel et revendeur agréé pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.',
       benefits: ['Support Officiel', 'Formation Certifiée', 'Licences Authentiques', 'Mises à jour']
-    },
-    {
-      name: 'SOLIDWORKS Corporation',
-      type: 'Revendeur Autorisé',
-      icon: Shield,
-      description: 'Partenaire autorisé pour la distribution, formation et support des solutions SOLIDWORKS de conception mécanique.',
-      benefits: ['VAR Officiel', 'Support Premium', 'Formation Agréée', 'Certification']
     },
     {
       name: 'NeoLedge',
@@ -821,7 +814,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { name: 'Automobile & Transport', desc: 'Conception véhicules et optimisation des systèmes de transport.', icon: Car },
     { name: 'Construction & Infrastructures', desc: 'BIM, conception d\'ouvrages et gestion de projets de construction.', icon: Building2 },
     { name: 'Éducation & Recherche', desc: 'Programmes académiques et laboratoires de recherche avancée.', icon: GraduationCap },
-    { name: 'Transformation Digitale', desc: 'Accompagnement dans la digitalisation des processus métiers.', icon: Monitor },
+    { name: 'Transformation Digitale', desc: 'Accompagnement dans la transformation digitale des processus métiers.', icon: Monitor },
     { name: 'Gestion Documentaire & Gouvernance', desc: 'Solutions ECM et gouvernance de l\'information d\'entreprise.', icon: FileText },
     { name: 'Data & Intelligence Artificielle', desc: 'Analytics avancés et solutions d\'intelligence artificielle.', icon: Brain }
   ];

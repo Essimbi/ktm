@@ -57,7 +57,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
         <p class="section-subtitle">Retrouvez les grandes familles de formations proposées pour développer, fiabiliser et partager vos savoir-faire numériques.</p>
 
         <div class="courses-grid">
-          <article class="course-card" *ngFor="let c of allCourses">
+          <article class="course-card" *ngFor="let c of allCourses" [class.course-card--large-image]="c.title === 'Formations ORTEMS' || c.title === 'Formations COMPOSER'">
             <div class="course-media">
               <img [src]="c.image" [alt]="c.title">
               <span class="course-level">{{c.family}}</span>
@@ -89,7 +89,7 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       <section class="certs-section">
         <div class="section-container">
           <h2 class="section-title" style="color:white">Certifications Dassault Systèmes</h2>
-          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Préparez les validations de compétences attendues sur les solutions SOLIDWORKS, CATIA, 3DEXPERIENCE, SIMULIA et DELMIA.</p>
+          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Préparez les validations de compétences attendues sur les solutions CATIA, 3DEXPERIENCE, SIMULIA et DELMIA.</p>
           <div class="certs-grid">
             <div class="cert-item" *ngFor="let cert of certifications">
               <lucide-icon [name]="Award" size="32"></lucide-icon>
@@ -397,31 +397,54 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       position: relative;
       height: 157px;
       overflow: hidden;
-      background: #DADDE7;
+      background: linear-gradient(135deg, #F0F1F6 0%, #E8E9F0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border-radius: 8px 8px 0 0;
       img {
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
         display: block;
-        object-fit: cover;
+        object-fit: contain;
         transition: transform 0.35s ease;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
       }
       .course-level {
         position: absolute;
-        left: 24px;
-        bottom: 16px;
-        min-width: 142px;
-        padding: 8px 18px;
+        top: 12px;
+        right: 12px;
+        padding: 6px 14px;
         border-radius: 999px;
-        background: #FFFFFF;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
         color: #3D3D43;
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         line-height: 1;
         font-weight: 600;
-        box-shadow: 0 7px 20px rgba(20, 20, 25, 0.08);
+        box-shadow: 0 4px 12px rgba(20, 20, 25, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.6);
       }
     }
     .course-card:hover .course-media img {
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+    }
+    .course-card--large-image .course-media {
+      padding: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        object-fit: cover;
+        filter: none;
+      }
+    }
+    .course-card--large-image:hover .course-media img {
       transform: scale(1.035);
+      filter: none;
     }
     .course-body {
       padding: 17px 17px 0;
@@ -615,22 +638,18 @@ export class FormationsComponent {
       description: "Des évaluations pour situer le niveau de connaissances avant d'engager un cursus ou une certification.",
       icon: Laptop,
       color: 'linear-gradient(135deg, var(--primary-deep), #8B5CF6)',
-      features: ['Quiz SOLIDWORKS', 'Quiz CATIA', 'Bilan de compétences', 'Orientation de parcours']
+      features: ['Quiz CATIA', 'Quiz 3DEXPERIENCE', 'Bilan de compétences', 'Orientation de parcours']
     }
   ];
 
   allCourses = [
-    { title: 'Formations SOLIDWORKS', desc: "Parcours dédiés à la CAO 3D, à la conception mécanique, aux assemblages, à la mise en plan, à la simulation, à l'électricité, à l'usinage et aux solutions complémentaires.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/solid.png', category: 'SOLIDWORKS' },
-    { title: 'Formations 3DEXPERIENCE', desc: 'Modules pour mieux collaborer, piloter les projets et délivrer plus vite sur la plateforme 3DEXPERIENCE, dans le respect des processus métier.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/collab.png', category: '3DEXPERIENCE' },
-    { title: 'Formations CATIA V5', desc: "Formations orientées conception avancée, modélisation 3D, assemblages, surfaces et méthodes de bureau d'études pour les environnements CATIA V5.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/catia.png', category: 'CATIA V5' },
-    { title: 'Formations COMPOSER', desc: 'Apprendre à produire des livrables techniques, notices, vues éclatées et supports de documentation à partir des données de conception.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/catia.png', category: 'COMPOSER' },
-    { title: 'Formations ORTEMS', desc: "Parcours autour de la planification industrielle et de l'ordonnancement pour améliorer la visibilité de production et la prise de décision.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/factory.png', category: 'ORTEMS' },
-    { title: 'Formations ABAQUS', desc: 'Modules SIMULIA pour aborder la simulation numérique, les calculs avancés et les analyses par éléments finis avec Abaqus.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/simulia.png', category: 'ABAQUS' },
-    { title: 'Formations VISIATIV PLM', desc: 'Formations dédiées à la gestion documentaire et au PLM pour sécuriser le partage des données techniques tout au long du cycle de vie produit.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/enovia.png', category: 'VISIATIV' },
-    { title: 'Formations VISIATIV', desc: "Parcours sur les solutions Visiativ pour identifier les usages adaptés, accélérer l'adoption et structurer les processus numériques.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/hero-bg.png', category: 'VISIATIV' },
-    { title: 'Formations VISIATIV CPQ', desc: "Modules orientés configuration, chiffrage et génération d'offres commerciales pour fiabiliser les parcours de vente complexes.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/collab.png', category: 'VISIATIV' },
-    { title: 'Formations IMPRESSION 3D', desc: "Formations consacrées aux usages de fabrication additive, à la préparation des pièces et à l'exploitation des équipements associés.", family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/3D.jpeg', category: 'IMPRESSION 3D' },
-    { title: 'Formations RV-RA', desc: 'Parcours autour de la réalité virtuelle et augmentée pour visualiser, former, assister et valoriser les contenus industriels.', family: 'Catégorie de formation', cta: 'Voir la catégorie', image: 'assets/solutions/delmia.png', category: 'RV-RA' },
+    { title: 'Formations 3DEXPERIENCE', desc: 'Modules pour mieux collaborer, piloter les projets et délivrer plus vite sur la plateforme 3DEXPERIENCE, dans le respect des processus métier.', family: 'Plateforme Globale', cta: 'Voir la catégorie', image: 'assets/solutions/compas.webp', category: '3DEXPERIENCE' },
+    { title: 'Formations CATIA V5', desc: "Formations orientées conception avancée, modélisation 3D, assemblages, surfaces et méthodes de bureau d'études pour les environnements CATIA V5.", family: '3D Modeling Apps', cta: 'Voir la catégorie', image: 'assets/solutions/catia.png', category: 'CATIA V5' },
+    { title: 'Formations COMPOSER', desc: 'Apprendre à produire des livrables techniques, notices, vues éclatées et supports de documentation à partir des données de conception.', family: '3D Modeling Apps', cta: 'Voir la catégorie', image: 'assets/catia.png', category: 'COMPOSER' },
+    { title: 'Formations ORTEMS', desc: "Parcours autour de la planification industrielle et de l'ordonnancement pour améliorer la visibilité de production et la prise de décision.", family: 'Simulation Apps', cta: 'Voir la catégorie', image: 'assets/factory.png', category: 'ORTEMS' },
+    { title: 'Formations ABAQUS', desc: 'Modules SIMULIA pour aborder la simulation numérique, les calculs avancés et les analyses par éléments finis avec Abaqus.', family: 'Simulation Apps', cta: 'Voir la catégorie', image: 'assets/solutions/simulia.png', category: 'ABAQUS' },
+    { title: 'Formations IMPRESSION 3D', desc: "Formations consacrées aux usages de fabrication additive, à la préparation des pièces et à l'exploitation des équipements associés.", family: '3D Modeling Apps', cta: 'Voir la catégorie', image: 'assets/solutions/3D.png', category: 'IMPRESSION 3D' },
+    { title: 'Formations RV-RA', desc: 'Parcours autour de la réalité virtuelle et augmentée pour visualiser, former, assister et valoriser les contenus industriels.', family: 'Simulation Apps', cta: 'Voir la catégorie', image: 'assets/solutions/delmia.png', category: 'RV-RA' },
   ];
 
   resources = [
@@ -643,7 +662,6 @@ export class FormationsComponent {
   ];
 
   certifications = [
-    { name: 'Certifications SOLIDWORKS', desc: 'Préparation aux validations de niveau associé, professionnel et expert sur les usages CAO.' },
     { name: 'Certifications CATIA', desc: 'Valorisation des compétences de conception, modélisation et méthodologie sur les environnements CATIA.' },
     { name: 'Certifications 3DEXPERIENCE', desc: 'Validation des pratiques de collaboration, gestion de données et pilotage sur la plateforme.' },
     { name: 'Certifications SIMULIA', desc: 'Reconnaissance des compétences en simulation numérique et analyse avancée.' },

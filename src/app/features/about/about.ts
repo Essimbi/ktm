@@ -797,7 +797,7 @@ export class AboutComponent implements AfterViewInit {
   timeline = [
     { year: 'Fondation', title: 'Création de KTM Green Energy Group', desc: 'Création de KTM Green Energy group Sarl à Douala avec une vision claire : digitaliser l\'industrie africaine et démocratiser l\'accès aux technologies de pointe.' },
     { year: 'Partenariat', title: 'Partenariat Dassault Systèmes', desc: 'Signature du partenariat officiel avec Dassault Systèmes, devenant l\'un des rares revendeurs agréés en Afrique Centrale.' },
-    { year: 'Croissance', title: 'Premiers grands projets', desc: 'Déploiement de CATIA et SOLIDWORKS dans plusieurs entreprises industrielles camerounaises, dont Alucam et des groupes éducatifs.' },
+    { year: 'Croissance', title: 'Premiers grands projets', desc: 'Déploiement de CATIA et des solutions 3DEXPERIENCE dans plusieurs entreprises industrielles camerounaises, dont Alucam et des groupes éducatifs.' },
     { year: 'Académie', title: 'Lancement de l\'Académie KTM', desc: 'Ouverture du programme de formation certifiante, avec les premières cohortes d\'ingénieurs certifiés Dassault Systèmes issus d\'UCAC, IUC et De La Salle.' },
     { year: 'Expansion', title: 'Expansion régionale', desc: 'Extension de nos activités au Gabon, Tchad et Congo, avec des projets de déploiement PLM à grande échelle et partenariat NeoLedge.' },
     { year: 'Aujourd\'hui', title: 'KTM Green Energy Group', desc: 'Acteur de référence de l\'industrie 4.0 en Afrique Centrale — solutions Dassault Systèmes, NeoLedge, formation et consulting.' },
@@ -805,7 +805,7 @@ export class AboutComponent implements AfterViewInit {
 
   team = [
     { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Stratégie', 'PLM', 'Partenariats'] },
-    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SOLIDWORKS et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['CATIA', 'SOLIDWORKS', 'SIMULIA'] },
+    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SIMULIA et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['CATIA', '3DEXPERIENCE', 'SIMULIA'] },
     { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)', skills: ['Formation', 'Certification', 'eLearning'] },
     { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
   ];
@@ -821,7 +821,6 @@ export class AboutComponent implements AfterViewInit {
 
   partners = [
     'Dassault Systèmes Certified Reseller',
-    'SOLIDWORKS Official Partner',
     'CATIA Authorized Training Center',
     '3DEXPERIENCE Academic Partner',
     'SIMULIA Certified',
@@ -847,12 +846,6 @@ export class AboutComponent implements AfterViewInit {
       description: 'Revendeur agréé officiel pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.'
     },
     { 
-      name: 'SOLIDWORKS Authorized Reseller', 
-      category: 'Conception CAO', 
-      icon: Award,
-      description: 'Partenaire autorisé pour la vente et le support des solutions SOLIDWORKS de conception mécanique.'
-    },
-    { 
       name: 'CATIA Certified Training Center', 
       category: 'Formation accréditée', 
       icon: Award,
@@ -875,18 +868,6 @@ export class AboutComponent implements AfterViewInit {
       category: 'GED & ECM', 
       icon: Award,
       description: 'Partenaire revendeur pour les solutions de gestion électronique de documents NeoLedge.'
-    },
-    { 
-      name: 'CSWA — SolidWorks Associate', 
-      category: 'Certification individuelle', 
-      icon: CheckCircle, 
-      description: 'Certification individuelle attestant de la maîtrise des fondamentaux SOLIDWORKS.'
-    },
-    { 
-      name: 'CSWP — SolidWorks Professional', 
-      category: 'Certification avancée', 
-      icon: CheckCircle,
-      description: 'Certification professionnelle avancée pour l\'expertise SOLIDWORKS de niveau expert.'
     },
     { 
       name: 'ISO 9001:2015 Quality Management', 

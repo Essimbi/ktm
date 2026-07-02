@@ -14,8 +14,8 @@ import { LucideAngularModule, Newspaper, ArrowRight, Calendar, Clock, Tag, Searc
       <section class="page-hero">
         <div class="hero-content">
           <span class="hero-tag">Actualités & Insights</span>
-          <h1>Le Blog KTM Digital</h1>
-          <p>Restez informé des dernières tendances en Industrie 4.0, PLM, digitalisation et innovation technologique en Afrique.</p>
+          <h1>Le Blog KTM Digitale</h1>
+          <p>Restez informé des dernières tendances en Industrie 4.0, PLM, transformation digitale et innovation technologique en Afrique.</p>
           <div class="search-bar">
             <lucide-icon [name]="Search" size="18"></lucide-icon>
             <input type="text" placeholder="Rechercher un article..." [(ngModel)]="searchQuery">
@@ -227,13 +227,13 @@ export class BlogComponent {
   searchQuery = '';
   activeCategory = 'Tous';
 
-  categories = ['Tous', 'Industrie 4.0', 'CATIA & SOLIDWORKS', 'PLM', 'Innovation Afrique', 'Formation'];
+  categories = ['Tous', 'Industrie 4.0', 'CATIA & Design', 'PLM', 'Innovation Afrique', 'Formation'];
 
   articles = [
     { title: 'L\'industrie 4.0 en Afrique Centrale : où en sommes-nous ?', excerpt: 'Panorama de la transformation numérique industrielle au Cameroun et dans la sous-région CEMAC.', category: 'Industrie 4.0', date: 'Mai 2025', readTime: '8 min', image: 'assets/factory.png', featured: true },
-    { title: 'CATIA V6 vs V5 : quelle version choisir pour votre entreprise ?', excerpt: 'Analyse comparative des deux versions phares du logiciel de CAO de Dassault Systèmes.', category: 'CATIA & SOLIDWORKS', date: 'Avr 2025', readTime: '6 min', image: 'assets/catia.png', featured: false },
+    { title: 'CATIA V6 vs V5 : quelle version choisir pour votre entreprise ?', excerpt: 'Analyse comparative des deux versions phares du logiciel de CAO de Dassault Systèmes.', category: 'CATIA & Design', date: 'Avr 2025', readTime: '6 min', image: 'assets/catia.png', featured: false },
     { title: 'La plateforme 3DEXPERIENCE révolutionne la collaboration', excerpt: 'Comment les entreprises africaines peuvent tirer parti d\'un PLM de classe mondiale.', category: 'PLM', date: 'Mar 2025', readTime: '5 min', image: 'assets/collab.png', featured: false },
-    { title: 'Certification SOLIDWORKS : guide complet 2025', excerpt: 'Tout ce que vous devez savoir pour préparer et réussir vos certifications CSWA et CSWP.', category: 'Formation', date: 'Mar 2025', readTime: '10 min', image: 'assets/hero-bg.png', featured: false },
+    { title: 'Certification CATIA : guide complet 2025', excerpt: 'Tout ce que vous devez savoir pour préparer et réussir vos certifications CATIA et 3DEXPERIENCE.', category: 'Formation', date: 'Mar 2025', readTime: '10 min', image: 'assets/hero-bg.png', featured: false },
     { title: 'KTM accompagne l\'Université de Douala dans son programme PLM', excerpt: 'Retour sur notre partenariat académique et l\'intégration du logiciel CATIA dans les cursus d\'ingénierie.', category: 'Innovation Afrique', date: 'Fév 2025', readTime: '4 min', image: 'assets/collab.png', featured: false },
     { title: 'Simulation numérique : réduire les coûts de prototypage de 60%', excerpt: 'Les outils SIMULIA permettent de tester virtuellement avant de fabriquer, réduisant drastiquement les erreurs.', category: 'Industrie 4.0', date: 'Jan 2025', readTime: '7 min', image: 'assets/hero-bg.png', featured: false },
   ];

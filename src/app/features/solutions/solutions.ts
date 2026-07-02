@@ -355,8 +355,8 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: '3dexperience',
       name: '3DEXPERIENCE',
-      category: 'Plateforme Collaborative',
-      shortDesc: 'La plateforme collaborative ultime pour connecter personnes, idées et données sur un environnement Cloud unifié. Le hub digital de votre entreprise.',
+      category: 'Plateforme Globale',
+      shortDesc: 'La plateforme collaborative ultime pour connecter personnes, idées et données sur un environnement Cloud unifié. Le hub digitale de votre entreprise.',
       features: ['PLM collaboratif cloud', 'Gestion des données produits', 'Tableaux de bord business', 'Jumeaux numériques'],
       icon: Layers,
       color: 'linear-gradient(135deg, #002D5B, #C5A059)'
@@ -364,25 +364,16 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: 'catia',
       name: 'CATIA',
-      category: 'Conception & Design',
+      category: '3D Modeling Apps',
       shortDesc: 'Le leader mondial de la conception 3D et de l\'ingénierie système pour les industries aéronautique, automobile et industrielle de pointe.',
       features: ['CAO 3D avancée multi-discipline', 'Surfacique & carrosserie complexe', 'Ingénierie système (MBSE)', 'Conception mécatronique'],
       icon: Monitor,
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
-      id: 'solidworks',
-      name: 'SOLIDWORKS',
-      category: 'Conception Mécanique',
-      shortDesc: 'Solutions de conception mécaniques puissantes et intuitives pour accélérer l\'innovation produit des PME aux grandes industries.',
-      features: ['Modélisation solide paramétrique', 'Simulation intégrée (FEA/CFD)', 'Gestion technique PDM', 'Électronique & tuyauterie'],
-      icon: Database,
-      color: 'linear-gradient(135deg, #C5A059, #002D5B)'
-    },
-    {
       id: 'simulia',
       name: 'SIMULIA',
-      category: 'Simulation',
+      category: 'Simulation Apps',
       shortDesc: 'Simulation multi-physique avancée pour prédire et valider le comportement réel de vos produits avant fabrication.',
       features: ['Analyse FEA / CFD', 'Optimisation topologique', 'Simulation thermique & acoustique', 'Fatigue et durabilité'],
       icon: Zap,
@@ -391,7 +382,7 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: 'delmia',
       name: 'DELMIA',
-      category: 'Opérations Industrielles',
+      category: 'Simulation Apps',
       shortDesc: 'Planification et optimisation des opérations industrielles pour atteindre l\'excellence opérationnelle et réduire les coûts de production.',
       features: ['Simulation d\'usine digitale', 'Programmation robotique hors-ligne', 'Optimisation logistique', 'Planification de production'],
       icon: Layout,
@@ -400,7 +391,7 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: 'enovia',
       name: 'ENOVIA',
-      category: 'Collaboration PLM',
+      category: 'Social & Collaborative Apps',
       shortDesc: 'Gérez et sécurisez vos données produits avec une solution de gouvernance et de collaboration PLM à l\'échelle de l\'entreprise.',
       features: ['Gestion des nomenclatures (BOM)', 'Contrôle des versions documentaires', 'Workflows de validation', 'Gestion des exigences'],
       icon: Shield,
@@ -409,16 +400,16 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: 'geovia',
       name: 'GEOVIA',
-      category: 'Ressources Naturelles',
-      shortDesc: 'Solutions de simulation et de planification minière pour optimiser l\'extraction des ressources naturelles de manière durable.',
-      features: ['Modélisation géologique 3D', 'Planification minière optimisée', 'Simulation des opérations', 'Gestion environnementale'],
+      category: 'Smart Mining & Smart Cities',
+      shortDesc: 'Smart Mining et Smart Cities - Mines et villes intelligentes. Avec Surpac, MineSched, Whittle, GEMS et City Planner pour la gestion optimisée des ressources et l\'aménagement urbain.',
+      features: ['GEOVIA Surpac - Modélisation géologique', 'GEOVIA MineSched - Production minière', 'GEOVIA Whittle - Optimisation stratégique', 'City Planner - Aménagement urbain'],
       icon: Leaf,
-      color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)'
+      color: 'linear-gradient(135deg, #2D5B2D, #C5A059)'
     },
     {
       id: 'biovia',
       name: 'BIOVIA',
-      category: 'Sciences de la vie',
+      category: '3D Modeling Apps',
       shortDesc: 'Plateforme scientifique pour accélérer la découverte et l\'innovation dans les sciences de la vie, chimie et matériaux.',
       features: ['Cahiers de laboratoire électroniques', 'Gestion des données scientifiques', 'Modélisation moléculaire', 'Conformité réglementaire'],
       icon: FlaskConical,
@@ -427,7 +418,7 @@ export class SolutionsComponent implements AfterViewInit {
     {
       id: 'netvibes',
       name: 'NETVIBES',
-      category: 'Intelligence Business',
+      category: 'Information Intelligence Apps',
       shortDesc: 'Plateforme d\'intelligence artificielle et de veille stratégique pour piloter votre entreprise avec des données en temps réel.',
       features: ['Tableaux de bord IA temps réel', 'Veille concurrentielle automatisée', 'Alertes intelligentes', 'Analyse prédictive'],
       icon: BarChart2,
@@ -480,6 +471,15 @@ export class SolutionsComponent implements AfterViewInit {
       features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies'],
       icon: Cpu,
       color: 'linear-gradient(135deg, #C5A059, #002D5B)'
+    },
+    {
+      id: 'intelligence-artificielle',
+      name: 'Intelligence artificielle',
+      category: 'Solutions IA',
+      shortDesc: 'Des solutions de maintenance prédictive, de surveillance industrielle et de gestion intelligente adaptées aux ports, dépôts pétroliers, villes et industries.',
+      features: ['Maintenance prédictive', 'Surveillance IoT', 'Détection d’anomalies', 'Tableaux de bord opérationnels'],
+      icon: Cpu,
+      color: 'linear-gradient(135deg, #0F766E, #C5A059)'
     },
   ];
 
