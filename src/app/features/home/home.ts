@@ -64,7 +64,10 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
           <div class="about-text reveal">
             <span class="section-tag">Qui sommes-nous</span>
             <h2 class="section-title" style="text-align: left;">Partenaire de votre <span class="gradient-text">Réussite Industrielle</span></h2>
-            <p>KTM Green Energy Group est le leader de l'accompagnement technologique en Afrique Centrale. Nous combinons expertise locale et solutions de classe mondiale pour transformer votre vision en réalité industrielle.</p>
+            <p>
+              KTM Green Energy Group accompagne les entreprises d'Afrique Centrale dans leur transformation industrielle et numérique. 
+              Nous combinons une expertise locale certifiée avec les technologies de classe mondiale de Dassault Systèmes pour transformer vos idées en solutions concrètes et performantes.
+            </p>
             
             <div class="value-props">
               <div class="vp-item">
@@ -169,11 +172,43 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
               <a routerLink="/formations" class="btn-premium primary">Rejoindre l'Académie</a>
             </div>
             <div class="trust-badges">
-              <div class="t-badge"><span>Dassault Systèmes</span> Elite Partner</div>
-              <div class="t-badge"><span>CATIA</span> Specialist</div>
-              <div class="t-badge"><span>GEOVIA</span> Urban Planning</div>
-              <div class="t-badge"><span>GEOVIA</span> Surpac</div>
-              <div class="t-badge"><span>SIMULIA</span> Certified</div>
+              <div class="t-badge"><span>GEOVIA</span> Modélisation et gestion de données géologiques, minières et environnementales (Surpac, GEMS, Minex, MineSched)</div>
+              <div class="t-badge">
+                <span>Certifications SOLIDWORKS</span>
+                <ul style="margin: 8px 0 0 16px; padding: 0; font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.8);">
+                  <li style="margin-bottom: 4px;"><strong>CSWA :</strong> Certified SOLIDWORKS Associate<br><span style="font-size:0.75rem; opacity:0.8;">Niveau débutant – Bases de la modélisation 3D</span></li>
+                  <li style="margin-bottom: 4px;"><strong>CSWP :</strong> Certified SOLIDWORKS Professional<br><span style="font-size:0.75rem; opacity:0.8;">Niveau intermédiaire – Conception avancée</span></li>
+                  <li style="margin-bottom: 4px;"><strong>CSWE :</strong> Certified SOLIDWORKS Expert<br><span style="font-size:0.75rem; opacity:0.8;">Niveau expert – Maîtrise complète et leadership technique</span></li>
+                </ul>
+              </div>
+              <div class="t-badge">
+                <span>Certifications 3DEXPERIENCE</span>
+                <ul style="margin: 8px 0 0 16px; padding: 0; font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.8);">
+                  <li style="margin-bottom: 4px;">3DEXPERIENCE Collaborative Business & Industry Innovator</li>
+                  <li style="margin-bottom: 4px;">3DEXPERIENCE Mechanical Designer</li>
+                  <li style="margin-bottom: 4px;">3DEXPERIENCE Function-Driven Generative Designer</li>
+                  <li style="margin-bottom: 4px;">3DEXPERIENCE Structural Engineer Professional</li>
+                  <li style="margin-bottom: 4px;"><strong>3DEXPERIENCE City Planner :</strong> Associate, Professional, Expert</li>
+                </ul>
+              </div>
+              <div class="t-badge">
+                <span>Certifications CATIA</span>
+                <ul style="margin: 8px 0 0 16px; padding: 0; font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.8);">
+                  <li style="margin-bottom: 4px;">CATIA V5 Associate</li>
+                  <li style="margin-bottom: 4px;">CATIA V5 Professional</li>
+                  <li style="margin-bottom: 4px;">CATIA V5 Mechanical Design</li>
+                  <li style="margin-bottom: 4px;"><strong>Avancées :</strong> Part Design Expert, Assembly Design Expert, Surface Design Expert</li>
+                </ul>
+              </div>
+              <div class="t-badge">
+                <span>Autres Certifications Dassault Systèmes</span>
+                <ul style="margin: 8px 0 0 16px; padding: 0; font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.8);">
+                  <li style="margin-bottom: 4px;"><strong>DELMIA :</strong> Production industrielle, robotique, usinage</li>
+                  <li style="margin-bottom: 4px;"><strong>ENOVIA :</strong> Gestion collaborative de projet et PLM</li>
+                  <li style="margin-bottom: 4px;"><strong>SIMULIA :</strong> Simulation multiphysique (structures, fluides)</li>
+                  <li style="margin-bottom: 4px;"><strong>3DVIA :</strong> Visualisation et animation 3D interactive</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -192,13 +227,8 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
               <div class="client-logo-wrapper">
                 <img [src]="client.logo" [alt]="client.name + ' logo'" class="client-logo">
               </div>
-              <div class="client-details">
-                <h4>{{client.name}}</h4>
-                <span class="client-sector">{{client.sector}}</span>
-                <p class="client-description">{{client.description}}</p>
-                <div class="client-solutions">
-                  <span class="solution-tag" *ngFor="let solution of client.solutions">{{solution}}</span>
-                </div>
+              <div class="client-details" style="justify-content: center; align-items: center;">
+                <h4 style="margin: 0;">{{client.name}}</h4>
               </div>
             </div>
           </div>
@@ -213,22 +243,12 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
             <h2 class="section-title">Nos Partenaires Stratégiques</h2>
             <p class="section-subtitle">Des alliances technologiques de premier plan pour vous offrir les meilleures solutions du marché.</p>
           </div>
-          <div class="partners-grid reveal">
-            <div class="partner-card" *ngFor="let partner of partners; let i = index" [style.animation-delay.s]="i * 0.15">
-              <div class="partner-icon">
-                <lucide-icon [name]="partner.icon" size="32"></lucide-icon>
+          <div class="partners-badges reveal">
+            <div class="partner-logo-badge" *ngFor="let partner of partners; let i = index" [style.animation-delay.s]="i * 0.1">
+              <div class="partner-logo-wrapper">
+                <img [src]="partner.logo" [alt]="partner.name + ' logo'" class="partner-logo-img">
               </div>
-              <div class="partner-content">
-                <h4>{{partner.name}}</h4>
-                <span class="partner-type">{{partner.type}}</span>
-                <p class="partner-description">{{partner.description}}</p>
-                <div class="partner-benefits">
-                  <span class="benefit-item" *ngFor="let benefit of partner.benefits">{{benefit}}</span>
-                </div>
-              </div>
-              <div class="partner-badge">
-                <lucide-icon [name]="Award" size="16"></lucide-icon>
-              </div>
+              <span class="partner-name">{{partner.name}}</span>
             </div>
           </div>
         </div>
@@ -377,7 +397,11 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
       p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
       .trust-list { list-style: none; margin-bottom: 40px; li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 600; lucide-icon { color: var(--accent-cyan); } } @media(max-width:900px){ display: inline-block; text-align: left; } }
     }
-    .trust-badges { display: flex; flex-direction: column; gap: 15px;
+    .trust-badges { display: flex; flex-direction: column; gap: 15px; max-height: 500px; overflow-y: auto; padding-right: 10px;
+      &::-webkit-scrollbar { width: 6px; }
+      &::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+      &::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+      &::-webkit-scrollbar-thumb:hover { background: #E6B861; }
       .t-badge { padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; font-weight: 700; color: rgba(255,255,255,0.6); span { color: white; display: block; font-size: 1rem; margin-bottom: 4px; } }
     }
 
@@ -401,8 +425,7 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
     
     .clients-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin-top: 50px;
       position: relative;
@@ -412,14 +435,15 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
       margin-right: auto;
       
       @media(max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
       
       @media(max-width: 768px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+      }
+      @media(max-width: 480px) {
+        grid-template-columns: 1fr;
       }
     }
     
@@ -543,118 +567,63 @@ import { LucideAngularModule, ArrowRight, CheckCircle, Database, Layout, Shield,
       font-weight: 500;
     }
 
-    /* ── Partenaires ── */
-    .partners-section {
-      background: white;
-      padding: 0;
-    }
-    
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-      
-      @media(max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-    
-    .partner-card {
-      background: white;
-      border-radius: 20px;
-      padding: 28px 24px;
-      border: 1px solid #E2E8F0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
-      position: relative;
-      
-      &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 40px rgba(0, 45, 91, 0.08);
-        border-color: var(--primary-gold);
-        
-        .partner-icon {
-          background: var(--primary-gold);
-          color: white;
-          transform: scale(1.05);
-        }
-        
-        .partner-badge {
-          background: var(--primary-gold);
-          color: white;
-        }
-      }
-    }
-    
-    .partner-icon {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(0, 45, 91, 0.05) 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-gold);
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .partner-content {
-      h4 {
-        font-size: 1.1rem;
-        color: var(--primary-deep);
-        margin-bottom: 6px;
-        font-weight: 700;
-      }
-      
-      .partner-type {
-        font-size: 0.8rem;
-        color: var(--primary-gold);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: block;
-        margin-bottom: 12px;
-      }
-      
-      .partner-description {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 16px;
-      }
-    }
-    
-    .partner-benefits {
+    /* ── Partenaires (badges logo) ── */
+    .partners-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 50px;
     }
     
-    .benefit-item {
-      font-size: 0.72rem;
-      padding: 3px 10px;
-      background: rgba(0, 45, 91, 0.05);
-      color: var(--primary-deep);
-      border-radius: 12px;
-      font-weight: 500;
+    .partner-logo-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 28px;
+      background: white;
+      border: 2px solid #E2E8F0;
+      border-radius: 20px;
+      min-width: 160px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      cursor: default;
+      
+      &:hover {
+        border-color: var(--primary-gold);
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 45, 91, 0.1);
+        
+        .partner-logo-img {
+          filter: grayscale(0);
+          transform: scale(1.05);
+        }
+      }
     }
     
-    .partner-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 32px;
-      height: 32px;
-      background: rgba(197, 160, 89, 0.1);
-      border-radius: 50%;
+    .partner-logo-wrapper {
+      height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-gold);
+    }
+    
+    .partner-logo-img {
+      max-height: 55px;
+      max-width: 130px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(0.2);
       transition: all 0.3s ease;
+    }
+    
+    .partner-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-deep);
+      text-align: center;
+      letter-spacing: 0.3px;
     }
 
     /* ── Final CTA ── */
@@ -717,93 +686,43 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   mainStats = [
-    { value: '50+', label: 'Projets Réalisés' },
-    { value: '20+', label: 'Clients Satisfaits' },
+    { value: '20+', label: 'Projets Réalisés' },
+    { value: '15+', label: 'Clients Satisfaits' },
     { value: '98%', label: 'Taux de Satisfaction' }
   ];
 
   solutions = [
-    { name: '3DEXPERIENCE', desc: 'Plateforme unifiée pour connecter vos équipes et vos données Cloud.', logo: '/assets/solutions/3D.jpeg', link: '/solutions/3dexperience', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
-    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', logo: '/assets/solutions/catia.png', link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
-    { name: 'SIMULIA', desc: 'Simulation multi-physique pour tester et valider vos produits virtuellement.', logo: '/assets/solutions/simulia.png', link: '/solutions/simulia', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
-    { name: 'ENOVIA', desc: 'Gouvernance et gestion du cycle de vie des produits en toute sécurité.', logo: '/assets/solutions/enovia.png', link: '/solutions/enovia', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
     { name: 'GEOVIA', desc: 'Solutions avancées de modélisation géologique, planification minière et gestion durable des ressources naturelles.', logo: '/assets/solutions/geovia.jpeg', link: '/solutions/geovia', color: 'linear-gradient(135deg, #C5A059, #002D5B)' },
-    { name: 'DELMIA', desc: 'Optimisation des processus industriels et simulation de production.', logo: '/assets/solutions/delmia.png', link: '/solutions/delmia', color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))' }
+    { name: 'Jumeau Numérique', desc: 'Créez une réplique virtuelle de vos produits, infrastructures, villes ou sites industriels pour concevoir, simuler et optimiser chaque décision.', logo: '/assets/solutions/jumeaux.jpeg', link: '/services', color: 'linear-gradient(135deg, #002D5B, #C5A059)' },
+    { name: 'SOLIDWORKS', desc: "Des solutions intégrées de conception, d'ingénierie, de simulation et de développement de produits pour accélérer l'innovation.", logo: '/assets/solutions/solid.png', link: '/solutions/solidworks', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))' },
+    { name: 'CATIA', desc: 'Le standard mondial pour l\'ingénierie système et le design industriel.', logo: '/assets/solutions/catia.png', link: '/solutions/catia', color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))' },
+    { name: 'ITEROP', desc: 'Plateforme BPM low-code pour modéliser, automatiser et optimiser vos processus métiers sans développement.', logo: '/assets/solutions/iterop.png', link: '/solutions/iterop', color: 'linear-gradient(135deg, #002D5B, #A68545)' },
+    { name: 'Reverse Engineering', desc: 'Rétro-conception pour recréer, analyser ou optimiser des pièces existantes.', logo: '/assets/solutions/reverse.png', link: '/services', color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)' }
   ];
 
   clientReferences = [
-    {
-      name: 'UCAC-ICAM',
-      sector: 'Éducation Supérieure',
-      color: 'var(--primary-deep)',
-      logo: '/assets/clients/Logo-UCAC.png',
-      description: 'Déploiement de la 3DEXPERIENCE pour la formation d\'ingénieurs. Plus de 200 étudiants formés annuellement.',
-      solutions: ['CATIA', '3DEXPERIENCE', 'Formation']
-    },
-    {
-      name: 'Alucam',
-      sector: 'Industrie Aluminium',
-      color: '#C5A059',
-      logo: '/assets/clients/Alucam_logo.png',
-      description: 'Optimisation des processus de production et conception d\'équipements industriels avec DELMIA et SIMULIA.',
-      solutions: ['DELMIA', 'SIMULIA', 'Consulting']
-    },
-    {
-      name: 'JFN Group',
-      sector: 'Conglomérat Industriel',
-      color: 'var(--primary-deep)',
-      logo: '/assets/clients/JFN_Group.png',
-      description: 'Transformation digitale complète avec la plateforme 3DEXPERIENCE pour la gestion PLM multi-sites.',
-      solutions: ['3DEXPERIENCE', 'PLM', 'Formation']
-    },
-    {
-      name: 'De La Salle',
-      sector: 'Éducation Technique',
-      color: '#A68545',
-      logo: '/assets/clients/De_La_Salle.jpeg',
-      description: 'Programme de formation technique avancée et certification CATIA pour les étudiants en génie mécanique.',
-      solutions: ['CATIA', 'Certification', 'Support']
-    },
-    {
-      name: 'IUC',
-      sector: 'Université Privée',
-      color: '#C5A059',
-      logo: '/assets/clients/IUC.png',
-      description: 'Partenariat académique 3DEXPERIENCE et mise en place d\'un laboratoire de conception numérique.',
-      solutions: ['3DEXPERIENCE', 'CATIA', 'Académique']
-    },
-    {
-      name: 'CUD',
-      sector: 'Collectivité Publique',
-      color: 'var(--primary-deep)',
-      logo: '/assets/clients/CUD.png',
-      description: 'Mise en place du Jumeau Numérique de la ville de Douala.',
-      solutions: ['GEOVIA', 'Smart city', 'Formation']
-    }
+    { name: 'Alucam', logo: '/assets/clients/Alucam_logo.png' },
+    { name: 'CUD', logo: '/assets/clients/CUD.png' },
+    { name: 'De La Salle', logo: '/assets/clients/De_La_Salle.jpeg' },
+    { name: 'IUC', logo: '/assets/clients/IUC.png' },
+    { name: 'JFN Group', logo: '/assets/clients/JFN_Group.png' },
+    { name: 'UCAC-ICAM', logo: '/assets/clients/Logo-UCAC.png' },
+    { name: 'Neo Industry', logo: '/assets/clients/Neo_Industry.jpg' },
+    { name: 'CVUC', logo: '/assets/clients/cvuc.jpeg' },
+    { name: 'MINESUP', logo: '/assets/clients/logo_minesup.jpg' },
+    { name: 'MINEFOP', logo: '/assets/clients/minefop.jpg' },
+    { name: 'PAD', logo: '/assets/clients/pad.png' },
+    { name: 'PAK', logo: '/assets/clients/pak.png' }
   ];
 
   partners = [
-    {
-      name: 'Dassault Systèmes',
-      type: 'Partenaire Technologique Principal',
-      icon: Award,
-      description: 'Partenaire officiel et revendeur agréé pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.',
-      benefits: ['Support Officiel', 'Formation Certifiée', 'Licences Authentiques', 'Mises à jour']
-    },
-    {
-      name: 'NeoLedge',
-      type: 'Partenaire GED & ECM',
-      icon: Database,
-      description: 'Partenaire pour les solutions de gestion électronique de documents et d\'archivage numérique.',
-      benefits: ['Solutions Cloud', 'IA Intégrée', 'Conformité', 'Sécurité']
-    },
-    {
-      name: 'Universités Partenaires',
-      type: 'Réseau Académique',
-      icon: GraduationCap,
-      description: 'Réseau de partenariats avec les principales universités d\'Afrique Centrale pour la formation technique.',
-      benefits: ['Programmes Certifiants', 'Stages Techniques', 'Recherche', 'Innovation']
-    }
+    { name: 'Dassault Systèmes', logo: '/assets/partners/dassault_systemes.jpeg' },
+    { name: 'NeoLedge', logo: '/assets/partners/neoledge.png' },
+    { name: 'Keyrus', logo: '/assets/partners/keyrus.png' },
+    { name: 'Performex Consulting', logo: '/assets/partners/PERFORMEX-CONSULTING.png' },
+    { name: 'Impararia', logo: '/assets/partners/impararia.png' },
+    { name: 'JFN HUI', logo: '/assets/partners/jfn-hui.png' },
+    { name: 'JFN Center', logo: '/assets/partners/jfn_center.jpg' }
   ];
 
   industries = [

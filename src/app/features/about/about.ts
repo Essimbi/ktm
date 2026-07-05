@@ -109,11 +109,10 @@ import {
           </div>
           <div class="clients-grid">
             <div class="client-card reveal" *ngFor="let c of clientRefs">
-              <div class="client-initial" *ngIf="!c.logo" [style.background]="c.color">{{c.name[0]}}</div>
+              <div class="client-initial" *ngIf="!c.logo" style="background: var(--primary-deep)">{{c.name[0]}}</div>
               <img *ngIf="c.logo" [src]="c.logo" [alt]="c.name + ' logo'" class="client-logo">
               <div class="client-info">
                 <h4>{{c.name}}</h4>
-                <span>{{c.sector}}</span>
               </div>
             </div>
           </div>
@@ -144,15 +143,18 @@ import {
             <div class="cert-badge"></div>
           </div>
         </div>
+        <div class="cert-image-container reveal" style="margin-top: 50px; text-align: center;">
+          <img src="/assets/dassault.jpeg" alt="Dassault Systèmes Certifications" style="max-width: 800px; width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 45, 91, 0.15); border: 1px solid rgba(226, 232, 240, 0.6); transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
       </section>
 
       <!-- ── Partenaires Tech ──────────────────────────── -->
       <section class="partners-section section-container">
-        <h2 class="section-title reveal">Nos Partenaires Technologiques</h2>
+        <h2 class="section-title reveal">Nos Partenaires Technologiques & Stratégiques</h2>
         <div class="partners-logos reveal">
           <div class="partner-badge" *ngFor="let p of partners">
-            <lucide-icon [name]="Award" size="22"></lucide-icon>
-            <span>{{p}}</span>
+            <img [src]="p.logo" [alt]="p.name + ' logo'" class="partner-logo">
+            <span>{{p.name}}</span>
           </div>
         </div>
       </section>
@@ -394,14 +396,17 @@ import {
       justify-content: center; margin-top: 50px;
     }
     .partner-badge {
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 28px;
+      display: flex; align-items: center; gap: 15px;
+      padding: 15px 25px;
       background: white; border: 2px solid #E2E8F0;
       border-radius: 16px; font-weight: 700;
-      color: var(--primary-deep); font-size: 0.9rem;
-      transition: all 0.2s ease;
-      lucide-icon { color: var(--primary-gold); }
-      &:hover { border-color: var(--primary-gold); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 45, 91, 0.1); }
+      color: var(--primary-deep); font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      &:hover { border-color: var(--primary-gold); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 45, 91, 0.1); }
+      .partner-logo {
+        height: 40px; width: auto; max-width: 120px; object-fit: contain;
+      }
     }
 
     /* ── CTA Final ── */
@@ -783,8 +788,8 @@ export class AboutComponent implements AfterViewInit {
 
   heroStats = [
     { value: '10+', label: 'Années d\'expérience' },
-    { value: '60+', label: 'Projets réalisés' },
-    { value: '20+', label: 'Clients majeurs' },
+    { value: '20+', label: 'Projets réalisés' },
+    { value: '15+', label: 'Clients majeurs' },
     { value: '15+', label: 'Certifications' },
   ];
 
@@ -797,15 +802,16 @@ export class AboutComponent implements AfterViewInit {
   timeline = [
     { year: 'Fondation', title: 'Création de KTM Green Energy Group', desc: 'Création de KTM Green Energy group Sarl à Douala avec une vision claire : digitaliser l\'industrie africaine et démocratiser l\'accès aux technologies de pointe.' },
     { year: 'Partenariat', title: 'Partenariat Dassault Systèmes', desc: 'Signature du partenariat officiel avec Dassault Systèmes, devenant l\'un des rares revendeurs agréés en Afrique Centrale.' },
-    { year: 'Croissance', title: 'Premiers grands projets', desc: 'Déploiement de CATIA et des solutions 3DEXPERIENCE dans plusieurs entreprises industrielles camerounaises, dont Alucam et des groupes éducatifs.' },
-    { year: 'Académie', title: 'Lancement de l\'Académie KTM', desc: 'Ouverture du programme de formation certifiante, avec les premières cohortes d\'ingénieurs certifiés Dassault Systèmes issus d\'UCAC, IUC et De La Salle.' },
-    { year: 'Expansion', title: 'Expansion régionale', desc: 'Extension de nos activités au Gabon, Tchad et Congo, avec des projets de déploiement PLM à grande échelle et partenariat NeoLedge.' },
-    { year: 'Aujourd\'hui', title: 'KTM Green Energy Group', desc: 'Acteur de référence de l\'industrie 4.0 en Afrique Centrale — solutions Dassault Systèmes, NeoLedge, formation et consulting.' },
+    { year: '2020', title: 'Première voiture Made in Cameroon', desc: 'Conception, ingénierie et modélisation de la première voiture fabriquée au Cameroun grâce à la plateforme 3DEXPERIENCE, avec le soutien de la Fondation Dassault.' },
+    { year: 'Partenariats', title: 'Premiers contrats commerciaux et éducatifs', desc: 'Déploiement de DELMIA Ortems chez ALUCAM et signature des premiers accords éducatifs (Deal EDU) avec JFN HUI et l\'UCAC.' },
+    { year: 'Urbanisme & Académique', title: 'Le Jumeau Numérique de Douala', desc: 'Lancement du premier projet VTaaS (Virtual Twin as a Service) d\'Afrique pour la ville de Douala (CUD).' },
+    { year: 'Consécration', title: 'Preferred Education Reseller', desc: 'Signature de la lettre d\'accord pour la distribution de 3Dexperience Works et obtention du statut de revendeur éducatif privilégié par Dassault Systèmes, en plus du projet de transformation industrielle avec NEO Industry.' },
+    { year: 'Aujourd\'hui', title: 'Leader de l\'Industrie 4.0', desc: 'Extension stratégique vers le secteur minier et accélération de la transition urbaine avec de nouveaux jumeaux numériques d\'envergure (MAETUR, Iterop CUD et phase 2 du projet de Douala).' },
   ];
 
   team = [
     { name: 'Équipe Direction', role: 'Management & Stratégie', bio: 'Une équipe de direction expérimentée, combinant vision industrielle et expertise technologique pour piloter la croissance de KTM.', initials: 'KTM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Stratégie', 'PLM', 'Partenariats'] },
-    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés CATIA, SIMULIA et 3DEXPERIENCE, capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['CATIA', '3DEXPERIENCE', 'SIMULIA'] },
+    { name: 'Pôle Technique', role: 'Ingénieurs certifiés Dassault', bio: 'Des ingénieurs certifiés capables d\'accompagner les projets les plus complexes.', initials: 'ENG', color: 'linear-gradient(135deg, #C5A059, #002D5B)', skills: ['SOLIDWORKS', '3DEXPERIENCE', 'GEOVIA'] },
     { name: 'Pôle Formation', role: 'Instructeurs & Pédagogie', bio: 'Des formateurs experts qui conjuguent maîtrise technique et pédagogie pour faire monter en compétence vos équipes.', initials: 'FAC', color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)', skills: ['Formation', 'Certification', 'eLearning'] },
     { name: 'Pôle Commercial', role: 'Business Développement', bio: 'Une équipe commerciale à l\'écoute, capable d\'identifier vos besoins et de vous proposer les solutions les mieux adaptées.', initials: 'COM', color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))', skills: ['Conseil', 'Avant-vente', 'Suivi client'] },
   ];
@@ -820,22 +826,28 @@ export class AboutComponent implements AfterViewInit {
   ];
 
   partners = [
-    'Dassault Systèmes Certified Reseller',
-    'CATIA Authorized Training Center',
-    '3DEXPERIENCE Academic Partner',
-    'SIMULIA Certified',
-    'NeoLedge Partner',
+    { name: 'Dassault Systèmes', logo: '/assets/partners/dassault_systemes.jpeg' },
+    { name: 'NeoLedge', logo: '/assets/partners/neoledge.png' },
+    { name: 'Keyrus', logo: '/assets/partners/keyrus.png' },
+    { name: 'Performex Consulting', logo: '/assets/partners/PERFORMEX-CONSULTING.png' },
+    { name: 'Impararia', logo: '/assets/partners/impararia.png' },
+    { name: 'JFN HUI', logo: '/assets/partners/jfn-hui.png' },
+    { name: 'JFN Center', logo: '/assets/partners/jfn_center.jpg' }
   ];
 
   clientRefs = [
-    { name: 'UCAC-ICAM', sector: 'Éducation supérieure', color: '#002D5B', logo: '/assets/clients/Logo-UCAC.png' },
-    { name: 'JFN Group', sector: 'Industrie', color: 'var(--primary-deep)', logo: '/assets/clients/JFN_Group.png' },
-    { name: 'De La Salle', sector: 'Éducation', color: '#C5A059', logo: '/assets/clients/De_La_Salle.jpeg' },
-    { name: 'IUC', sector: 'Université privée', color: '#A68545', logo: '/assets/clients/IUC.png' },
-    { name: 'Neo Industry', sector: 'Industrie', color: '#002D5B', logo: '/assets/clients/Neo_Industry.jpg' },
-    { name: 'CUD', sector: 'Collectivité publique', color: 'var(--primary-deep)', logo: '/assets/clients/CUD.png' },
-    { name: 'Alucam', sector: 'Industrie aluminium', color: '#C5A059', logo: '/assets/clients/Alucam_logo.png' },
-    { name: 'Groupe Wagas', sector: 'Conglomérat', color: '#002D5B' },
+    { name: 'Alucam', logo: '/assets/clients/Alucam_logo.png' },
+    { name: 'CUD', logo: '/assets/clients/CUD.png' },
+    { name: 'De La Salle', logo: '/assets/clients/De_La_Salle.jpeg' },
+    { name: 'IUC', logo: '/assets/clients/IUC.png' },
+    { name: 'JFN Group', logo: '/assets/clients/JFN_Group.png' },
+    { name: 'UCAC-ICAM', logo: '/assets/clients/Logo-UCAC.png' },
+    { name: 'Neo Industry', logo: '/assets/clients/Neo_Industry.jpg' },
+    { name: 'CVUC', logo: '/assets/clients/cvuc.jpeg' },
+    { name: 'MINESUP', logo: '/assets/clients/logo_minesup.jpg' },
+    { name: 'MINEFOP', logo: '/assets/clients/minefop.jpg' },
+    { name: 'PAD', logo: '/assets/clients/pad.png' },
+    { name: 'PAK', logo: '/assets/clients/pak.png' }
   ];
 
   certifications = [
@@ -846,34 +858,10 @@ export class AboutComponent implements AfterViewInit {
       description: 'Revendeur agréé officiel pour toute la gamme des solutions Dassault Systèmes en Afrique Centrale.'
     },
     { 
-      name: 'CATIA Certified Training Center', 
-      category: 'Formation accréditée', 
-      icon: Award,
-      description: 'Centre de formation certifié pour dispenser les formations officielles CATIA avec certification.'
-    },
-    { 
       name: '3DEXPERIENCE Academic Partner', 
       category: 'Partenariat académique', 
       icon: Award,
       description: 'Partenaire académique pour l\'intégration de la plateforme 3DEXPERIENCE dans l\'enseignement supérieur.'
-    },
-    { 
-      name: 'SIMULIA Certified Partner', 
-      category: 'Simulation', 
-      icon: Award,
-      description: 'Certification pour le déploiement et la formation sur les solutions de simulation SIMULIA.'
-    },
-    { 
-      name: 'NeoLedge Reseller Partner', 
-      category: 'GED & ECM', 
-      icon: Award,
-      description: 'Partenaire revendeur pour les solutions de gestion électronique de documents NeoLedge.'
-    },
-    { 
-      name: 'ISO 9001:2015 Quality Management', 
-      category: 'Qualité & Processus', 
-      icon: Shield,
-      description: 'Certification qualité internationale pour nos processus de service et de formation.'
     }
   ];
 

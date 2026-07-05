@@ -25,29 +25,45 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
               Solutions <lucide-icon [name]="ChevronDown" size="14"></lucide-icon>
             </a>
             <div class="mega-menu">
+              <div class="mega-header">
+                <span class="mega-title">3DEXPERIENCE Platform</span>
+                <span class="mega-subtitle">Solutions Dassault Systèmes par catégorie</span>
+              </div>
               <div class="mega-content">
                 <div class="mega-col">
-                  <span class="col-label">Conception & Design</span>
+                  <span class="col-label col-3d">3D Modeling</span>
+                  <!-- <span class="col-desc">Concevoir, fabriquer et simuler le produit virtuel</span> -->
+                  <a routerLink="/solutions/solidworks">SOLIDWORKS</a>
                   <a routerLink="/solutions/catia">CATIA</a>
-                  <a routerLink="/solutions/3dexperience">3DEXPERIENCE</a>
+                  <a routerLink="/solutions/geovia">GEOVIA</a>
+                  <a routerLink="/solutions/#">BIOVIA</a>
                 </div>
                 <div class="mega-col">
-                  <span class="col-label">Simulation & Opérations</span>
+                  <span class="col-label col-social">Social &amp; Collaborative</span>
+                  <!-- <span class="col-desc">Connecter les utilisateurs aux applications collaboratives</span> -->
+                  <a routerLink="/solutions/enovia">ENOVIA</a>
+                  <a routerLink="/solutions/3dexcite">3DEXCITE</a>
+                  <a routerLink="/solutions/centricplm">CENTRIC PLM</a>
+                </div>
+                <div class="mega-col">
+                  <span class="col-label col-info">Information Intelligence</span>
+                  <!-- <span class="col-desc">Analyser, prévoir et élaborer des idées à partir des données</span> -->
+                  <a routerLink="/solutions/netvibes">NETVIBES</a>
+                  <a routerLink="/solutions/medidata">MEDIDATA</a>
+                </div>
+                <div class="mega-col">
+                  <span class="col-label col-simu">Simulation</span>
+                  <!-- <span class="col-desc">Simuler et optimiser le virtuel et le réel</span> -->
                   <a routerLink="/solutions/simulia">SIMULIA</a>
                   <a routerLink="/solutions/delmia">DELMIA</a>
-                  <a routerLink="/solutions/geovia">GEOVIA</a>
+                  <a routerLink="/solutions/3dvia">3DVIA</a>
                 </div>
                 <div class="mega-col">
-                  <span class="col-label">Collaboration & Data</span>
-                  <a routerLink="/solutions/enovia">ENOVIA</a>
-                  <a routerLink="/solutions/biovia">BIOVIA</a>
-                  <a routerLink="/solutions/netvibes">NETVIBES</a>
-                </div>
-                <div class="mega-col">
-                  <span class="col-label">Digitalisation</span>
-                  <a routerLink="/solutions/neoledge">NeoLedge</a>
+                  <span class="col-label col-digital">Digitalisation</span>
+                  <a routerLink="/solutions/neoledge">GED &amp; ECM</a>
                   <a routerLink="/solutions/iterop">ITEROP</a>
-                  <a routerLink="/solutions/intelligence-artificielle">Intelligence artificielle</a>
+                  <a routerLink="/services">Jumeau Numérique</a>
+                  <a routerLink="/services">Reverse Engineering</a>
                 </div>
               </div>
             </div>
@@ -70,6 +86,10 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
         <button class="mobile-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Menu">
           <lucide-icon [name]="isMenuOpen ? X : Menu" size="24"></lucide-icon>
         </button>
+
+        <a routerLink="/" class="logo">
+          <img src="assets/dassault.jpeg" alt="KTM Green Energy Group" class="nav-logo-certif">
+        </a>
       </div>
 
       <!-- Mobile Drawer Overlay -->
@@ -92,10 +112,26 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
               Solutions <lucide-icon [name]="ChevronDown" size="16" [style.transform]="solutionsOpen ? 'rotate(180deg)' : ''"></lucide-icon>
             </button>
             <div class="group-links" [class.open]="solutionsOpen">
+              <span class="drawer-group-label">🟦 3D Modeling</span>
+              <a routerLink="/solutions/solidworks" (click)="closeMenu()">SOLIDWORKS</a>
               <a routerLink="/solutions/catia" (click)="closeMenu()">CATIA</a>
-              <a routerLink="/solutions/simulia" (click)="closeMenu()">SIMULIA</a>
+              <a routerLink="/solutions/geovia" (click)="closeMenu()">GEOVIA</a>
+              <span class="drawer-group-label">🟫 Collaborative</span>
+              <a routerLink="/solutions/enovia" (click)="closeMenu()">ENOVIA</a>
               <a routerLink="/solutions/3dexperience" (click)="closeMenu()">3DEXPERIENCE</a>
-              <a routerLink="/solutions/intelligence-artificielle" (click)="closeMenu()">Intelligence artificielle</a>
+              <a routerLink="/solutions/iterop" (click)="closeMenu()">ITEROP</a>
+              <span class="drawer-group-label">🟧 Information</span>
+              <a routerLink="/solutions/intelligence-artificielle" (click)="closeMenu()">IA & Analytics</a>
+              <a routerLink="/solutions/neoledge" (click)="closeMenu()">NeoLedge (ECM)</a>
+              <span class="drawer-group-label">🟩 Simulation</span>
+              <a routerLink="/solutions/simulia" (click)="closeMenu()">SIMULIA</a>
+              <a routerLink="/solutions/delmia" (click)="closeMenu()">DELMIA</a>
+              <a routerLink="/services" (click)="closeMenu()">Jumeau Numérique</a>
+              <span class="drawer-group-label">📲 Digitalisation</span>
+              <a routerLink="/solutions/neoledge" (click)="closeMenu()">GED &amp; ECM</a>
+              <a routerLink="/solutions/iterop" (click)="closeMenu()">ITEROP</a>
+              <a routerLink="/services" (click)="closeMenu()">Jumeau Numérique</a>
+              <a routerLink="/services" (click)="closeMenu()">Reverse Engineering</a>
             </div>
           </div>
           <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
@@ -128,8 +164,9 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
 
     .nav-container {
       max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 40px;
+      margin: 0 40px;
+      margin-left: 200px;
+      // padding: 0 10px;
       height: 100px;
       display: flex;
       align-items: center;
@@ -150,6 +187,15 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       display: block;
 
       @media (max-width: 768px) { height: 60px; }
+    }
+
+    .nav-logo-certif {
+      height: 90px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+
+      @media (max-width: 768px) { height: 50px; }
     }
 
     /* ── Desktop links ── */
@@ -196,7 +242,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       top: calc(100% + 12px);
       left: 50%;
       transform: translateX(-50%) translateY(10px);
-      width: 760px;
+      width: 1050px;
       background: white;
       border-radius: 20px;
       padding: 32px;
@@ -229,28 +275,66 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       }
     }
 
+    .mega-header {
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #E2E8F0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mega-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .mega-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
     .mega-content {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
     }
 
     .col-label {
       display: block;
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-muted);
-      font-weight: 700;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #E2E8F0;
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #E2E8F0;
+      color: var(--primary-deep);
     }
+
+    .col-desc {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+    }
+
+    .col-3d { border-color: #3B82F6; color: #1D4ED8; }
+    .col-social { border-color: #92400E; color: #78350F; }
+    .col-info { border-color: #EA580C; color: #C2410C; }
+    .col-simu { border-color: #16A34A; color: #15803D; }
+    .col-digital { border-color: #7C3AED; color: #6D28D9; }
 
     .mega-col a {
       display: block;
       padding: 6px 0;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--primary-deep);
       transition: all 0.2s ease;
@@ -428,7 +512,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
         transition: max-height 0.35s ease;
         padding-left: 16px;
 
-        &.open { max-height: 300px; }
+        &.open { max-height: 600px; }
 
         a {
           font-size: 0.88rem;
@@ -436,6 +520,16 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
           padding: 9px 16px;
 
           &:hover { color: var(--primary-gold); }
+        }
+
+        .drawer-group-label {
+          display: block;
+          font-size: 0.68rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--primary-gold);
+          padding: 10px 16px 4px;
         }
       }
     }

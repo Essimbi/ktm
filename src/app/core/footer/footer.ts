@@ -140,7 +140,7 @@ import { LucideAngularModule, Linkedin, Twitter, Facebook, Instagram, Mail, Phon
       position: relative;
       z-index: 10;
       margin-top: -80px;
-      margin-bottom: 40px;
+      margin-bottom: 100px;
     }
     
     .cta-box {
