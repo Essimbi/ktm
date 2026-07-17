@@ -442,6 +442,51 @@ export class SolutionsComponent implements AfterViewInit {
       icon: Network,
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
+    {
+      id: 'medidata',
+      name: 'MEDIDATA',
+      category: 'Life Sciences & Clinical Research',
+      shortDesc: 'Plateforme cloud dédiée aux essais cliniques, à la recherche médicale et au développement des médicaments.',
+      features: ['Gestion des essais cliniques (EDC)', 'Données patients sécurisées', 'IA pour la recherche clinique', 'Conformité FDA / EMA'],
+      icon: FlaskConical,
+      color: 'linear-gradient(135deg, #002D5B, #C5A059)'
+    },
+    {
+      id: 'centric-plm',
+      name: 'CENTRIC PLM',
+      category: 'Retail, Mode & Produits de consommation',
+      shortDesc: 'Solution PLM destinée aux secteurs de la mode, textile, cosmétique, distribution et produits de consommation.',
+      features: ['Développement produit', 'Gestion des collections', 'Supply Chain', 'Time-to-Market réduit'],
+      icon: Layers,
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
+    },
+    {
+      id: 'draftsight',
+      name: 'DraftSight',
+      category: 'Solution de CAO 2D',
+      shortDesc: 'Solution de CAO 2D professionnelle compatible DWG pour tous vos dessins techniques.',
+      features: ['Dessin 2D', 'Compatibilité AutoCAD', 'Plans techniques', 'Documentation'],
+      icon: Monitor,
+      color: 'linear-gradient(135deg, #002D5B, #C5A059)'
+    },
+    {
+      id: '3dvia',
+      name: '3DVIA',
+      category: 'Visualisation et communication 3D',
+      shortDesc: 'Visualisation et communication 3D pour créer des expériences clients immersives et interactives.',
+      features: ['Configurateurs produits', 'Documentation interactive', 'Expérience client', 'Marketing 3D'],
+      icon: Globe,
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
+    },
+    {
+      id: 'reverse-engineering',
+      name: 'Reverse Engineering',
+      category: 'Numérisation & Reconstruction 3D',
+      shortDesc: 'Transformez des pièces physiques en modèles CAO exploitables grâce aux technologies de scan 3D et de rétroconception.',
+      features: ['Scan 3D haute précision', 'Reconstruction de modèles CAO', 'Comparaison CAO / pièce réelle', 'Contrôle qualité et inspection'],
+      icon: Database,
+      color: 'linear-gradient(135deg, #002D5B, #A68545)'
+    }
   ];
 
   neoledgeSolutions = [

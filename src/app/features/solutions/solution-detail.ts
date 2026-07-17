@@ -604,6 +604,61 @@ export class SolutionDetailComponent implements OnInit {
       ],
     },
     {
+      id: 'medidata',
+      name: 'MEDIDATA',
+      tagline: 'Life Sciences & Clinical Research',
+      description: 'Plateforme cloud dédiée aux essais cliniques, à la recherche médicale et au développement des médicaments.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Gestion des essais cliniques (EDC)', 'Données patients sécurisées', 'IA pour la recherche clinique', 'Conformité FDA / EMA'],
+      useCases: [],
+      industries: ['Santé', 'Sciences de la vie'],
+      certifications: []
+    },
+    {
+      id: 'centric-plm',
+      name: 'CENTRIC PLM',
+      tagline: 'Retail, Mode & Produits de consommation',
+      description: 'Solution PLM destinée aux secteurs de la mode, textile, cosmétique, distribution et produits de consommation.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Développement produit', 'Gestion des collections', 'Supply Chain', 'Time-to-Market réduit'],
+      useCases: [],
+      industries: ['Retail', 'Mode'],
+      certifications: []
+    },
+    {
+      id: 'draftsight',
+      name: 'DraftSight',
+      tagline: 'Solution de CAO 2D professionnelle compatible DWG.',
+      description: 'Solution de CAO 2D professionnelle compatible DWG pour tous vos dessins et documentations techniques.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Dessin 2D', 'Compatibilité AutoCAD', 'Plans techniques', 'Documentation'],
+      useCases: [],
+      industries: ['Ingénierie', 'Architecture', 'Industrie'],
+      certifications: []
+    },
+    {
+      id: '3dvia',
+      name: '3DVIA',
+      tagline: 'Visualisation et communication 3D.',
+      description: 'Créez des expériences clients immersives et interactives pour la présentation et la documentation de vos produits.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Configurateurs produits', 'Documentation interactive', 'Expérience client', 'Marketing 3D'],
+      useCases: [],
+      industries: ['Marketing', 'Vente', 'Retail'],
+      certifications: []
+    },
+    {
+      id: 'reverse-engineering',
+      name: 'Reverse Engineering',
+      tagline: 'Numérisation & Reconstruction 3D',
+      description: 'Transformez des pièces physiques en modèles CAO exploitables grâce aux technologies de scan 3D et de rétroconception.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Scan 3D haute précision', 'Reconstruction de modèles CAO', 'Comparaison CAO / pièce réelle', 'Contrôle qualité et inspection'],
+      useCases: [],
+      industries: ['Industrie', 'Ingénierie de précision'],
+      certifications: []
+    },
+    {
       id: 'neoledge-ged',
       name: 'NeoLedge GED & Archivage',
       tagline: 'Dématérialisez et centralisez l\'ensemble de vos documents avec une solution GED sécurisée.',
