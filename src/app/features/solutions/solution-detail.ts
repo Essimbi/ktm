@@ -12,7 +12,7 @@ interface SolutionDetail {
   features: string[];
   useCases: { title: string; desc: string }[];
   industries: string[];
-  certifications: { name: string; level: string; duration: string; desc: string }[];
+  certifications?: { name: string; level: string; duration: string; desc: string }[];
   sectors?: { name: string; description: string; features: string[]; kpis: string[]; alert: string }[];
 }
 
@@ -110,7 +110,7 @@ interface SolutionDetail {
       </section>
 
       <!-- Certifications -->
-      <section class="certifications-section">
+      <section class="certifications-section" *ngIf="solution.certifications?.length">
         <div class="section-container">
           <div class="cert-header">
             <h2 class="section-title">Certifications {{solution.name}}</h2>
@@ -340,10 +340,6 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Mines & Infrastructures / Génie Civil', desc: 'Planifiez vos ressources et concevez vos infrastructures avec précision et durabilité (GEOVIA).' }
       ],
       industries: ['Urbanisme', 'Industrie', 'Santé', 'Mines', 'Génie Civil'],
-      certifications: [
-        { name: 'Initiation au Jumeau Numérique', level: 'Débutant', duration: '1 jour', desc: 'Comprendre les concepts, les enjeux et les bénéfices du Digital Twin.' },
-        { name: 'Déploiement IoT & Digital Twin', level: 'Avancé', duration: '3 jours', desc: 'Maîtriser l\'intégration des capteurs et la remontée de données vers la maquette 3D.' }
-      ]
     },
     {
       id: 'catia',
@@ -519,20 +515,22 @@ export class SolutionDetailComponent implements OnInit {
       name: 'Intelligence artificielle',
       tagline: 'Une réponse précise pour chaque secteur, déployée en quelques semaines sans remplacer vos systèmes existants.',
       description: 'Notre solution d’intelligence artificielle connecte vos équipements, vos données et vos équipes pour anticiper les incidents, améliorer la sécurité et optimiser la performance opérationnelle. Déployée en quelques semaines, elle s’intègre à vos systèmes existants sans remplacement.',
-      gradient: 'linear-gradient(135deg, #0F766E 0%, #002D5B 100%)',
-      features: ['Connectivité IoT et intégration aux systèmes existants', 'Détection précoce des anomalies', 'Alertes sécurité et maintenance prédictive', 'Tableaux de bord décisionnels et conformité'],
+      gradient: 'linear-gradient(135deg, #0F766E 0%, #C5A059 100%)',
+      features: [
+        'Digital Twin 3D temps réel sur mobile et écran de contrôle',
+        'Capteurs IoT sur équipements critiques avec surveillance 24/7',
+        'Détection précoce de défaillances 7 à 14 jours avant la panne',
+        'Tableaux de bord directoriaux avec vue opérationnelle complète',
+        'Conformité automatisée et rapports réglementaires générés',
+        "Plans d'intervention automatique en cas d'alerte critique"
+      ],
       useCases: [
         { title: 'Ports maritimes', desc: 'Surveillez grues, quais et équipements de manutention pour réduire les arrêts imprévus et anticiper les pannes.' },
         { title: 'Dépôts pétroliers', desc: 'Suivez cuves, pipelines et équipements critiques pour détecter les fuites, anomalies et risques de sécurité.' },
-        { title: 'Villes & FEICOM', desc: 'Pilotez l’éclairage public, les infrastructures urbaines et le patrimoine municipal grâce à des décisions basées sur les données.' },
+        { title: 'Villes', desc: 'Pilotez l’éclairage public, les infrastructures urbaines et le patrimoine municipal grâce à des décisions basées sur les données.' },
         { title: 'Industries', desc: 'Optimisez la maintenance, la planification des arrêts et la durabilité des équipements critiques.' },
       ],
       industries: ['Ports maritimes', 'Dépôts pétroliers', 'Villes & FEICOM', 'Industries', 'Utilities'],
-      certifications: [
-        { name: 'Déploiement rapide', level: 'Débutant', duration: '2 à 6 semaines', desc: 'Mise en place rapide de la solution, sans remplacement des systèmes existants.' },
-        { name: 'Intégration IoT & data', level: 'Intermédiaire', duration: '3 à 8 semaines', desc: 'Connexion des capteurs, équipements et plateformes de supervision existantes.' },
-        { name: 'Accompagnement opérationnel', level: 'Avancé', duration: 'Selon périmètre', desc: 'Formation des équipes terrain et mise en place d’un plan de gouvernance.' },
-      ],
       sectors: [
         {
           name: 'Ports maritimes',
@@ -565,6 +563,97 @@ export class SolutionDetailComponent implements OnInit {
       ]
     },
     {
+      id: 'centric-plm',
+      name: 'CENTRIC PLM',
+      tagline: 'Solution PLM pour la mode, le textile et les produits de consommation.',
+      description: 'CENTRIC PLM est la solution PLM de Dassault Systèmes dédiée aux secteurs de la mode, du textile, de la cosmétique, de la distribution et des produits de consommation. Elle permet de gérer le développement produit, les collections, la supply chain et le time-to-market de manière collaborative.',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%)',
+      features: ['Développement produit collaboratif', 'Gestion des collections et lignes', 'Supply Chain intégrée', 'Time-to-Market réduit', 'Conformité réglementaire', 'Analytics de vente', 'Collaboration multi-sites'],
+      useCases: [
+        { title: 'Mode et textile', desc: 'Gérez vos collections et lignes de manière collaborative avec les équipes de design.' },
+        { title: 'Cosmétique', desc: 'Centralisez les formulations et gérez les dossiers réglementaires.' },
+        { title: 'Distribution', desc: 'Optimisez votre supply chain et réduisez le time-to-market.' },
+        { title: 'Retail', desc: 'Gérez vos assortiments et optimisez les ventes avec des analytics.' },
+      ],
+      industries: ['Mode', 'Textile', 'Cosmétique', 'Distribution', 'Retail', 'Luxury'],
+      certifications: [
+        { name: 'CENTRIC PLM Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Découvrez les bases du PLM pour les produits de consommation.' },
+        { name: 'CENTRIC PLM Advanced', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les fonctionnalités avancées et les analytics.' },
+      ]
+    },
+    {
+      id: 'draftsight',
+      name: 'DraftSight',
+      tagline: 'Solution de CAO 2D professionnelle compatible DWG.',
+      description: 'DraftSight est la solution de CAO 2D professionnelle de Dassault Systèmes, compatible avec le format DWG. Elle permet de créer, modifier et partager des dessins techniques et des plans 2D avec une interface intuitive et des outils de collaboration avancés.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
+      features: ['Dessin 2D professionnel', 'Compatibilité AutoCAD/DWG', 'Plans techniques précis', 'Documentation complète', 'Collaboration en temps réel', 'Gestion des versions', 'Export multi-formats'],
+      useCases: [
+        { title: 'Ingénierie mécanique', desc: 'Créez des plans techniques et des dessins mécaniques précis.' },
+        { title: 'Architecture', desc: 'Générez des plans d\'\'architecture et des schémas techniques.' },
+        { title: 'Documentation', desc: 'Produisez des manuels techniques et des dossiers de projet.' },
+        { title: 'Collaboration', desc: 'Partagez vos dessins avec les équipes et les clients.' },
+      ],
+      industries: ['Architecture', 'Ingénierie', 'Construction', 'Manufacturing', 'Services techniques'],
+      certifications: [
+        { name: 'DraftSight Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Maîtrisez les bases du dessin 2D avec DraftSight.' },
+        { name: 'DraftSight Advanced', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les fonctionnalités avancées et la collaboration.' },
+      ]
+    },
+    {
+      id: '3dvia',
+      name: '3DVIA',
+      tagline: 'Visualisation et communication 3D pour expériences clients immersives.',
+      description: '3DVIA est la solution de visualisation et communication 3D de Dassault Systèmes. Elle permet de créer des expériences clients immersives et interactives à partir de modèles 3D, avec des configurateurs produits, de la documentation interactive et des outils de marketing 3D.',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%)',
+      features: ['Configurateurs produits interactifs', 'Documentation 3D interactive', 'Expérience client immersive', 'Marketing 3D avancé', 'Intégration web/mobile', 'Analytics d\'\'engagement', 'Collaboration marketing'],
+      useCases: [
+        { title: 'E-commerce', desc: 'Créez des configurateurs produits interactifs pour votre site e-commerce.' },
+        { title: 'Marketing produit', desc: 'Produisez des contenus marketing 3D pour vos campagnes.' },
+        { title: 'Documentation technique', desc: 'Créez des manuels interactifs et des dossiers produits.' },
+        { title: 'Présentation commerciale', desc: 'Présentez vos produits avec des visualisations 3D immersives.' },
+      ],
+      industries: ['E-commerce', 'Marketing', 'Design', 'Architecture', 'Automobile', 'Aéronautique'],
+      certifications: [
+        { name: '3DVIA Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Découvrez les bases de la visualisation 3D avec 3DVIA.' },
+        { name: '3DVIA Advanced', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les fonctionnalités avancées et l\'\'intégration web.' },
+      ]
+    },
+    {
+      id: 'reverse-engineering',
+      name: 'Reverse Engineering',
+      tagline: 'Numérisation 3D et rétroconception haute précision.',
+      description: 'Le Reverse Engineering au service de l\'\'industrie. Transformez des pièces physiques en modèles CAO exploitables grâce aux technologies de numérisation 3D et de rétroconception de haute précision. Le Digital Tech Park vous accompagne dans cette transformation.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #A68545 100%)',
+      features: ['Scan 3D haute précision', 'Reconstruction CAO paramétrique', 'Contrôle dimensionnel', 'Documentation technique complète', 'Comparaison CAO/pièce réelle', 'Optimisation de production'],
+      useCases: [
+        { title: 'Maintenance industrielle', desc: 'Reproduisez des pièces de rechange sans plans disponibles.' },
+        { title: 'Retrofit et modernisation', desc: 'Modernisez des équipements legacy avec des modèles CAO.' },
+        { title: 'Contrôle qualité', desc: 'Vérifiez la conformité des pièces par rapport aux spécifications.' },
+        { title: 'Prototypage rapide', desc: 'Créez des prototypes physiques à partir de modèles CAO.' },
+      ],
+      industries: ['Aéronautique', 'Automobile', 'Énergie', 'Médical', 'Manufacturing'],
+      certifications: [
+        { name: 'Reverse Engineering Fundamentals', level: 'Débutant', duration: '3 jours', desc: 'Maîtrisez les bases du scan 3D et de la rétroconception.' },
+        { name: 'Reverse Engineering Advanced', level: 'Avancé', duration: '4 jours', desc: 'Maîtrisez les techniques avancées de reconstruction CAO.' },
+      ]
+    },
+    {
+      id: 'neoledge-ged',
+      name: 'GED & Archivage',
+      tagline: 'Dématérialisez et centralisez l\'ensemble de vos documents avec une solution GED sécurisée.',
+      description: 'GED & Archivage est la solution de gestion documentaire de NeoLedge dédiée à la dématérialisation et à l\'archivage. Elle permet de centraliser tous les documents de l\'entreprise, d\'automatiser leur classement et de garantir leur accessibilité et leur pérennité grâce à des technologies d\'indexation avancée et de stockage sécurisé.',
+      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-deep) 100%)',
+      features: ['Indexation automatique des documents', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Droits d\'accès granulaires', 'Conformité réglementaire', 'Versioning automatique', 'Collaboration sécurisée'],
+      useCases: [
+        { title: 'Archivage légal', desc: 'Archivez vos documents légaux et réglementaires avec conformité RGPD.' },
+        { title: 'Centralisation documentaire', desc: 'Centralisez tous les documents de l\'entreprise sur une plateforme unique.' },
+        { title: 'Recherche intelligente', desc: 'Trouvez instantanément n\'importe quel document grâce à la recherche full-text.' },
+        { title: 'Collaboration', desc: 'Partagez les documents avec les équipes et partenaires en toute sécurité.' },
+      ],
+      industries: ['Services', 'Finance', 'Administration', 'Juridique', 'Industrie'],
+    },
+    {
       id: 'neoledge',
       name: 'NeoLedge',
       tagline: 'La plateforme ECM tout-en-un propulsée par l\'IA pour moderniser la gestion documentaire.',
@@ -577,12 +666,7 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Conformité réglementaire', desc: 'Archivage légal et respect des obligations de conservation.' },
         { title: 'Collaboration documentaire', desc: 'Partage sécurisé et co-édition de documents en temps réel.' },
       ],
-      industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie'],
-      certifications: [
-        { name: 'NeoLedge User Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Maîtrisez les fonctionnalités de base de la plateforme NeoLedge ECM.' },
-        { name: 'NeoLedge Administrator', level: 'Intermédiaire', duration: '2 jours', desc: 'Administrez et configurez NeoLedge pour votre organisation.' },
-        { name: 'NeoLedge AI.Lise Specialist', level: 'Avancé', duration: '2 jours', desc: 'Exploitez pleinement les capacités d\'IA pour l\'automatisation documentaire.' },
-      ],
+      industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie']
     },
     {
       id: 'iterop',
@@ -597,11 +681,69 @@ export class SolutionDetailComponent implements OnInit {
         { title: 'Service client', desc: 'Orchestration des processus de support et réclamations.' },
         { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
       ],
-      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration'],
-      certifications: [
-        { name: 'ITEROP Process Designer', level: 'Débutant', duration: '2 jours', desc: 'Concevez et modélisez vos processus métiers avec ITEROP.' },
-        { name: 'ITEROP Advanced Automation', level: 'Intermédiaire', duration: '2 jours', desc: 'Automatisez vos workflows complexes sans développement.' },
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
+    },
+    {
+      id: 'neoledge-workflow',
+      name: 'NeoLedge Workflows & RPA',
+      tagline: 'Automatisez vos flux de travail et processus répétitifs grâce à l\'intelligence artificielle.',
+      description: 'La solution Workflows & RPA de NeoLedge révolutionne l\'automatisation des processus métiers. Combinant workflows collaboratifs intelligents et robotisation des tâches répétitives (RPA), elle permet aux entreprises d\'optimiser leur productivité, réduire les erreurs et accélérer leurs processus de validation.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #A68545 100%)',
+      features: ['Workflow de validation collaboratif', 'Parapheur électronique', 'RPA — automatisation robotisée', 'Intégration ERP/SAP', 'Notifications intelligentes', 'Tableau de bord des processus', 'API REST complète'],
+      useCases: [
+        { title: 'Validation de factures', desc: 'Automatisation complète du circuit de validation des factures fournisseurs.' },
+        { title: 'Automatisation RH', desc: 'Digitalisation des processus de recrutement et onboarding.' },
+        { title: 'Gestion des achats', desc: 'Automatisation du cycle procure-to-pay complet.' },
+        { title: 'Service client', desc: 'Orchestration des processus de support et réclamations.' },
+        { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
       ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
+    },
+    {
+      id: 'neoledge-ai',
+      name: 'AI.Lise — IA Documentaire',
+      tagline: 'Décuplez votre capacité à organiser, retrouver et exploiter vos données grâce aux services d\'intelligence artificielle intégrés.',
+      description: 'AI.Lise est le module d\'intelligence artificielle de NeoLedge pour l\'automatisation documentaire. Il permet de classer, extraire des données et résumer automatiquement vos documents grâce à l\'IA, réduisant le temps de traitement et améliorant la précision.',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
+      features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies'],
+      useCases: [
+        { title: 'Classification intelligente', desc: 'L\'IA classe automatiquement vos documents par type et thématique.' },
+        { title: 'Extraction de données', desc: 'Extraction structurée de données depuis vos documents.' },
+        { title: 'Résumé automatique', desc: 'L\'IA génère des résumés de vos documents.' },
+        { title: 'Détection d\'anomalies', desc: 'L\'IA détecte les anomalies dans vos documents.' },
+      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
+    },
+    {
+      id: 'neoledge-workflow',
+      name: 'NeoLedge Workflows & RPA',
+      tagline: 'Automatisez vos flux de travail et processus répétitifs grâce à l\'intelligence artificielle.',
+      description: 'La solution Workflows & RPA de NeoLedge révolutionne l\'automatisation des processus métiers. Combinant workflows collaboratifs intelligents et robotisation des tâches répétitives (RPA), elle permet aux entreprises d\'optimiser leur productivité, réduire les erreurs et accélérer leurs processus de validation.',
+      gradient: 'linear-gradient(135deg, #002D5B 0%, #A68545 100%)',
+      features: ['Workflow de validation collaboratif', 'Parapheur électronique', 'RPA — automatisation robotisée', 'Intégration ERP/SAP', 'Notifications intelligentes', 'Tableau de bord des processus', 'API REST complète'],
+      useCases: [
+        { title: 'Validation de factures', desc: 'Automatisation complète du circuit de validation des factures fournisseurs.' },
+        { title: 'Automatisation RH', desc: 'Digitalisation des processus de recrutement et onboarding.' },
+        { title: 'Gestion des achats', desc: 'Automatisation du cycle procure-to-pay complet.' },
+        { title: 'Service client', desc: 'Orchestration des processus de support et réclamations.' },
+        { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
+      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
+    },
+    {
+      id: 'neoledge-ai',
+      name: 'AI.Lise — IA Documentaire',
+      tagline: 'Décuplez votre capacité à organiser, retrouver et exploiter vos données grâce aux services d\'intelligence artificielle intégrés.',
+      description: 'AI.Lise est le module d\'intelligence artificielle de NeoLedge pour l\'automatisation documentaire. Il permet de classer, extraire des données et résumer automatiquement vos documents grâce à l\'IA, réduisant le temps de traitement et améliorant la précision.',
+      gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
+      features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies'],
+      useCases: [
+        { title: 'Classification intelligente', desc: 'L\'IA classe automatiquement vos documents par type et thématique.' },
+        { title: 'Extraction de données', desc: 'Extraction structurée de données depuis vos documents.' },
+        { title: 'Résumé automatique', desc: 'L\'IA génère des résumés de vos documents.' },
+        { title: 'Détection d\'anomalies', desc: 'L\'IA détecte les anomalies dans vos documents.' },
+      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
     },
     {
       id: 'medidata',
@@ -610,71 +752,16 @@ export class SolutionDetailComponent implements OnInit {
       description: 'Plateforme cloud dédiée aux essais cliniques, à la recherche médicale et au développement des médicaments.',
       gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
       features: ['Gestion des essais cliniques (EDC)', 'Données patients sécurisées', 'IA pour la recherche clinique', 'Conformité FDA / EMA'],
-      useCases: [],
-      industries: ['Santé', 'Sciences de la vie'],
-      certifications: []
-    },
-    {
-      id: 'centric-plm',
-      name: 'CENTRIC PLM',
-      tagline: 'Retail, Mode & Produits de consommation',
-      description: 'Solution PLM destinée aux secteurs de la mode, textile, cosmétique, distribution et produits de consommation.',
-      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
-      features: ['Développement produit', 'Gestion des collections', 'Supply Chain', 'Time-to-Market réduit'],
-      useCases: [],
-      industries: ['Retail', 'Mode'],
-      certifications: []
-    },
-    {
-      id: 'draftsight',
-      name: 'DraftSight',
-      tagline: 'Solution de CAO 2D professionnelle compatible DWG.',
-      description: 'Solution de CAO 2D professionnelle compatible DWG pour tous vos dessins et documentations techniques.',
-      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
-      features: ['Dessin 2D', 'Compatibilité AutoCAD', 'Plans techniques', 'Documentation'],
-      useCases: [],
-      industries: ['Ingénierie', 'Architecture', 'Industrie'],
-      certifications: []
-    },
-    {
-      id: '3dvia',
-      name: '3DVIA',
-      tagline: 'Visualisation et communication 3D.',
-      description: 'Créez des expériences clients immersives et interactives pour la présentation et la documentation de vos produits.',
-      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
-      features: ['Configurateurs produits', 'Documentation interactive', 'Expérience client', 'Marketing 3D'],
-      useCases: [],
-      industries: ['Marketing', 'Vente', 'Retail'],
-      certifications: []
-    },
-    {
-      id: 'reverse-engineering',
-      name: 'Reverse Engineering',
-      tagline: 'Numérisation & Reconstruction 3D',
-      description: 'Transformez des pièces physiques en modèles CAO exploitables grâce aux technologies de scan 3D et de rétroconception.',
-      gradient: 'linear-gradient(135deg, #002D5B 0%, #C5A059 100%)',
-      features: ['Scan 3D haute précision', 'Reconstruction de modèles CAO', 'Comparaison CAO / pièce réelle', 'Contrôle qualité et inspection'],
-      useCases: [],
-      industries: ['Industrie', 'Ingénierie de précision'],
-      certifications: []
-    },
-    {
-      id: 'neoledge-ged',
-      name: 'NeoLedge GED & Archivage',
-      tagline: 'Dématérialisez et centralisez l\'ensemble de vos documents avec une solution GED sécurisée.',
-      description: 'La solution GED & Archivage de NeoLedge permet aux entreprises de dématérialiser, centraliser et sécuriser l\'ensemble de leurs documents. Avec des fonctionnalités d\'indexation automatique, d\'archivage à valeur probante et de recherche avancée, elle transforme la gestion documentaire traditionnelle en un système intelligent et conforme.',
-      gradient: 'linear-gradient(135deg, var(--primary-deep) 0%, #059669 100%)',
-      features: ['Indexation automatique des documents', 'Archivage à valeur probante', 'Recherche full-text avancée', 'Droits d\'accès granulaires', 'Versioning automatique', 'Conformité RGPD', 'Sauvegarde sécurisée cloud'],
       useCases: [
-        { title: 'Archivage légal', desc: 'Conservation sécurisée des documents avec valeur probante juridique.' },
-        { title: 'Dématérialisation RH', desc: 'Digitalisation complète des dossiers employés et processus RH.' },
-        { title: 'Gestion comptable', desc: 'Centralisation et archivage des factures et documents comptables.' },
-        { title: 'Documentation qualité', desc: 'Gestion des procédures, certifications et documents qualité.' },
+        { title: 'Essais cliniques', desc: 'Gestion complète des essais cliniques et données patients.' },
+        { title: 'Recherche médicale', desc: 'Accélération du développement de médicaments grâce à l\'IA.' },
+        { title: 'Conformité réglementaire', desc: 'Respect des normes FDA, EMA et autres réglementations.' },
+        { title: 'Collaboration R&D', desc: 'Partage sécurisé des données entre équipes de recherche.' },
       ],
-      industries: ['Services', 'Santé', 'Finance', 'Administration', 'Industrie'],
+      industries: ['Pharmaceutique', 'Biotechnologie', 'Sciences de la vie', 'Santé'],
       certifications: [
-        { name: 'NeoLedge GED Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Maîtrisez la gestion électronique de documents avec NeoLedge.' },
-        { name: 'NeoLedge Archiving Specialist', level: 'Intermédiaire', duration: '1 jour', desc: 'Spécialisez-vous dans l\'archivage à valeur probante.' },
+        { name: 'MEDIDATA Clinical Research', level: 'Intermédiaire', duration: '3 jours', desc: 'Maîtrisez la plateforme MEDIDATA pour la recherche clinique.' },
+        { name: 'MEDIDATA Rave', level: 'Avancé', duration: '2 jours', desc: 'Exploitez les capacités d\'analyse et de reporting de MEDIDATA.' },
       ],
     },
     {
@@ -686,34 +773,27 @@ export class SolutionDetailComponent implements OnInit {
       features: ['Workflow de validation collaboratif', 'Parapheur électronique', 'RPA — automatisation robotisée', 'Intégration ERP/SAP', 'Notifications intelligentes', 'Tableau de bord des processus', 'API REST complète'],
       useCases: [
         { title: 'Validation de factures', desc: 'Automatisation complète du circuit de validation des factures fournisseurs.' },
-        { title: 'Processus RH', desc: 'Workflows de recrutement, congés et évaluations automatisés.' },
-        { title: 'Approbations budgétaires', desc: 'Circuits de validation hiérarchique avec seuils automatiques.' },
-        { title: 'Gestion des contrats', desc: 'Workflow de création, validation et signature des contrats.' },
+        { title: 'Automatisation RH', desc: 'Digitalisation des processus de recrutement et onboarding.' },
+        { title: 'Gestion des achats', desc: 'Automatisation du cycle procure-to-pay complet.' },
+        { title: 'Service client', desc: 'Orchestration des processus de support et réclamations.' },
+        { title: 'Conformité qualité', desc: 'Automatisation des processus qualité et audits.' },
       ],
-      industries: ['Services', 'Finance', 'Administration', 'Industrie', 'Santé'],
-      certifications: [
-        { name: 'NeoLedge Workflow Designer', level: 'Débutant', duration: '1 jour', desc: 'Concevez des workflows collaboratifs avec NeoLedge.' },
-        { name: 'NeoLedge RPA Specialist', level: 'Intermédiaire', duration: '2 jours', desc: 'Automatisez vos processus avec la robotisation RPA.' },
-      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
     },
     {
       id: 'neoledge-ai',
       name: 'AI.Lise — IA Documentaire',
-      tagline: 'Décuplez votre capacité à organiser et exploiter vos données grâce à l\'IA.',
-      description: 'AI.Lise est le moteur d\'intelligence artificielle intégré à la plateforme NeoLedge. Cette solution révolutionnaire utilise les dernières avancées en IA pour automatiser la classification, l\'extraction de données et l\'analyse documentaire. Elle transforme vos documents en données exploitables et actionables.',
+      tagline: 'Décuplez votre capacité à organiser, retrouver et exploiter vos données grâce aux services d\'intelligence artificielle intégrés.',
+      description: 'AI.Lise est le module d\'intelligence artificielle de NeoLedge pour l\'automatisation documentaire. Il permet de classer, extraire des données et résumer automatiquement vos documents grâce à l\'IA, réduisant le temps de traitement et améliorant la précision.',
       gradient: 'linear-gradient(135deg, #C5A059 0%, #002D5B 100%)',
-      features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies', 'Reconnaissance optique avancée', 'Analyse sémantique', 'Machine Learning adaptatif'],
+      features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies'],
       useCases: [
-        { title: 'Traitement automatique factures', desc: 'Extraction automatique des données de facturation avec validation IA.' },
-        { title: 'Classification intelligente', desc: 'Tri automatique des documents entrants par type et priorité.' },
-        { title: 'Analyse de contrats', desc: 'Extraction des clauses importantes et détection des risques.' },
-        { title: 'Veille documentaire', desc: 'Surveillance automatique et résumé des documents critiques.' },
+        { title: 'Classification intelligente', desc: 'L\'IA classe automatiquement vos documents par type et thématique.' },
+        { title: 'Extraction de données', desc: 'Extraction structurée de données depuis vos documents.' },
+        { title: 'Résumé automatique', desc: 'L\'IA génère des résumés de vos documents.' },
+        { title: 'Détection d\'anomalies', desc: 'L\'IA détecte les anomalies dans vos documents.' },
       ],
-      industries: ['Finance', 'Juridique', 'Assurance', 'Administration', 'Santé'],
-      certifications: [
-        { name: 'AI.Lise Fundamentals', level: 'Débutant', duration: '1 jour', desc: 'Découvrez les capacités d\'IA documentaire avec AI.Lise.' },
-        { name: 'AI.Lise Advanced Analytics', level: 'Avancé', duration: '2 jours', desc: 'Exploitez pleinement l\'IA pour l\'analyse documentaire avancée.' },
-      ],
+      industries: ['Services', 'Industrie', 'Santé', 'Finance', 'Administration']
     },
   ];
 

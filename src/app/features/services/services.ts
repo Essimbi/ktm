@@ -332,54 +332,78 @@ export class ServicesComponent implements AfterViewInit {
   readonly Network = Network;
 
   stats = [
-    { value: '50+', label: 'Jumeaux Numériques' },
-    { value: '300+', label: 'Professionnels formés' },
+    { value: '3', label: 'Jumeaux Numériques réalisés' },
+    { value: '15', label: 'Professionnels formés' },
     { value: '98%', label: 'Taux de réussite' },
     { value: '24h', label: 'Support réactif' },
   ];
 
   services = [
     {
-      title: 'Réalisation de Jumeaux Numériques',
-      desc: 'Création de répliques numériques exactes de vos produits, processus et systèmes pour optimiser les performances et réduire les coûts.',
-      icon: Layers, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
-      features: ['Modélisation 3D haute fidélité', 'Simulation temps réel', 'Intégration IoT et capteurs', 'Analyse prédictive et maintenance']
-    },
-    {
-      title: 'Intégration Solutions Dassault Systèmes',
-      desc: 'Déploiement complet et intégration sur mesure de l\'écosystème Dassault Systèmes au cœur de votre infrastructure IT.',
+      title: 'Intégration 3DEXPERIENCE',
+      desc: 'Déployez une plateforme collaborative unifiée pour connecter vos équipes, vos données et vos processus tout au long du cycle de vie de vos produits.',
       icon: Network, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['3DEXPERIENCE Platform', 'CATIA, SIMULIA, DELMIA', 'Connecteurs ERP/PLM', 'Architecture cloud & on-premise']
     },
     {
-      title: 'Rétro-Ingénierie Avancée',
-      desc: 'Reconstruction numérique précise de pièces et assemblages existants grâce aux technologies de numérisation 3D et CAO inverse.',
+      title: 'Jumeau Numériques',
+      desc: 'Concevez des répliques numériques intelligentes de vos produits, usines, infrastructures ou villes afin de simuler, analyser et optimiser leurs performances en temps réel.',
+      icon: Layers, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
+      features: ['Modélisation 3D haute fidélité', 'Simulation temps réel', 'Intégration IoT et capteurs', 'Analyse prédictive et maintenance']
+    },
+    {
+      title: 'PLM & Digital Manufacturing',
+      desc: 'Optimisez l\'ensemble du cycle de vie de vos produits, de l\'\'idée à la fabrication, grâce à une gestion collaborative des données et des processus industriels.',
+      icon: Layers, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-gold))',
+      features: ['Gestion des nomenclatures (BOM)', 'Workflow de validation', 'Suivi de production', 'Conformité réglementaire', 'Intégration ERP', 'Jumeau numérique d\'usine']
+    },
+    {
+      title: 'Reverse Engineering',
+      desc: 'Transformez des pièces physiques en modèles CAO exploitables grâce aux technologies de numérisation 3D et de rétroconception de haute précision.',
       icon: Scan, color: 'linear-gradient(135deg, #C5A059, var(--primary-deep))',
       features: ['Scanning 3D haute précision', 'Reconstruction CAO paramétrique', 'Analyse dimensionnelle', 'Documentation technique complète']
     },
     {
-      title: 'Accompagnement Industriel',
-      desc: 'Expertise technique de haut niveau pour vos projets de conception, simulation et optimisation des processus de fabrication.',
-      icon: HardHat, color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)',
-      features: ['Assistance à maîtrise d\'ouvrage', 'Optimisation des processus', 'Audit de conception et qualité', 'Ingénierie simultanée']
+      title: 'Smart Factory / Industrie 4.0',
+      desc: 'Accélérez votre transformation industrielle grâce à des usines intelligentes, connectées et pilotées par les données.',
+      icon: Cpu, color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)',
+      features: ['Surveillance IoT temps réel', 'Maintenance prédictive', 'Optimisation des flux', 'Jumeau numérique d\'usine', 'Tableaux de bord de performance']
     },
     {
-      title: 'Formation Professionnelle',
-      desc: 'Programmes certifiants animés par des instructeurs accrédités Dassault Systèmes pour monter en compétence vos équipes.',
-      icon: BookOpen, color: 'linear-gradient(135deg, #C5A059, #002D5B)',
-      features: ['CATIA, SIMULIA, DELMIA', 'Formations intra et inter-entreprises', 'Certifications officielles', 'E-learning et présentiel']
+      title: 'Smart Mining',
+      desc: 'Optimisez l\'exploration, la planification et l\'\'exploitation minière grâce aux solutions numériques de nouvelle génération.',
+      icon: Layers, color: 'linear-gradient(135deg, #2D5B2D, #C5A059)',
+      features: ['GEOVIA Surpac', 'GEOVIA MineSched', 'Optimisation Whittle', 'Jumeau numérique de mine']
     },
     {
-      title: 'Parc Technologique Digitale',
+      title: 'Smart City',
+      desc: 'Accompagnez les collectivités dans la conception de villes intelligentes grâce aux jumeaux numériques, à la modélisation 3D et à l\'analyse territoriale.',
+      icon: Layers, color: 'linear-gradient(135deg, #2D5B2D, #C5A059)',
+      features: ['City Planner', 'Surveillance infrastructures', 'Gestion patrimoniale', 'Tableau de bord ville intelligente']
+    },
+    {
+      title: 'Digital Tech Park',
       desc: 'Centre d\'excellence technologique pour l\'accompagnement vers la réussite de vos certifications professionnelles en conception 3D.',
       icon: Cpu, color: 'linear-gradient(135deg, var(--primary-gold), var(--primary-deep))',
       features: ['Centre agréé Dassault Systèmes', 'Laboratoire équipé haute technologie', 'Expertise 3D certifiée', 'Accompagnement personnalisé']
     },
     {
+      title: 'Formations',
+      desc: 'Développez les compétences de vos équipes grâce à des formations officielles animées par des experts certifiés Dassault Systèmes.',
+      icon: BookOpen, color: 'linear-gradient(135deg, #C5A059, #002D5B)',
+      features: ['CATIA, SIMULIA, DELMIA', 'Formations intra et inter-entreprises', 'Certifications officielles', 'E-learning et présentiel']
+    },
+    {
       title: 'Support & Maintenance',
-      desc: 'Support réactif et proactif pour garantir la disponibilité et la performance de vos solutions digitales en continu.',
+      desc: 'Garantissez la disponibilité, la performance et l\'\'évolution de vos solutions grâce à un accompagnement technique continu.',
       icon: Headphones, color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))',
       features: ['Hotline dédiée 5j/7', 'Mises à jour et montées de version', 'Monitoring des performances', 'Contrats de maintenance SLA']
+    },
+    {
+      title: 'Accompagnement industriel',
+      desc: 'Expertise technique de haut niveau pour vos projets de conception, simulation et optimisation des processus de fabrication.',
+      icon: HardHat, color: 'linear-gradient(135deg, var(--primary-deep), #C5A059)',
+      features: ['Assistance à maîtrise d\'ouvrage', 'Optimisation des processus', 'Audit de conception et qualité', 'Ingénierie simultanée']
     },
     {
       title: 'Consulting Stratégique',

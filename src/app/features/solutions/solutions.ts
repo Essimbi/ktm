@@ -519,6 +519,24 @@ export class SolutionsComponent implements AfterViewInit {
 
   neoledgeSolutions: Solution[] = [
     {
+      id: 'intelligence-artificielle',
+      name: 'Intelligence artificielle',
+      category: 'Solutions IA',
+      shortDesc: 'Une réponse précise pour chaque secteur. Chaque solution est déployée en quelques semaines, sans remplacer vos systèmes existants — en s\'y connectant.',
+      features: ['Maintenance prédictive', 'Surveillance IoT', 'Détection d\'anomalies', 'Tableaux de bord opérationnels'],
+      icon: Cpu,
+      color: 'linear-gradient(135deg, #0F766E, #C5A059)'
+    },
+    {
+      id: 'jumeau-numerique',
+      name: 'Jumeau Numérique',
+      category: 'Digital Twin',
+      shortDesc: 'Imaginez pouvoir tester le réel avant même qu\'il n\'existe. Digitalisez vos villes, industries et infrastructures grâce aux technologies de pointe.',
+      features: ['City Planner - Villes et Urbanisme', 'DELMIA - Industrie maîtrisée', 'ITEROP - Gestion des Processus', 'BIOVIA - Santé et Sciences de la vie', 'GEOVIA - Mines et Infrastructures'],
+      icon: Layers,
+      color: 'linear-gradient(135deg, #00B4D8, #002D5B)'
+    },
+    {
       id: 'neoledge',
       name: 'ECM Elise',
       category: 'Gestion de Contenu Cloud',
@@ -553,15 +571,6 @@ export class SolutionsComponent implements AfterViewInit {
       features: ['Classification automatique IA', 'Extraction de données LAD/RAD', 'Résumé automatique de documents', 'Détection d\'anomalies'],
       icon: Cpu,
       color: 'linear-gradient(135deg, #C5A059, #002D5B)'
-    },
-    {
-      id: 'intelligence-artificielle',
-      name: 'Intelligence artificielle',
-      category: 'Solutions IA',
-      shortDesc: 'Des solutions de maintenance prédictive, de surveillance industrielle et de gestion intelligente adaptées aux ports, dépôts pétroliers, villes et industries.',
-      features: ['Maintenance prédictive', 'Surveillance IoT', 'Détection d’anomalies', 'Tableaux de bord opérationnels'],
-      icon: Cpu,
-      color: 'linear-gradient(135deg, #0F766E, #C5A059)'
     },
   ];
 

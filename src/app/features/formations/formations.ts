@@ -89,12 +89,21 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       <section class="certs-section">
         <div class="section-container">
           <h2 class="section-title" style="color:white">Certifications Dassault Systèmes</h2>
-          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Préparez les validations de compétences attendues sur les solutions CATIA, 3DEXPERIENCE, SIMULIA et DELMIA.</p>
-          <div class="certs-grid">
-            <div class="cert-item" *ngFor="let cert of certifications">
-              <lucide-icon [name]="Award" size="32"></lucide-icon>
-              <h4>{{cert.name}}</h4>
-              <p>{{cert.desc}}</p>
+          <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Préparez les validations de compétences attendues sur les solutions Dassault Systèmes.</p>
+          <div class="certs-solutions-grid">
+            <div class="cert-solution-group" *ngFor="let group of certificationsBySolution">
+              <div class="cert-solution-header">
+                <img [src]="group.icon" [alt]="group.solution">
+                <h3>{{group.solution}}</h3>
+              </div>
+              <div class="cert-solution-certs">
+                <div class="cert-item" *ngFor="let cert of group.certifications">
+                  <div class="cert-level-badge" [class]="cert.level.toLowerCase()">{{cert.level}}</div>
+                  <h4>{{cert.name}}</h4>
+                  <p>{{cert.desc}}</p>
+                  <span class="cert-duration">{{cert.duration}}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -552,20 +561,93 @@ import { LucideAngularModule, GraduationCap, Clock, Users, Award, ArrowRight, Ch
       color: white;
       h1, h2, h3, h4 { color: white; }
     }
-    .certs-grid {
+    .certs-solutions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px; margin-top: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 32px;
+      margin-top: 50px;
+    }
+    .cert-solution-group {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      &:hover {
+        background: rgba(255,255,255,0.08);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      }
+    }
+    .cert-solution-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(197, 160, 89, 0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+      }
+    }
+    .cert-solution-certs {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
     .cert-item {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px; padding: 32px; text-align: center; color: white;
-      transition: all 0.3s ease;
-      lucide-icon { color: var(--primary-gold); margin-bottom: 16px; }
-      h4 { font-size: 1.1rem; margin-bottom: 10px; }
-      p { font-size: 0.88rem; opacity: 0.7; }
-      &:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+      transition: all 0.2s ease;
+      &:hover {
+        background: rgba(255,255,255,0.06);
+        border-color: rgba(197, 160, 89, 0.3);
+      }
+      .cert-level-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        &.débutant { background: #22C55E; color: white; }
+        &.intermédiaire { background: #F59E0B; color: white; }
+        &.avancé { background: var(--primary-gold); color: white; }
+        &.expert { background: #8B5CF6; color: white; }
+        &.spécialiste { background: #059669; color: white; }
+      }
+      h4 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 6px;
+      }
+      p {
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .cert-duration {
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.5);
+        font-weight: 500;
+        display: block;
+      }
     }
     .cta-section { text-align: center; padding-top: 80px; padding-bottom: 140px; }
     .cta-box {
@@ -591,8 +673,8 @@ export class FormationsComponent {
   readonly Laptop = Laptop;
 
   stats = [
-    { value: '35+', label: "Ans d'expérience formation" },
-    { value: '11', label: 'Domaines de formation' },
+    { value: '3', label: "Ans d'expérience formation" },
+    { value: '20', label: 'Domaines de formation' },
     { value: '2021', label: 'Référence Qualiopi' },
     { value: '100%', label: 'Parcours orientés métier' },
   ];
@@ -661,12 +743,93 @@ export class FormationsComponent {
     { name: 'Tester ses connaissances', icon: Laptop },
   ];
 
-  certifications = [
-    { name: 'Certifications CATIA', desc: 'Valorisation des compétences de conception, modélisation et méthodologie sur les environnements CATIA.' },
-    { name: 'Certifications 3DEXPERIENCE', desc: 'Validation des pratiques de collaboration, gestion de données et pilotage sur la plateforme.' },
-    { name: 'Certifications SIMULIA', desc: 'Reconnaissance des compétences en simulation numérique et analyse avancée.' },
-    { name: 'Certifications DELMIA', desc: 'Validation des connaissances autour de la fabrication, de la planification et des opérations industrielles.' },
-    { name: 'Certifications Dassault Systèmes', desc: "Parcours destinés à attester officiellement les compétences acquises sur les solutions de l'éditeur." },
+  certificationsBySolution = [
+    {
+      solution: 'SOLIDWORKS',
+      icon: 'assets/solutions_icons/solidworks.png',
+      certifications: [
+        { name: 'CSWA – Certified SOLIDWORKS Associate', level: 'Débutant', duration: 'Bases', desc: 'Niveau débutant – bases de la modélisation 3D.' },
+        { name: 'CSWP – Certified SOLIDWORKS Professional', level: 'Avancé', duration: 'Avancé', desc: 'Niveau avancé – conception professionnelle.' },
+        { name: 'CSWE – Certified SOLIDWORKS Expert', level: 'Expert', duration: 'Expert', desc: 'Niveau expert – maîtrise complète du logiciel.' },
+        { name: 'TECE – Certifications Éducateurs', level: 'Expert', duration: 'Pédagogie', desc: 'Pour enseignants & formateurs techniques.' }
+      ]
+    },
+    {
+      solution: 'GEOVIA',
+      icon: 'assets/solutions_icons/geovia.png',
+      certifications: [
+        { name: 'GEOVIA Surpac', level: 'Spécialiste', duration: 'Modélisation', desc: 'Certification sur la modélisation géologique.' },
+        { name: 'GEOVIA MineSched', level: 'Spécialiste', duration: 'Exploitation', desc: 'Certification pour l\'exploitation et la production minière.' },
+        { name: 'City Planner', level: 'Expert', duration: 'Urbanisme', desc: 'Spécialisation en aménagement de villes intelligentes.' }
+      ]
+    },
+    {
+      solution: 'CATIA',
+      icon: 'assets/solutions_icons/catia.png',
+      certifications: [
+        { name: 'CATIA V5 Essentials', level: 'Débutant', duration: '5 jours', desc: 'Maîtrisez les fondamentaux de la modélisation 3D et des assemblages avec CATIA V5.' },
+        { name: 'CATIA V5 Surfacique', level: 'Intermédiaire', duration: '3 jours', desc: 'Apprenez les techniques avancées de modélisation surfacique pour le design complexe.' },
+        { name: 'CATIA V6 3DEXPERIENCE', level: 'Intermédiaire', duration: '4 jours', desc: 'Découvrez la nouvelle génération CATIA sur plateforme collaborative 3DEXPERIENCE.' }
+      ]
+    },
+    {
+      solution: '3DEXPERIENCE',
+      icon: 'assets/solutions_icons/3dexcite.png',
+      certifications: [
+        { name: '3DEXPERIENCE Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Découvrez les bases de la plateforme collaborative 3DEXPERIENCE.' },
+        { name: '3DEXPERIENCE PLM', level: 'Intermédiaire', duration: '4 jours', desc: 'Maîtrisez la gestion du cycle de vie produit sur 3DEXPERIENCE.' },
+        { name: '3DEXPERIENCE Administrator', level: 'Avancé', duration: '3 jours', desc: 'Administrez et configurez la plateforme 3DEXPERIENCE pour votre entreprise.' }
+      ]
+    },
+    {
+      solution: 'SIMULIA',
+      icon: 'assets/solutions_icons/simula.png',
+      certifications: [
+        { name: 'SIMULIA Abaqus Fundamentals', level: 'Débutant', duration: '4 jours', desc: 'Apprenez les bases de la simulation par éléments finis avec Abaqus.' },
+        { name: 'SIMULIA Advanced Nonlinear', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les analyses non-linéaires complexes avec SIMULIA.' },
+        { name: 'SIMULIA CFD Specialist', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisez-vous dans la dynamique des fluides computationnelle.' }
+      ]
+    },
+    {
+      solution: 'DELMIA',
+      icon: 'assets/solutions_icons/delmia.png',
+      certifications: [
+        { name: 'DELMIA Process Planning', level: 'Intermédiaire', duration: '4 jours', desc: 'Maîtrisez la planification des processus de fabrication avec DELMIA.' },
+        { name: 'DELMIA Robotics', level: 'Avancé', duration: '3 jours', desc: 'Programmation et simulation robotique avancée avec DELMIA.' }
+      ]
+    },
+    {
+      solution: 'ENOVIA',
+      icon: 'assets/solutions_icons/enovia.png',
+      certifications: [
+        { name: 'ENOVIA Fundamentals', level: 'Débutant', duration: '3 jours', desc: 'Découvrez les bases de la gestion PLM avec ENOVIA.' },
+        { name: 'ENOVIA Administrator', level: 'Avancé', duration: '4 jours', desc: 'Administrez et configurez ENOVIA pour votre organisation.' }
+      ]
+    },
+    {
+      solution: 'BIOVIA',
+      icon: 'assets/solutions_icons/biovia.png',
+      certifications: [
+        { name: 'BIOVIA Discovery Studio', level: 'Intermédiaire', duration: '3 jours', desc: 'Modélisation moléculaire et découverte de médicaments.' },
+        { name: 'BIOVIA Pipeline Pilot', level: 'Avancé', duration: '2 jours', desc: 'Automatisation des workflows scientifiques.' }
+      ]
+    },
+    {
+      solution: 'NETVIBES',
+      icon: 'assets/solutions_icons/netvibes.png',
+      certifications: [
+        { name: 'NETVIBES Dashboard Creation', level: 'Débutant', duration: '1 jour', desc: 'Créez des tableaux de bord intelligents avec NETVIBES.' },
+        { name: 'NETVIBES AI Analytics', level: 'Intermédiaire', duration: '2 jours', desc: 'Exploitez l\'IA pour l\'analyse prédictive et la veille.' }
+      ]
+    },
+    {
+      solution: '3DVIA',
+      icon: 'assets/solutions_icons/3dvia.png',
+      certifications: [
+        { name: '3DVIA Fundamentals', level: 'Débutant', duration: '2 jours', desc: 'Découvrez les bases de la visualisation 3D avec 3DVIA.' },
+        { name: '3DVIA Advanced', level: 'Avancé', duration: '3 jours', desc: 'Maîtrisez les fonctionnalités avancées et l\'intégration web.' }
+      ]
+    }
   ];
 
 }
