@@ -56,8 +56,9 @@ import {
           <a [routerLink]="['/solutions', sol.id]" class="sol-card reveal" *ngFor="let sol of dassaultSolutions; let i = index" [style.--delay]="i * 0.08 + 's'">
             <div class="card-glow" [style.background]="sol.color"></div>
             <div class="card-content">
-              <div class="sol-icon-box" [style.background]="sol.color">
-                <lucide-icon [name]="sol.icon" size="30"></lucide-icon>
+              <div class="sol-icon-box">
+                <img *ngIf="sol.image" [src]="sol.image" [alt]="sol.name" class="sol-img">
+                <lucide-icon *ngIf="!sol.image" [name]="sol.icon" size="30" style="color:white"></lucide-icon>
               </div>
               <div class="sol-info">
                 <div class="sol-category">{{sol.category}}</div>
@@ -91,8 +92,9 @@ import {
           <a [routerLink]="['/solutions', sol.id]" class="sol-card reveal" *ngFor="let sol of neoledgeSolutions; let i = index" [style.--delay]="i * 0.08 + 's'">
             <div class="card-glow" [style.background]="sol.color"></div>
             <div class="card-content">
-              <div class="sol-icon-box" [style.background]="sol.color">
-                <lucide-icon [name]="sol.icon" size="30"></lucide-icon>
+              <div class="sol-icon-box">
+                <img *ngIf="sol.image" [src]="sol.image" [alt]="sol.name" class="sol-img">
+                <lucide-icon *ngIf="!sol.image" [name]="sol.icon" size="30" style="color:white"></lucide-icon>
               </div>
               <div class="sol-info">
                 <div class="sol-category green">{{sol.category}}</div>
@@ -257,9 +259,14 @@ import {
       display: flex; flex-direction: column; height: 100%;
     }
     .sol-icon-box {
-      width: 62px; height: 62px; border-radius: 18px;
+      width: 70px; height: 70px; border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
-      color: white; margin-bottom: 24px; flex-shrink: 0;
+      margin-bottom: 24px; flex-shrink: 0;
+      background: #f0f4f8; overflow: hidden;
+      border: 2px solid #E8EEF6;
+    }
+    .sol-img {
+      width: 100%; height: 100%; object-fit: contain; padding: 6px;
     }
     .sol-category {
       font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
@@ -359,6 +366,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'La solution CAO 3D la plus utilisée au monde pour la conception mécanique et le développement de produits.',
       features: ['Conception mécanique 3D', 'Assemblages complexes', 'Mise en plan 2D', 'Simulation intégrée'],
       icon: Layout,
+      image: 'assets/solutions_icons/solidworks.png',
       color: 'linear-gradient(135deg, #E32636, var(--primary-deep))'
     },
     {
@@ -368,6 +376,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Le leader mondial de la conception 3D et de l\'ingénierie système pour les industries aéronautique, automobile et industrielle de pointe.',
       features: ['CAO 3D avancée multi-discipline', 'Surfacique & carrosserie complexe', 'Ingénierie système (MBSE)', 'Conception mécatronique'],
       icon: Monitor,
+      image: 'assets/solutions_icons/catia.png',
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
@@ -377,6 +386,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'La plateforme collaborative ultime pour connecter personnes, idées et données sur un environnement Cloud unifié. Le hub digitale de votre entreprise.',
       features: ['PLM collaboratif cloud', 'Gestion des données produits', 'Tableaux de bord business', 'Jumeaux numériques'],
       icon: Layers,
+      image: 'assets/solutions_icons/3dexcite.png',
       color: 'linear-gradient(135deg, #002D5B, #C5A059)'
     },
     {
@@ -386,6 +396,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Smart Mining et Smart Cities - Mines et villes intelligentes. Avec Surpac, MineSched, Whittle, GEMS et City Planner pour la gestion optimisée des ressources et l\'aménagement urbain.',
       features: ['GEOVIA Surpac - Modélisation géologique', 'GEOVIA MineSched - Production minière', 'GEOVIA Whittle - Optimisation stratégique', 'City Planner - Aménagement urbain'],
       icon: Leaf,
+      image: 'assets/solutions_icons/geovia.png',
       color: 'linear-gradient(135deg, #2D5B2D, #C5A059)'
     },
     {
@@ -395,6 +406,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Planification et optimisation des opérations industrielles pour atteindre l\'excellence opérationnelle et réduire les coûts de production.',
       features: ['Simulation d\'usine digitale', 'Programmation robotique hors-ligne', 'Optimisation logistique', 'Planification de production'],
       icon: Layout,
+      image: 'assets/solutions_icons/delmia.png',
       color: 'linear-gradient(135deg, #C5A059, #002D5B)'
     },
     {
@@ -404,6 +416,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Simulation multi-physique avancée pour prédire et valider le comportement réel de vos produits avant fabrication.',
       features: ['Analyse FEA / CFD', 'Optimisation topologique', 'Simulation thermique & acoustique', 'Fatigue et durabilité'],
       icon: Zap,
+      image: 'assets/solutions_icons/simula.png',
       color: 'linear-gradient(135deg, #002D5B, #A68545)'
     },
     {
@@ -413,6 +426,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Gérez et sécurisez vos données produits avec une solution de gouvernance et de collaboration PLM à l\'échelle de l\'entreprise.',
       features: ['Gestion des nomenclatures (BOM)', 'Contrôle des versions documentaires', 'Workflows de validation', 'Gestion des exigences'],
       icon: Shield,
+      image: 'assets/solutions_icons/enovia.png',
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
@@ -422,6 +436,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Plateforme scientifique pour accélérer la découverte et l\'innovation dans les sciences de la vie, chimie et matériaux.',
       features: ['Cahiers de laboratoire électroniques', 'Gestion des données scientifiques', 'Modélisation moléculaire', 'Conformité réglementaire'],
       icon: FlaskConical,
+      image: 'assets/solutions_icons/biovia.png',
       color: 'linear-gradient(135deg, #002D5B, #C5A059)'
     },
     {
@@ -431,6 +446,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Plateforme d\'intelligence artificielle et de veille stratégique pour piloter votre entreprise avec des données en temps réel.',
       features: ['Tableaux de bord IA temps réel', 'Veille concurrentielle automatisée', 'Alertes intelligentes', 'Analyse prédictive'],
       icon: BarChart2,
+      image: 'assets/solutions_icons/netvibes.png',
       color: 'linear-gradient(135deg, #002D5B, #C5A059)'
     },
     {
@@ -476,6 +492,7 @@ export class SolutionsComponent implements AfterViewInit {
       shortDesc: 'Visualisation et communication 3D pour créer des expériences clients immersives et interactives.',
       features: ['Configurateurs produits', 'Documentation interactive', 'Expérience client', 'Marketing 3D'],
       icon: Globe,
+      image: 'assets/solutions_icons/3dvia.png',
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
