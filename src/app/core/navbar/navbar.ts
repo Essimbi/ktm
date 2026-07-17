@@ -62,7 +62,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
                   <span class="col-label col-digital">Digitalisation</span>
                   <a routerLink="/solutions/neoledge">GED &amp; ECM</a>
                   <a routerLink="/solutions/iterop">ITEROP</a>
-                  <a routerLink="/services">Jumeau Numérique</a>
+                  <a routerLink="/solutions/jumeau-numerique">Jumeau Numérique</a>
                   <a routerLink="/services">Reverse Engineering</a>
                 </div>
               </div>
@@ -82,14 +82,14 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
           <a routerLink="/contact" class="btn-demo">Demander une démo</a>
         </div>
 
+        <a routerLink="/" class="logo dassault-logo">
+          <img src="assets/dassault.jpeg" alt="Dassault Systemes" class="nav-logo-certif">
+        </a>
+
         <!-- Mobile Toggle -->
         <button class="mobile-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Menu">
           <lucide-icon [name]="isMenuOpen ? X : Menu" size="24"></lucide-icon>
         </button>
-
-        <a routerLink="/" class="logo">
-          <img src="assets/dassault.jpeg" alt="KTM Green Energy Group" class="nav-logo-certif">
-        </a>
       </div>
 
       <!-- Mobile Drawer Overlay -->
@@ -126,11 +126,11 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
               <span class="drawer-group-label">🟩 Simulation</span>
               <a routerLink="/solutions/simulia" (click)="closeMenu()">SIMULIA</a>
               <a routerLink="/solutions/delmia" (click)="closeMenu()">DELMIA</a>
-              <a routerLink="/services" (click)="closeMenu()">Jumeau Numérique</a>
+              <a routerLink="/solutions/jumeau-numerique" (click)="closeMenu()">Jumeau Numérique</a>
               <span class="drawer-group-label">📲 Digitalisation</span>
               <a routerLink="/solutions/neoledge" (click)="closeMenu()">GED &amp; ECM</a>
               <a routerLink="/solutions/iterop" (click)="closeMenu()">ITEROP</a>
-              <a routerLink="/services" (click)="closeMenu()">Jumeau Numérique</a>
+              <a routerLink="/solutions/jumeau-numerique" (click)="closeMenu()">Jumeau Numérique</a>
               <a routerLink="/services" (click)="closeMenu()">Reverse Engineering</a>
             </div>
           </div>
@@ -164,38 +164,51 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
 
     .nav-container {
       max-width: 1440px;
-      margin: 0 40px;
-      margin-left: 200px;
-      // padding: 0 10px;
+      margin: 0 auto;
+      padding: 0 40px;
       height: 100px;
       display: flex;
       align-items: center;
-      gap: 40px;
+      justify-content: space-between;
+      gap: 20px;
+
+      @media (max-width: 1024px) {
+        padding: 0 20px;
+      }
 
       @media (max-width: 768px) {
-        padding: 0 20px;
         height: 80px;
+        padding: 0 16px;
+        gap: 12px;
       }
     }
 
-    .logo { flex-shrink: 0; }
-
-    .nav-logo {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-
-      @media (max-width: 768px) { height: 60px; }
+    .logo { 
+      flex-shrink: 0; 
+      display: flex;
+      align-items: center;
     }
 
-    .nav-logo-certif {
-      height: 90px;
+    .dassault-logo {
+      margin-left: auto;
+    }
+
+    .nav-logo {
+      height: 80px;
       width: auto;
       object-fit: contain;
       display: block;
 
       @media (max-width: 768px) { height: 50px; }
+    }
+
+    .nav-logo-certif {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+
+      @media (max-width: 768px) { height: 45px; }
     }
 
     /* ── Desktop links ── */
@@ -243,6 +256,7 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       left: 50%;
       transform: translateX(-50%) translateY(10px);
       width: 1050px;
+      max-width: 90vw;
       background: white;
       border-radius: 20px;
       padding: 32px;
@@ -396,9 +410,9 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
       color: var(--primary-deep);
       border: none;
       cursor: pointer;
-      margin-left: auto;
       flex-shrink: 0;
       transition: background 0.2s;
+      order: 10;
 
       &:hover { background: rgba(0, 91, 255, 0.12); }
     }
@@ -559,9 +573,13 @@ import { LucideAngularModule, Menu, X, ChevronDown, Search, Globe, Phone } from 
     /* ── Responsive breakpoints ── */
     @media (max-width: 1100px) {
       .tel-link { display: none; }
+      .mega-menu { width: 900px; }
+      .mega-content { gap: 10px; }
+      .nav-links { gap: 0px; }
+      .nav-links li a, .nav-links li .dropdown-trigger { padding: 8px 10px; font-size: 0.85rem; }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .nav-links, .nav-actions { display: none; }
       .mobile-toggle { display: flex; }
     }

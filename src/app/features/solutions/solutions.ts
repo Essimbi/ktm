@@ -353,13 +353,13 @@ export class SolutionsComponent implements AfterViewInit {
 
   dassaultSolutions = [
     {
-      id: '3dexperience',
-      name: '3DEXPERIENCE',
-      category: 'Plateforme Globale',
-      shortDesc: 'La plateforme collaborative ultime pour connecter personnes, idées et données sur un environnement Cloud unifié. Le hub digitale de votre entreprise.',
-      features: ['PLM collaboratif cloud', 'Gestion des données produits', 'Tableaux de bord business', 'Jumeaux numériques'],
-      icon: Layers,
-      color: 'linear-gradient(135deg, #002D5B, #C5A059)'
+      id: 'solidworks',
+      name: 'SOLIDWORKS',
+      category: '3D CAD & Product Development',
+      shortDesc: 'La solution CAO 3D la plus utilisée au monde pour la conception mécanique et le développement de produits.',
+      features: ['Conception mécanique 3D', 'Assemblages complexes', 'Mise en plan 2D', 'Simulation intégrée'],
+      icon: Layout,
+      color: 'linear-gradient(135deg, #E32636, var(--primary-deep))'
     },
     {
       id: 'catia',
@@ -371,31 +371,13 @@ export class SolutionsComponent implements AfterViewInit {
       color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
-      id: 'simulia',
-      name: 'SIMULIA',
-      category: 'Simulation Apps',
-      shortDesc: 'Simulation multi-physique avancée pour prédire et valider le comportement réel de vos produits avant fabrication.',
-      features: ['Analyse FEA / CFD', 'Optimisation topologique', 'Simulation thermique & acoustique', 'Fatigue et durabilité'],
-      icon: Zap,
-      color: 'linear-gradient(135deg, #002D5B, #A68545)'
-    },
-    {
-      id: 'delmia',
-      name: 'DELMIA',
-      category: 'Simulation Apps',
-      shortDesc: 'Planification et optimisation des opérations industrielles pour atteindre l\'excellence opérationnelle et réduire les coûts de production.',
-      features: ['Simulation d\'usine digitale', 'Programmation robotique hors-ligne', 'Optimisation logistique', 'Planification de production'],
-      icon: Layout,
-      color: 'linear-gradient(135deg, #C5A059, #002D5B)'
-    },
-    {
-      id: 'enovia',
-      name: 'ENOVIA',
-      category: 'Social & Collaborative Apps',
-      shortDesc: 'Gérez et sécurisez vos données produits avec une solution de gouvernance et de collaboration PLM à l\'échelle de l\'entreprise.',
-      features: ['Gestion des nomenclatures (BOM)', 'Contrôle des versions documentaires', 'Workflows de validation', 'Gestion des exigences'],
-      icon: Shield,
-      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
+      id: '3dexperience',
+      name: '3DEXPERIENCE',
+      category: 'Plateforme Globale',
+      shortDesc: 'La plateforme collaborative ultime pour connecter personnes, idées et données sur un environnement Cloud unifié. Le hub digitale de votre entreprise.',
+      features: ['PLM collaboratif cloud', 'Gestion des données produits', 'Tableaux de bord business', 'Jumeaux numériques'],
+      icon: Layers,
+      color: 'linear-gradient(135deg, #002D5B, #C5A059)'
     },
     {
       id: 'geovia',
@@ -405,6 +387,33 @@ export class SolutionsComponent implements AfterViewInit {
       features: ['GEOVIA Surpac - Modélisation géologique', 'GEOVIA MineSched - Production minière', 'GEOVIA Whittle - Optimisation stratégique', 'City Planner - Aménagement urbain'],
       icon: Leaf,
       color: 'linear-gradient(135deg, #2D5B2D, #C5A059)'
+    },
+    {
+      id: 'delmia',
+      name: 'DELMIA',
+      category: 'Manufacturing & Operations Apps',
+      shortDesc: 'Planification et optimisation des opérations industrielles pour atteindre l\'excellence opérationnelle et réduire les coûts de production.',
+      features: ['Simulation d\'usine digitale', 'Programmation robotique hors-ligne', 'Optimisation logistique', 'Planification de production'],
+      icon: Layout,
+      color: 'linear-gradient(135deg, #C5A059, #002D5B)'
+    },
+    {
+      id: 'simulia',
+      name: 'SIMULIA',
+      category: 'Simulation Apps',
+      shortDesc: 'Simulation multi-physique avancée pour prédire et valider le comportement réel de vos produits avant fabrication.',
+      features: ['Analyse FEA / CFD', 'Optimisation topologique', 'Simulation thermique & acoustique', 'Fatigue et durabilité'],
+      icon: Zap,
+      color: 'linear-gradient(135deg, #002D5B, #A68545)'
+    },
+    {
+      id: 'enovia',
+      name: 'ENOVIA',
+      category: 'Social & Collaborative Apps',
+      shortDesc: 'Gérez et sécurisez vos données produits avec une solution de gouvernance et de collaboration PLM à l\'échelle de l\'entreprise.',
+      features: ['Gestion des nomenclatures (BOM)', 'Contrôle des versions documentaires', 'Workflows de validation', 'Gestion des exigences'],
+      icon: Shield,
+      color: 'linear-gradient(135deg, var(--primary-deep), var(--primary-deep))'
     },
     {
       id: 'biovia',

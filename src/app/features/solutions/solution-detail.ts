@@ -120,10 +120,6 @@ interface SolutionDetail {
             <div class="cert-card" *ngFor="let cert of solution.certifications">
               <div class="cert-level-badge" [class]="cert.level.toLowerCase()">{{cert.level}}</div>
               <h4>{{cert.name}}</h4>
-              <div class="cert-duration">
-                <lucide-icon [name]="CheckCircle" size="14"></lucide-icon>
-                <span>{{cert.duration}}</span>
-              </div>
               <p>{{cert.desc}}</p>
               <a routerLink="/formations" class="cert-cta">
                 S'inscrire <lucide-icon [name]="ArrowRight" size="14"></lucide-icon>
@@ -274,11 +270,6 @@ interface SolutionDetail {
       &.avancé { background: rgba(239, 68, 68, 0.1); color: #DC2626; }
       &.expert { background: rgba(147, 51, 234, 0.1); color: #9333EA; }
     }
-    .cert-duration {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
-      lucide-icon { color: var(--primary-gold); }
-      span { font-size: 0.85rem; font-weight: 600; color: var(--primary-deep); }
-    }
     .cert-cta {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.9rem; font-weight: 700; color: var(--primary-gold);
@@ -302,6 +293,58 @@ export class SolutionDetailComponent implements OnInit {
   solution: SolutionDetail | undefined;
 
   private solutions: SolutionDetail[] = [
+    {
+      id: 'solidworks',
+      name: 'SOLIDWORKS',
+      tagline: 'La référence mondiale en conception 3D',
+      description: 'Le Digital Tech Park, centre agréé Dassault Systèmes, vous accompagne vers la réussite de vos certifications professionnelles en conception 3D. L\'objectif est d\'acquérir une expertise certifiée SOLIDWORKS pour exceller dans le monde professionnel et industriel.',
+      gradient: 'linear-gradient(135deg, #E32636 0%, var(--primary-deep) 100%)',
+      features: [
+        'Interface intuitive et professionnelle',
+        'Standards industriels internationaux',
+        'Large communauté et support mondial',
+        'Utilisé par les entreprises, écoles et universités',
+        'Intégré à la plateforme 3DEXPERIENCE'
+      ],
+      useCases: [
+        { title: 'Ingénierie & Conception', desc: 'Conception rapide et intuitive de pièces mécaniques et d\'assemblages complexes.' },
+        { title: 'Design Industriel', desc: 'Création de formes ergonomiques et esthétiques pour les produits grand public.' },
+        { title: 'Simulation', desc: 'Test de résistance, de cinématique et de dynamique des fluides intégré.' },
+        { title: 'Mise en production', desc: 'Génération automatique de mises en plan et de nomenclatures précises.' }
+      ],
+      industries: ['Ingénieurs', 'Designers industriels', 'Écoles & universités', 'PME / Start-ups'],
+      certifications: [
+        { name: 'CSWA – Certified SOLIDWORKS Associate', level: 'Débutant', duration: 'Bases', desc: 'Niveau débutant – bases de la modélisation 3D.' },
+        { name: 'CSWP – Certified SOLIDWORKS Professional', level: 'Avancé', duration: 'Avancé', desc: 'Niveau avancé – conception professionnelle.' },
+        { name: 'CSWE – Certified SOLIDWORKS Expert', level: 'Expert', duration: 'Expert', desc: 'Niveau expert – maîtrise complète du logiciel.' },
+        { name: 'TECE – Certifications Éducateurs', level: 'Expert', duration: 'Pédagogie', desc: 'Pour enseignants & formateurs techniques.' }
+      ]
+    },
+    {
+      id: 'jumeau-numerique',
+      name: 'Jumeau Numérique',
+      tagline: 'Imaginez pouvoir tester le réel avant même qu\'il n\'existe.',
+      description: 'Le Jumeau Numérique au service de tous les secteurs. Découvrez comment nous digitalisons les villes, l\'industrie, la santé et plus encore grâce aux technologies Dassault Systèmes et partenaires. L\'innovation au service de votre transformation digitale.',
+      gradient: 'linear-gradient(135deg, #00B4D8 0%, #002D5B 100%)',
+      features: [
+        'City Planner - Villes et Urbanisme',
+        'DELMIA - Industrie maîtrisée',
+        'ITEROP - Gestion des Processus',
+        'BIOVIA - Santé et Sciences de la vie',
+        'GEOVIA - Mines et Infrastructures'
+      ],
+      useCases: [
+        { title: 'Villes et Urbanisme', desc: 'Visualisez vos villes en 3D et planifiez leur futur de manière intelligente (City Planner).' },
+        { title: 'Industrie et Gestion des Processus', desc: 'Optimisez vos lignes de production et automatisez vos processus pour gagner en efficacité (DELMIA / ITEROP).' },
+        { title: 'Santé et Sciences de la Vie', desc: 'Simulez, testez et améliorez vos traitements et laboratoires en toute sécurité (BIOVIA).' },
+        { title: 'Mines & Infrastructures / Génie Civil', desc: 'Planifiez vos ressources et concevez vos infrastructures avec précision et durabilité (GEOVIA).' }
+      ],
+      industries: ['Urbanisme', 'Industrie', 'Santé', 'Mines', 'Génie Civil'],
+      certifications: [
+        { name: 'Initiation au Jumeau Numérique', level: 'Débutant', duration: '1 jour', desc: 'Comprendre les concepts, les enjeux et les bénéfices du Digital Twin.' },
+        { name: 'Déploiement IoT & Digital Twin', level: 'Avancé', duration: '3 jours', desc: 'Maîtriser l\'intégration des capteurs et la remontée de données vers la maquette 3D.' }
+      ]
+    },
     {
       id: 'catia',
       name: 'CATIA',
@@ -404,31 +447,34 @@ export class SolutionDetailComponent implements OnInit {
     {
       id: 'geovia',
       name: 'GEOVIA',
-      tagline: 'Smart Mining et Smart Cities - Mines et villes intelligentes.',
-      description: 'GEOVIA de Dassault Systèmes offre une suite complète de solutions pour l\'industrie minière et l\'aménagement urbain. Avec ses modules Surpac, MineSched, Whittle, GEMS et City Planner, GEOVIA permet une gestion intelligente des ressources naturelles et un développement urbain durable grâce aux jumeaux numériques.',
+      tagline: 'Smart Mining et Smart Cities. Mines et villes intelligentes.',
+      description: 'Le Digital Tech Park : Pôle d\'excellence pour votre formation. Maîtrisez les solutions GEOVIA pour gérer et exploiter les ressources minières, planifier les villes intelligentes et concevoir les infrastructures de demain.',
       gradient: 'linear-gradient(135deg, #2D5B2D 0%, #C5A059 100%)',
       features: [
-        'GEOVIA Surpac - Modélisation géologique et planification minière',
-        'GEOVIA MineSched - Exploitation et production minières', 
-        'GEOVIA Whittle - Optimisation stratégique des ressources minières',
-        'GEOVIA GEMS - Gestion centralisée des données minières',
-        'City Planner - Aménagement urbain et jumeaux numériques',
-        'Intégration IoT et capteurs intelligents',
-        'Analyse prédictive et optimisation des opérations'
+        'GEOVIA Surpac : Modélisation géologique et planification minière',
+        'GEOVIA MineSched : Exploitation et production minières',
+        'GEOVIA Whittle : Optimisation stratégique des ressources minières',
+        'GEOVIA GEMS : Gestion centralisée des données minières',
+        'City Planner : Aménagement urbain et jumeaux numériques'
       ],
       useCases: [
-        { title: 'Modélisation géologique 3D', desc: 'Création de modèles géologiques précis avec GEOVIA Surpac pour optimiser l\'exploration et l\'extraction.' },
-        { title: 'Planification minière avancée', desc: 'Optimisation des séquences d\'extraction et gestion de la production avec MineSched et Whittle.' },
-        { title: 'Smart Cities & Aménagement urbain', desc: 'Conception de villes intelligentes et jumeaux numériques urbains avec City Planner.' },
-        { title: 'Gestion centralisée des données', desc: 'Centralisation et gouvernance des données géosciences avec GEOVIA GEMS.' },
+        { title: 'Modélisation Géologique', desc: 'Modélisation géologique et planification minière via GEOVIA Surpac.' },
+        { title: 'Production Minière', desc: 'Gestion de l\'exploitation et production minières avec GEOVIA MineSched.' },
+        { title: 'Optimisation de Ressources', desc: 'Optimisation stratégique des ressources minières avec GEOVIA Whittle et gestion avec GEMS.' },
+        { title: 'Aménagement Urbain', desc: 'Conception de villes intelligentes et de jumeaux numériques grâce à City Planner.' }
       ],
-      industries: ['Mines & Géologie', 'Ingénieurs Génie Civil & Infrastructures', 'Urbanistes & Aménageurs', 'Bureaux d\'Études'],
+      industries: [
+        'Ingénieurs Mines & Géologues',
+        'Ingénieurs Génie Civil & Infrastructures',
+        'Urbanistes & Aménageurs',
+        'Bureaux d\'Études'
+      ],
       certifications: [
-        { name: 'GEOVIA Surpac Certified', level: 'Intermédiaire', duration: '4 jours', desc: 'Certification officielle en modélisation géologique et planification minière avec Surpac.' },
-        { name: 'GEOVIA MineSched Professional', level: 'Avancé', duration: '3 jours', desc: 'Expertise en exploitation et production minières avec MineSched.' },
-        { name: 'City Planner Urban Design', level: 'Intermédiaire', duration: '3 jours', desc: 'Spécialisation en aménagement urbain et conception de villes intelligentes.' },
-        { name: '3DEXPERIENCE GEOVIA', level: 'Expert', duration: '2 jours', desc: 'Maîtrise complète de l\'écosystème GEOVIA sur plateforme 3DEXPERIENCE.' },
-      ],
+        { name: 'GEOVIA Surpac', level: 'Spécialiste', duration: 'Modélisation', desc: 'Certification sur la modélisation géologique.' },
+        { name: 'GEOVIA MineSched', level: 'Spécialiste', duration: 'Exploitation', desc: 'Certification pour l\'exploitation et la production minière.' },
+        { name: 'City Planner', level: 'Expert', duration: 'Urbanisme', desc: 'Spécialisation en aménagement de villes intelligentes.' },
+        { name: '3DEXPERIENCE', level: 'Expert', duration: 'Plateforme', desc: 'Maîtrise de l\'écosystème collaboratif.' }
+      ]
     },
     {
       id: 'biovia',
