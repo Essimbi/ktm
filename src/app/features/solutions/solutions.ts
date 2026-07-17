@@ -36,7 +36,7 @@ import {
             Dassault Systèmes
           </button>
           <button class="tab-btn" [class.active]="activeTab === 'neoledge'" (click)="setTab('neoledge')">
-            NeoLedge 
+            KTM Group
           </button>
         </div>
       </div>
