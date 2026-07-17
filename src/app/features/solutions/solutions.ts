@@ -4,8 +4,19 @@ import { RouterModule } from '@angular/router';
 import {
   LucideAngularModule, Monitor, Database, Layers, Shield, Zap, Layout,
   ArrowRight, CheckCircle, Globe, FileText, Cpu, BarChart2, Beaker,
-  Network, FlaskConical, Leaf
+  Network, FlaskConical, Leaf, LucideIconData
 } from 'lucide-angular';
+
+interface Solution {
+  id: string;
+  name: string;
+  category: string;
+  shortDesc: string;
+  features: string[];
+  icon: LucideIconData;
+  image?: string;
+  color: string;
+}
 
 @Component({
   selector: 'app-solutions',
@@ -358,7 +369,7 @@ export class SolutionsComponent implements AfterViewInit {
     setTimeout(() => this.observeReveal(), 100);
   }
 
-  dassaultSolutions = [
+  dassaultSolutions: Solution[] = [
     {
       id: 'solidworks',
       name: 'SOLIDWORKS',
@@ -506,7 +517,7 @@ export class SolutionsComponent implements AfterViewInit {
     }
   ];
 
-  neoledgeSolutions = [
+  neoledgeSolutions: Solution[] = [
     {
       id: 'neoledge',
       name: 'ECM Elise',
