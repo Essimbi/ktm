@@ -468,6 +468,7 @@ export class SolutionDetailComponent implements OnInit {
       certifications: [
         { name: 'GEOVIA Surpac', level: 'Spécialiste', duration: 'Modélisation', desc: 'Certification sur la modélisation géologique.' },
         { name: 'GEOVIA MineSched', level: 'Spécialiste', duration: 'Exploitation', desc: 'Certification pour l\'exploitation et la production minière.' },
+        { name: 'GEOVIA Whittle', level: 'Spécialiste', duration: 'Optimisation', desc: 'Certification sur l\'optimisation stratégique des ressources et la planification minière.' },
         { name: 'City Planner', level: 'Expert', duration: 'Urbanisme', desc: 'Spécialisation en aménagement de villes intelligentes.' },
         { name: '3DEXPERIENCE', level: 'Expert', duration: 'Plateforme', desc: 'Maîtrise de l\'écosystème collaboratif.' }
       ]

@@ -716,10 +716,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   partners = [
-    { name: 'Dassault Systèmes', logo: '/assets/partners/dassault_systemes.jpeg' },
+    { name: 'Dassault Systèmes', logo: '/assets/partners/dassault_systemes.png' },
     { name: 'NeoLedge', logo: '/assets/partners/neoledge.png' },
     { name: 'Keyrus', logo: '/assets/partners/keyrus.png' },
-    { name: 'Performex Consulting', logo: '/assets/partners/PERFORMEX-CONSULTING.png' },
+    // { name: 'Performex Consulting', logo: '/assets/partners/PERFORMEX-CONSULTING.png' },
     { name: 'Impararia', logo: '/assets/partners/impararia.png' },
     { name: 'JFN HUI', logo: '/assets/partners/jfn-hui.png' },
     { name: 'JFN Center', logo: '/assets/partners/jfn_center.jpg' }
